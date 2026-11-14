@@ -17,8 +17,43 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
         }
       ]
+    },
+    {
+      "source": "/(.*).(css|js|svg|jpg|png|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/audit-sample",
+      "dest": "/audit-sample.html"
+    },
+    {
+      "src": "/dossiers",
+      "dest": "/dossiers.html"
+    },
+    {
+      "src": "/jurisprudence",
+      "dest": "/jurisprudence.html"
+    },
+    {
+      "src": "/terms",
+      "dest": "/terms.html"
     }
   ]
 }

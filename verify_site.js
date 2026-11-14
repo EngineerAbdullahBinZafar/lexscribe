@@ -1,38 +1,71 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('==================================================');
-console.log('   LEXSCRIBE AUTOMATED SUITE & AUDIT VERIFICATION');
-console.log('==================================================\n');
+console.log('================================================================');
+console.log('   LEXSCRIBE CHAMBERS — RIGOROUS AUDIT & VERIFICATION SUITE');
+console.log('   Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court & MD)');
+console.log('================================================================\n');
 
-// 1. Read files
+let errors = 0;
+let passed = 0;
+
+function pass(msg) {
+    console.log(`✓ PASS: ${msg}`);
+    passed++;
+}
+
+function fail(msg) {
+    console.error(`✗ FAIL: ${msg}`);
+    errors++;
+}
+
+// 1. Check Multi-Page Architecture ("خالی انڈیکس نہ دکھاؤ")
+const requiredPages = [
+    'index.html',
+    'audit-sample.html',
+    'dossiers.html',
+    'jurisprudence.html',
+    'terms.html'
+];
+
+requiredPages.forEach(file => {
+    const fullPath = path.join(__dirname, file);
+    if (fs.existsSync(fullPath)) {
+        const stats = fs.statSync(fullPath);
+        if (stats.size > 500) {
+            pass(`Institutional Multi-Page Flagship found: ${file} (${stats.size} bytes)`);
+        } else {
+            fail(`File ${file} exists but appears incomplete (< 500 bytes)`);
+        }
+    } else {
+        fail(`Missing required flagship page: ${file}`);
+    }
+});
+
+// 2. Read Core Files
 const htmlContent = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
 const stylesContent = fs.readFileSync(path.join(__dirname, 'styles.css'), 'utf-8');
 const appContent = fs.readFileSync(path.join(__dirname, 'app.js'), 'utf-8');
+const vercelContent = fs.readFileSync(path.join(__dirname, 'vercel.json'), 'utf-8');
 
-// Load translations
+// 3. Load & Validate Translations
 const translationsCode = fs.readFileSync(path.join(__dirname, 'translations.js'), 'utf-8');
 const evalContext = {};
 const fn = new Function('context', translationsCode + '; context.translations = translations;');
 fn(evalContext);
 const { translations } = evalContext;
 
-let errors = 0;
-let passed = 0;
-
-// Test 1: Check languages exist
-if (translations.en && translations.ur) {
-    console.log('✓ PASS: Both English (en) and Urdu (ur) translation dictionaries exist.');
-    passed++;
+if (translations && translations.en && translations.ur) {
+    pass('Both English (en) and Urdu (ur) translation dictionaries exist.');
 } else {
-    console.error('✗ FAIL: Missing language dictionary.');
-    errors++;
+    fail('Missing language dictionary in translations.js.');
 }
 
-// Test 2: Check all data-i18n keys in index.html exist in translations
+// 4. Validate All data-i18n Keys in index.html
 const i18nMatches = [...htmlContent.matchAll(/data-i18n="([^"]+)"/g)];
-console.log(`Checking ${i18nMatches.length} translated elements...`);
+console.log(`\nVerifying ${i18nMatches.length} translated elements in index.html...`);
 
+let missingTranslations = 0;
 i18nMatches.forEach(match => {
     const key = match[1];
     const parts = key.split('.');
@@ -43,8 +76,8 @@ i18nMatches.forEach(match => {
         valEn = valEn ? valEn[p] : undefined;
     }
     if (valEn === undefined) {
-        console.error(`✗ FAIL: Missing EN translation for key: ${key}`);
-        errors++;
+        fail(`Missing EN translation for key: ${key}`);
+        missingTranslations++;
     }
 
     // Check Urdu
@@ -53,17 +86,16 @@ i18nMatches.forEach(match => {
         valUr = valUr ? valUr[p] : undefined;
     }
     if (valUr === undefined) {
-        console.error(`✗ FAIL: Missing UR translation for key: ${key}`);
-        errors++;
+        fail(`Missing UR translation for key: ${key}`);
+        missingTranslations++;
     }
 });
 
-if (errors === 0) {
-    console.log(`✓ PASS: All ${i18nMatches.length} data-i18n keys match perfectly across both EN and UR!`);
-    passed++;
+if (missingTranslations === 0) {
+    pass(`All ${i18nMatches.length} data-i18n keys match symmetrically across English and Urdu!`);
 }
 
-// Test 3: Check Essential Interactive DOM IDs
+// 5. Check Essential Interactive DOM IDs in index.html
 const requiredIds = [
     'theme-btn',
     'theme-icon',
@@ -86,15 +118,13 @@ const requiredIds = [
 
 requiredIds.forEach(id => {
     if (htmlContent.includes(`id="${id}"`)) {
-        console.log(`✓ PASS: Required interactive DOM ID found: #${id}`);
-        passed++;
+        pass(`Required interactive DOM ID found: #${id}`);
     } else {
-        console.error(`✗ FAIL: Missing DOM ID: #${id}`);
-        errors++;
+        fail(`Missing DOM ID: #${id}`);
     }
 });
 
-// Test 4: Check Anchor Integrity (All href="#id" have a matching element with id="id")
+// 6. Check Anchor Integrity (All internal href="#id" have a matching element)
 const anchorMatches = [...htmlContent.matchAll(/href="#([a-zA-Z0-9_-]+)"/g)];
 let brokenAnchors = 0;
 const uniqueAnchors = [...new Set(anchorMatches.map(m => m[1]))];
@@ -102,45 +132,38 @@ const uniqueAnchors = [...new Set(anchorMatches.map(m => m[1]))];
 uniqueAnchors.forEach(anchor => {
     if (anchor === '') return;
     if (!htmlContent.includes(`id="${anchor}"`)) {
-        console.error(`✗ FAIL: Broken anchor detected: href="#${anchor}" has no matching id="${anchor}" in index.html!`);
+        fail(`Broken anchor: href="#${anchor}" has no matching id="${anchor}"!`);
         brokenAnchors++;
-        errors++;
     }
 });
 
 if (brokenAnchors === 0) {
-    console.log(`✓ PASS: All ${uniqueAnchors.length} internal navigation anchors (#${uniqueAnchors.join(', #')}) have matching DOM IDs!`);
-    passed++;
+    pass(`All ${uniqueAnchors.length} internal navigation anchors (#${uniqueAnchors.join(', #')}) have matching DOM IDs!`);
 }
 
-// Test 5: Check Multi-currency price elements
+// 7. Check Multi-Currency Price Elements
 const priceMatches = [...htmlContent.matchAll(/class="[^"]*price-val[^"]*"([^>]+)>/g)];
 if (priceMatches.length >= 3) {
-    console.log(`✓ PASS: Found ${priceMatches.length} dynamic multi-currency pricing badges.`);
-    passed++;
+    pass(`Found ${priceMatches.length} dynamic multi-currency pricing badges.`);
 } else {
-    console.error(`✗ FAIL: Expected at least 3 price-val badges, found ${priceMatches.length}`);
-    errors++;
+    fail(`Expected at least 3 price-val badges, found ${priceMatches.length}`);
 }
 
-// Test 6: Check that every price-val has all 4 currency data attributes
 let currencyAttrErrors = 0;
 priceMatches.forEach(m => {
     const attrs = m[1];
     ['data-usd', 'data-gbp', 'data-aed', 'data-pkr'].forEach(curr => {
         if (!attrs.includes(curr)) {
-            console.error(`✗ FAIL: Pricing badge missing ${curr}: ${attrs}`);
+            fail(`Pricing badge missing currency ${curr}: ${attrs}`);
             currencyAttrErrors++;
-            errors++;
         }
     });
 });
 if (currencyAttrErrors === 0) {
-    console.log('✓ PASS: All pricing badges have complete USD, GBP, AED, and PKR rate specifications!');
-    passed++;
+    pass('All pricing badges have complete USD, GBP, AED, and PKR rate specifications!');
 }
 
-// Test 7: Check Javascript Function Binding Integrity
+// 8. Check Javascript Function Binding Integrity
 const expectedFunctions = [
     'toggleTheme',
     'setLanguage',
@@ -152,47 +175,55 @@ const expectedFunctions = [
     'openDossierModal',
     'closeDossierModal',
     'generateWhatsAppBrief',
+    'copyFormattedBrief',
+    'sendEmailBrief',
     'switchBilingualTab',
     'toggleMobileMenu'
 ];
 
 expectedFunctions.forEach(fnName => {
     if (appContent.includes(`function ${fnName}`)) {
-        console.log(`✓ PASS: Core client function implemented: ${fnName}()`);
-        passed++;
+        pass(`Core client function implemented in app.js: ${fnName}()`);
     } else {
-        console.error(`✗ FAIL: Missing required client function in app.js: ${fnName}`);
-        errors++;
+        fail(`Missing required client function in app.js: ${fnName}`);
     }
 });
 
-// Test 8: Check Stylesheet Dark Mode & RTL classes
-if (stylesContent.includes('[data-theme="dark"]') && stylesContent.includes('[dir="rtl"]')) {
-    console.log('✓ PASS: CSS includes full Dark Mode ([data-theme="dark"]) and RTL ([dir="rtl"]) styling.');
-    passed++;
+// 9. Check Design Token Architecture in styles.css
+if (stylesContent.includes(':root') && stylesContent.includes('[data-theme="dark"]') && stylesContent.includes('[dir="rtl"]')) {
+    pass('CSS architecture includes full Day Mode (:root), Dark Mode ([data-theme="dark"]), and RTL ([dir="rtl"]) tokens.');
 } else {
-    console.error('✗ FAIL: Missing [data-theme="dark"] or [dir="rtl"] in styles.css');
-    errors++;
+    fail('Missing :root, [data-theme="dark"], or [dir="rtl"] in styles.css');
 }
 
-// Test 9: Check Heraldic SVG Logo exists and is embedded
+// 10. Check Royal Heraldic Crest SVG Quality
 if (htmlContent.includes('<svg viewBox="0 0 240 240"') && htmlContent.includes('JUSTITIA • DOCTRINA • VICTORIA')) {
-    console.log('✓ PASS: Intricate Royal Heraldic SVG Crest embedded with official motto and quadrants.');
-    passed++;
+    pass('Intricate Royal Heraldic SVG Crest embedded with official motto and quadrants.');
 } else {
-    console.error('✗ FAIL: Royal Heraldic Crest SVG missing from index.html');
-    errors++;
+    fail('Royal Heraldic Crest SVG missing from index.html');
+}
+
+// 11. Check Vercel Configuration Integrity
+try {
+    const vercelObj = JSON.parse(vercelContent);
+    if (vercelObj.cleanUrls === true && vercelObj.headers && vercelObj.routes) {
+        pass('vercel.json is valid with cleanUrls, security headers, and multi-page routing.');
+    } else {
+        fail('vercel.json is missing required cleanUrls, headers, or routes.');
+    }
+} catch (e) {
+    fail(`vercel.json parse error: ${e.message}`);
 }
 
 // Final Summary
-console.log('\n==================================================');
+console.log('\n================================================================');
 console.log(`VERIFICATION SUMMARY: ${passed} PASSED, ${errors} ERRORS`);
-console.log('==================================================\n');
+console.log('================================================================\n');
 
 if (errors > 0) {
     console.error(`❌ VERIFICATION FAILED: ${errors} errors found.`);
     process.exit(1);
 } else {
-    console.log('🎉 ALL PRODUCTION, ACCESSIBILITY, AND INTEGRITY CHECKS PASSED!');
+    console.log('🎉 ALL PRODUCTION, ACCESSIBILITY, MULTI-PAGE, AND INTEGRITY CHECKS PASSED!');
     process.exit(0);
 }

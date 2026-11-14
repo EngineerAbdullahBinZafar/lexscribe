@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chambers Legal Dossiers & Playbooks | LexScribe Chambers | Ch. Muhammad Zafar Iqbal</title>
+    <meta name="description" content="Court-tested legal playbooks and drafting dossiers for overseas Pakistanis. Formulated from 40 years of High Court jurisprudence by Ch. Muhammad Zafar Iqbal.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#B08D57', light: '#E5C158', dark: '#826026', foil: '#D4AF37' },
+                        navy: { DEFAULT: '#061224', dark: '#030A14', light: '#0D203D' },
+                        oxblood: { DEFAULT: '#6A0D1D', dark: '#480611', light: '#8A162B' }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        urdu: ['"Noto Nastaliq Urdu"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased bg-theme-page text-theme-primary selection:bg-gold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <aside aria-label="Announcement & Utility" class="bg-theme-header text-gray-300 text-xs border-b border-gray-800 py-2.5 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2 text-center md:text-left flex-wrap justify-center">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Chambers Legal Intelligence Vault • Formulated by Ch. Muhammad Zafar Iqbal</span>
+                <span class="hidden md:inline text-gray-600">|</span>
+                <span class="hidden md:inline text-gold">40+ Years Standing • 0 Cases Lost</span>
+            </div>
+            
+            <div class="flex items-center gap-4 flex-wrap justify-center">
+                <button onclick="toggleTheme()" id="theme-btn" class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/40 text-xs border border-gray-700 hover:border-gold transition text-gray-300 shadow-sm" title="Toggle Day/Dark Mode">
+                    <span id="theme-icon">🌙</span>
+                    <span class="hidden sm:inline font-medium">Theme</span>
+                </button>
+                <div class="flex gap-0.5 bg-black/40 px-1 py-0.5 rounded border border-gray-700">
+                    <button onclick="setLanguage('en')" class="lang-btn px-2.5 py-0.5 rounded text-xs transition" data-lang="en">EN</button>
+                    <button onclick="setLanguage('ur')" class="lang-btn px-2.5 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
+                </div>
+                <a href="index.html#brief_builder" class="px-2.5 py-1 rounded bg-gold text-navy-dark font-bold text-xs hover:bg-gold-light transition shadow">
+                    Registrar Desk
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-theme-header/95 backdrop-blur-md text-white border-b border-gold/25 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <div class="w-10 h-10 flex-shrink-0">
+                    <svg viewBox="0 0 240 240" fill="none" class="w-full h-full drop-shadow-[0_2px_8px_rgba(212,175,55,0.4)]">
+                        <circle cx="120" cy="120" r="108" stroke="#D4AF37" stroke-width="2"/>
+                        <polygon points="120,60 160,80 160,150 120,180 80,150 80,80" fill="#061224" stroke="#D4AF37" stroke-width="2"/>
+                        <text x="120" y="130" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="bold" fill="#D4AF37" text-anchor="middle">MZ</text>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif text-xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
+                    <span class="text-[9px] uppercase tracking-widest text-gray-400 block mt-0.5 font-medium">Chambers of Ch. M. Zafar Iqbal • Advocate High Court</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="text-gray-300 hover:text-gold transition">Home</a>
+                <a href="audit-sample.html" class="text-gray-300 hover:text-gold transition">Sample Audit</a>
+                <a href="jurisprudence.html" class="text-gray-300 hover:text-gold transition">Unbroken Record</a>
+                <a href="terms.html" class="text-gray-300 hover:text-gold transition">Chambers Terms</a>
+                <a href="index.html#brief_builder" class="px-3.5 py-1.5 rounded bg-gold text-navy-dark font-bold hover:bg-gold-light transition shadow">Instruct Desk</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-16 px-4 sm:px-8 bg-theme-hero border-b border-theme-subtle text-center relative">
+        <div class="max-w-4xl mx-auto">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2">Court-Tested Intelligence Vault</span>
+            <h1 class="font-serif text-3xl sm:text-5xl font-bold text-theme-primary leading-tight">
+                Chambers Legal Dossiers & Strategic Playbooks
+            </h1>
+            <p class="text-theme-secondary text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+                Formulated directly from four decades of landmark High Court litigation and 30+ published treatises by Ch. Muhammad Zafar Iqbal. Complete with bilingual court pleadings, statutory checklists, and tactical enforcement roadmaps.
+            </p>
+        </div>
+    </section>
+
+    <!-- DOSSIER CATALOG -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-16 space-y-16">
+        
+        <!-- Dossier 1 -->
+        <article id="dossier-qabza" class="bg-theme-surface border-2 border-theme-subtle hover:border-gold rounded-2xl p-6 sm:p-10 shadow-xl transition grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1 rounded bg-red-100 dark:bg-red-950/60 text-red-700 dark:text-red-400 font-bold text-xs uppercase tracking-wider">
+                        Dossier 01 • High-Priority Defense
+                    </span>
+                    <span class="text-xs text-theme-muted font-mono">STATUTE: Illegal Dispossession Act, 2005</span>
+                </div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-theme-primary">
+                    The Overseas Property & Qabza Shield
+                </h2>
+                <p class="text-xs sm:text-sm text-theme-secondary leading-relaxed">
+                    A comprehensive defense manual against land grabbing syndicates, forged Patwari mutations, and illegal encroachment. Provides immediate, statutory shortcuts to bypass 10-year civil court trials and restore lawful possession within 60 days under Sessions Court summary jurisdiction.
+                </p>
+
+                <div class="bg-theme-card-contrast p-4 rounded-xl border border-theme-subtle">
+                    <strong class="text-xs font-bold text-gold uppercase tracking-wider block mb-2">Included Master Pleadings & Instruments:</strong>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-theme-secondary">
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Emergency Sessions Court Complaint Template</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Article 199 High Court Writ Petition against Police Inaction</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Revenue Court Revision against Corrupt Inteqal (Mutation)</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Step-by-Step Eviction Action Roadmap</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 bg-theme-card-contrast p-6 rounded-xl border border-theme-subtle text-center space-y-4">
+                <div class="text-xs font-bold text-theme-muted uppercase tracking-wider">Deliverable Format</div>
+                <div class="font-serif text-2xl font-bold text-theme-primary">Digital PDF + Editable Word (.docx)</div>
+                <div class="text-xs text-theme-muted">Bilingual: English & High Court Legal Urdu</div>
+                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2001%20(Qabza%20Shield)." target="_blank" class="block w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold text-navy-dark hover:bg-gold-light transition shadow-md">
+                    Acquire Qabza Shield Dossier
+                </a>
+                <button onclick="openDossierModal('qabza')" class="block w-full py-2.5 rounded-lg text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition">
+                    Inspect Table of Contents
+                </button>
+            </div>
+        </article>
+
+        <!-- Dossier 2 -->
+        <article id="dossier-poa" class="bg-theme-surface border-2 border-theme-subtle hover:border-gold rounded-2xl p-6 sm:p-10 shadow-xl transition grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
+                        Dossier 02 • Consular Drafting
+                    </span>
+                    <span class="text-xs text-theme-muted font-mono">STATUTE: Section 85 Qanun-e-Shahadat</span>
+                </div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-theme-primary">
+                    The Consular Power of Attorney Drafting Vault
+                </h2>
+                <p class="text-xs sm:text-sm text-theme-secondary leading-relaxed">
+                    Bilingual Special Power of Attorney templates tested across embassies and consulates in London, New York, Dubai, Jeddah, Toronto, and Frankfurt. Engineered with negative covenants that make fraudulent sales legally impossible under Pakistani jurisprudence.
+                </p>
+
+                <div class="bg-theme-card-contrast p-4 rounded-xl border border-theme-subtle">
+                    <strong class="text-xs font-bold text-gold uppercase tracking-wider block mb-2">Included Master Pleadings & Instruments:</strong>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-theme-secondary">
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Explicit Anti-Sale & Anti-Hiba Restrictive Covenants</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Section 85 Express Revocation Deeds & Caveat Notices</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> NADRA Biometric Consular Attestation Checklist</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Punjab Land Revenue Authority (PLRA) Filing Guide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 bg-theme-card-contrast p-6 rounded-xl border border-theme-subtle text-center space-y-4">
+                <div class="text-xs font-bold text-theme-muted uppercase tracking-wider">Deliverable Format</div>
+                <div class="font-serif text-2xl font-bold text-theme-primary">Digital PDF + Editable Word (.docx)</div>
+                <div class="text-xs text-theme-muted">Bilingual: English & High Court Legal Urdu</div>
+                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2002%20(PoA%20Vault)." target="_blank" class="block w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold text-navy-dark hover:bg-gold-light transition shadow-md">
+                    Acquire PoA Drafting Vault
+                </a>
+                <button onclick="openDossierModal('poa')" class="block w-full py-2.5 rounded-lg text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition">
+                    Inspect Table of Contents
+                </button>
+            </div>
+        </article>
+
+        <!-- Dossier 3 -->
+        <article id="dossier-succession" class="bg-theme-surface border-2 border-theme-subtle hover:border-gold rounded-2xl p-6 sm:p-10 shadow-xl transition grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1 rounded bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-400 font-bold text-xs uppercase tracking-wider">
+                        Dossier 03 • Succession & Wealth
+                    </span>
+                    <span class="text-xs text-theme-muted font-mono">STATUTE: Succession Act & Letters of Admin</span>
+                </div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-theme-primary">
+                    Cross-Border Succession & Inheritance Blueprint
+                </h2>
+                <p class="text-xs sm:text-sm text-theme-secondary leading-relaxed">
+                    Strategic blueprint for resolving ancestral inheritance distribution without family feuds or predatory litigation across UK, UAE, and Pakistani jurisdictions. Handles foreign probate, NADRA Succession Facilitation, and high-value commercial partition.
+                </p>
+
+                <div class="bg-theme-card-contrast p-4 rounded-xl border border-theme-subtle">
+                    <strong class="text-xs font-bold text-gold uppercase tracking-wider block mb-2">Included Master Pleadings & Instruments:</strong>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-theme-secondary">
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Irrevocable Bilingual Family Settlement Deed (Rajinama)</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> NADRA Succession Certificate Expedited Filing Kit</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> High Court Administration Suit Model Pleadings</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> State Bank Legal Fund Remittance Protocol to Overseas Accounts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 bg-theme-card-contrast p-6 rounded-xl border border-theme-subtle text-center space-y-4">
+                <div class="text-xs font-bold text-theme-muted uppercase tracking-wider">Deliverable Format</div>
+                <div class="font-serif text-2xl font-bold text-theme-primary">Digital PDF + Editable Word (.docx)</div>
+                <div class="text-xs text-theme-muted">Bilingual: English & High Court Legal Urdu</div>
+                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2003%20(Succession)." target="_blank" class="block w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold text-navy-dark hover:bg-gold-light transition shadow-md">
+                    Acquire Succession Blueprint
+                </a>
+                <button onclick="openDossierModal('succession')" class="block w-full py-2.5 rounded-lg text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition">
+                    Inspect Table of Contents
+                </button>
+            </div>
+        </article>
+
+        <!-- Dossier 4 -->
+        <article id="dossier-lease" class="bg-theme-surface border-2 border-theme-subtle hover:border-gold rounded-2xl p-6 sm:p-10 shadow-xl transition grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 font-bold text-xs uppercase tracking-wider">
+                        Dossier 04 • Tenancy & Commercial
+                    </span>
+                    <span class="text-xs text-theme-muted font-mono">STATUTE: Provincial Rented Premises Act</span>
+                </div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-theme-primary">
+                    Commercial & Residential Lease Defense Kit
+                </h2>
+                <p class="text-xs sm:text-sm text-theme-secondary leading-relaxed">
+                    Protect overseas landlords against defaulting tenants who refuse to vacate, construct unauthorized alterations, or forge rent receipts. Complete with Special Rent Tribunal eviction petition templates and 30-day statutory notices of default.
+                </p>
+
+                <div class="bg-theme-card-contrast p-4 rounded-xl border border-theme-subtle">
+                    <strong class="text-xs font-bold text-gold uppercase tracking-wider block mb-2">Included Master Pleadings & Instruments:</strong>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-theme-secondary">
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Special Rent Tribunal Eviction Petitions</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> 30-Day Mandatory Statutory Default Notices</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Utility Default & Subletting Restriction Covenants</li>
+                        <li class="flex items-center gap-2"><span class="text-gold">✓</span> Police Security Deposit & Eviction Enforcement Roadmap</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 bg-theme-card-contrast p-6 rounded-xl border border-theme-subtle text-center space-y-4">
+                <div class="text-xs font-bold text-theme-muted uppercase tracking-wider">Deliverable Format</div>
+                <div class="font-serif text-2xl font-bold text-theme-primary">Digital PDF + Editable Word (.docx)</div>
+                <div class="text-xs text-theme-muted">Bilingual: English & High Court Legal Urdu</div>
+                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2004%20(Lease%20Kit)." target="_blank" class="block w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold text-navy-dark hover:bg-gold-light transition shadow-md">
+                    Acquire Lease Defense Kit
+                </a>
+                <button onclick="openDossierModal('lease')" class="block w-full py-2.5 rounded-lg text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition">
+                    Inspect Table of Contents
+                </button>
+            </div>
+        </article>
+    </main>
+
+    <!-- DOSSIER PREVIEW MODAL -->
+    <div id="dossier-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+        <div class="bg-white dark:bg-navy-light rounded-xl max-w-2xl w-full p-6 sm:p-8 border border-gold/40 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDossierModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:hover:text-white text-xl font-bold">✕</button>
+
+            <div class="border-b border-gold/30 pb-4 mb-4">
+                <span class="text-[10px] uppercase tracking-widest text-gold font-mono block">CHAMBERS LEGAL DOSSIER SPECIFICATION</span>
+                <h3 id="dossier-modal-title" class="font-serif text-2xl font-bold text-navy dark:text-white mt-1">Dossier Overview</h3>
+                <span class="text-xs text-gray-500 dark:text-gray-400">Directly Formulated from Published Doctrines by Ch. Muhammad Zafar Iqbal</span>
+            </div>
+
+            <div id="dossier-modal-body" class="space-y-4 text-xs text-gray-700 dark:text-gray-300 leading-relaxed font-sans">
+                <!-- Populated dynamically by openDossierModal -->
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-6 flex justify-between items-center">
+                <span class="text-gray-500 dark:text-gray-400 text-[11px]">Instant Download Access via Registrar</span>
+                <button onclick="closeDossierModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-navy text-white hover:bg-navy-light transition">
+                    Close Preview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-theme-footer text-white border-t border-gold/30 py-10 px-4 text-center text-xs text-gray-400 space-y-2">
+        <p class="font-serif text-sm font-bold text-gold">LEXSCRIBE CHAMBERS • HIGH COURT JURISPRUDENCE PLATFORM</p>
+        <p>© 2026 LexScribe | Chambers of Ch. Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine). All Rights Reserved.</p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

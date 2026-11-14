@@ -1,22 +1,26 @@
 /* ==========================================================================
    LEXSCRIBE CHAMBERS — FLAGSHIP DIGITAL JURISPRUDENCE SYSTEM
    Chambers of Chaudhry Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine)
-   Bespoke Design Token System: British Racing Judicial Navy, Burnished Gold, Imperial Oxblood & Cotton Parchment
+   Bespoke Design Token Architecture: Imperial Judicial Lapis, Antique Burnished Gold,
+   Royal Oxblood Wax Seal, Heavy Cotton Vellum Parchment & Oxford Slate Ink
    ========================================================================== */
 
-/* 1. ROOT DESIGN TOKENS (LIGHT / DAY MODE: LUXURIOUS COTTON PARCHMENT) */
+/* 1. ROOT DESIGN TOKENS (LIGHT / DAY MODE: LUXURIOUS COTTON VELLUM PARCHMENT) */
 :root {
-    --bg-page: #FAF8F5;
+    --bg-page: #FBF9F4;
     --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #F5EFE6;
+    --bg-surface-elevated: #F3EEE4;
     --bg-card: #FFFFFF;
-    --bg-navy-chambers: #061224;
-    --bg-navy-dark: #030A14;
-    --bg-navy-light: #0D203D;
+    --bg-card-contrast: #F8F4EB;
+    
+    --bg-header: #0A162B;
+    --text-header: #F8FAFC;
+    --bg-hero: linear-gradient(180deg, #F5EFE3 0%, #FAF7F0 60%, #FFFFFF 100%);
+    --bg-footer: #060E1C;
 
     --text-primary: #0A1322;
-    --text-secondary: #36485E;
-    --text-muted: #5F738C;
+    --text-secondary: #2C3E55;
+    --text-muted: #566B84;
     --text-inverse: #F8FAFC;
 
     --gold-foil-light: #F7E096;
@@ -25,39 +29,43 @@
     --gold-foil-dark: #826026;
     --gold-foil-glow: rgba(212, 175, 55, 0.28);
 
-    --oxblood: #5C0E1B;
-    --oxblood-deep: #3D0710;
-    --oxblood-light: #7E1527;
-    --oxblood-bg: #FCF1F3;
-    --oxblood-border: #F0B8C1;
+    --oxblood: #6A0D1D;
+    --oxblood-deep: #480611;
+    --oxblood-light: #8A162B;
+    --oxblood-bg: #FDF2F4;
+    --oxblood-border: #F2BAC3;
 
-    --forest: #0D3B29;
-    --forest-deep: #072418;
-    --forest-light: #165E42;
-    --forest-bg: #EFF8F3;
+    --forest: #0D402B;
+    --forest-deep: #072619;
+    --forest-light: #166444;
+    --forest-bg: #EFF9F4;
+    --forest-border: #AEE2C9;
 
-    --border-subtle: #E5DDCF;
-    --border-strong: #C8BAA3;
-    --border-gold: rgba(197, 160, 89, 0.45);
+    --border-subtle: #E6DCce;
+    --border-strong: #CBBCA3;
+    --border-gold: rgba(197, 160, 89, 0.5);
 
     --shadow-sm: 0 2px 6px rgba(10, 19, 34, 0.04);
     --shadow-md: 0 8px 24px -4px rgba(10, 19, 34, 0.08), 0 2px 6px rgba(197, 160, 89, 0.12);
     --shadow-xl: 0 20px 45px -8px rgba(10, 19, 34, 0.14), 0 0 1px rgba(197, 160, 89, 0.35);
 
-    --font-serif: "Cormorant Garamond", Georgia, serif;
+    --font-serif: "Cormorant Garamond", Garamond, "Times New Roman", Georgia, serif;
     --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-    --font-urdu: "Noto Nastaliq Urdu", serif;
+    --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", "Nafees Web Naskh", "Tahoma", serif;
 }
 
-/* 2. DARK MODE OVERRIDES (DEEP MIDNIGHT OBSIDIAN & GOLD FILIGREE) */
+/* 2. DARK MODE OVERRIDES (DEEP JUDICIAL MIDNIGHT OBSIDIAN & RADIANT GOLD FOIL) */
 [data-theme="dark"] {
-    --bg-page: #040811;
-    --bg-surface: #08111F;
-    --bg-surface-elevated: #0E1D33;
-    --bg-card: #081221;
-    --bg-navy-chambers: #030810;
-    --bg-navy-dark: #010408;
-    --bg-navy-light: #0F223D;
+    --bg-page: #030712;
+    --bg-surface: #071021;
+    --bg-surface-elevated: #0B1930;
+    --bg-card: #091427;
+    --bg-card-contrast: #0F203D;
+
+    --bg-header: #040914;
+    --text-header: #F8FAFC;
+    --bg-hero: radial-gradient(circle at 50% 20%, #0B1B38 0%, #050E20 60%, #030712 100%);
+    --bg-footer: #02050C;
 
     --text-primary: #F8FAFC;
     --text-secondary: #CBD5E1;
@@ -70,24 +78,25 @@
     --gold-foil-dark: #96702A;
     --gold-foil-glow: rgba(229, 193, 88, 0.35);
 
-    --oxblood: #7E1527;
-    --oxblood-deep: #4D0914;
-    --oxblood-light: #A31E35;
+    --oxblood: #8A162B;
+    --oxblood-deep: #520815;
+    --oxblood-light: #AC1F38;
     --oxblood-bg: #22050A;
-    --oxblood-border: #6B1120;
+    --oxblood-border: #7B1324;
 
-    --forest: #145339;
-    --forest-deep: #0A2E1F;
-    --forest-light: #1E7953;
-    --forest-bg: #071F15;
+    --forest: #145E40;
+    --forest-deep: #0A3323;
+    --forest-light: #1D8359;
+    --forest-bg: #072217;
+    --forest-border: #1B704C;
 
-    --border-subtle: #16243A;
-    --border-strong: #253956;
-    --border-gold: rgba(229, 193, 88, 0.35);
+    --border-subtle: #162640;
+    --border-strong: #273E62;
+    --border-gold: rgba(229, 193, 88, 0.4);
 
-    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 1px rgba(229, 193, 88, 0.25);
-    --shadow-xl: 0 20px 45px -8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(229, 193, 88, 0.15);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 1px rgba(229, 193, 88, 0.25);
+    --shadow-xl: 0 20px 45px -8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 193, 88, 0.15);
 }
 
 /* 3. BASE ELEMENT BEHAVIOR */
@@ -103,7 +112,7 @@ body {
     color: var(--text-primary);
     font-family: var(--font-sans);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-x: hidden;
 }
 
@@ -120,12 +129,33 @@ body {
     background-color: var(--bg-surface-elevated);
 }
 
-.bg-theme-navy {
-    background-color: var(--bg-navy-chambers);
+.bg-theme-card {
+    background-color: var(--bg-card);
+}
+
+.bg-theme-card-contrast {
+    background-color: var(--bg-card-contrast);
+}
+
+.bg-theme-hero {
+    background: var(--bg-hero);
+}
+
+.bg-theme-header {
+    background-color: var(--bg-header);
+    color: var(--text-header);
+}
+
+.bg-theme-footer {
+    background-color: var(--bg-footer);
 }
 
 .border-theme-subtle {
     border-color: var(--border-subtle);
+}
+
+.border-theme-strong {
+    border-color: var(--border-strong);
 }
 
 .border-theme-gold {
@@ -142,6 +172,22 @@ body {
 
 .text-theme-muted {
     color: var(--text-muted);
+}
+
+.text-gold {
+    color: var(--gold-foil-mid);
+}
+
+.text-gold-light {
+    color: var(--gold-foil-light);
+}
+
+.bg-gold {
+    background-color: var(--gold-foil-mid);
+}
+
+.bg-gold-light {
+    background-color: var(--gold-foil-light);
 }
 
 /* 5. METALLIC GOLD FOIL EFFECTS */
@@ -167,14 +213,14 @@ body {
 }
 
 .gold-shimmer-bar {
-    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.45) 50%, transparent 100%);
     background-size: 200% 100%;
-    animation: royalShimmer 5s infinite linear;
+    animation: royalShimmer 4.5s infinite linear;
 }
 
 /* 6. ROYAL OXBLOOD STYLING (CRITICAL ADVISORY & SCAM WARNINGS) */
 .bg-oxblood-gradient {
-    background: linear-gradient(135deg, var(--oxblood-deep) 0%, var(--oxblood) 50%, var(--bg-navy-chambers) 100%);
+    background: linear-gradient(135deg, var(--oxblood-deep) 0%, var(--oxblood) 55%, #250409 100%);
 }
 
 .oxblood-badge {
@@ -186,32 +232,32 @@ body {
 /* 7. BANKNOTE GUILLOCHÉ & SUBTLE WATERMARKS */
 .banknote-pattern {
     background-image: 
-        radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px),
-        linear-gradient(to right, rgba(197, 160, 89, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(197, 160, 89, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px, 40px 40px, 40px 40px;
+        radial-gradient(rgba(197, 160, 89, 0.09) 1px, transparent 1px),
+        linear-gradient(to right, rgba(197, 160, 89, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(197, 160, 89, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px, 48px 48px, 48px 48px;
 }
 
 .parchment-texture {
     background-color: var(--bg-page);
-    background-image: radial-gradient(rgba(176, 141, 87, 0.05) 1px, transparent 0);
+    background-image: radial-gradient(rgba(176, 141, 87, 0.06) 1px, transparent 0);
     background-size: 24px 24px;
 }
 
-/* 8. EMBOSSED HERALDIC SEAL */
+/* 8. EMBOSSED HERALDIC MEDAL & SEAL */
 .heraldic-seal-frame {
     position: relative;
     box-shadow: 
-        inset 0 0 15px rgba(176, 141, 87, 0.3),
-        0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        inset 0 0 20px rgba(176, 141, 87, 0.35),
+        0 12px 30px -6px rgba(0, 0, 0, 0.45);
 }
 
 .heraldic-seal-frame::after {
     content: '';
     position: absolute;
-    inset: -3px;
+    inset: -4px;
     border-radius: inherit;
-    border: 1px dashed rgba(212, 175, 55, 0.5);
+    border: 1.5px dashed rgba(212, 175, 55, 0.55);
     pointer-events: none;
 }
 
@@ -220,7 +266,7 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
 }
 
 .chambers-rule::before,
@@ -240,9 +286,9 @@ body {
 
 /* 10. MODAL & BACKDROP BLUR */
 .modal-overlay {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background-color: rgba(3, 10, 20, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background-color: rgba(3, 7, 18, 0.88);
 }
 
 /* 11. RTL & HIGH COURT URDU SPECIFICS */
@@ -253,18 +299,18 @@ body {
 
 [dir="rtl"] .font-serif {
     font-family: var(--font-urdu), serif !important;
-    line-height: 2.1 !important;
+    line-height: 2.2 !important;
 }
 
 [dir="rtl"] .font-urdu {
     font-family: var(--font-urdu), serif !important;
-    line-height: 2.2 !important;
+    line-height: 2.3 !important;
 }
 
 [dir="rtl"] p,
 [dir="rtl"] li,
 [dir="rtl"] span {
-    line-height: 2.0;
+    line-height: 2.1;
 }
 
 [dir="rtl"] select,
@@ -287,17 +333,17 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 /* Smooth Tap Response */
 a, button {
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Custom Scrollbar for Luxury Aesthetics */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-navy-dark);
+    background: var(--bg-page);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -309,17 +355,36 @@ a, button {
     background: var(--gold-foil-mid);
 }
 
-/* 13. PRINT STYLING (FOR FORMAL PDF OPINIONS & ADVISORIES) */
+/* 13. TOAST NOTIFICATION */
+#lexscribe-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+#lexscribe-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 14. PRINT STYLING (FOR FORMAL PDF OPINIONS & ADVISORIES) */
 @media print {
-    aside, header, footer, #theme-btn, .lang-btn, .curr-btn, #mobile-menu, button {
+    aside, header, footer, #theme-btn, .lang-btn, .curr-btn, #mobile-menu, button, #brief_builder {
         display: none !important;
     }
     body {
         background: white !important;
         color: black !important;
-        font-size: 12pt;
+        font-size: 11pt;
     }
     .print-only {
         display: block !important;
+    }
+    .no-print {
+        display: none !important;
     }
 }

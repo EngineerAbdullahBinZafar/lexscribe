@@ -1,12 +1,17 @@
 // ==========================================================================
 // LEXSCRIBE CHAMBERS — CLIENT APPLICATION CONTROLLER
-// Handles: Theme (Day/Dark), Bilingual Translations, Multi-Currency Engine,
-// Interactive Triage, Bilingual Clause Tabs, Dossier & Audit Modals, and WhatsApp Brief Generator
+// Chambers of Chaudhry Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine)
+// Handles: Day/Dark Theme, 100% Bilingual Urdu/English Engine, Multi-Currency,
+// Interactive Triage, Bilingual Clause Tabs, Dossier & Audit Modals, and WhatsApp/Email Brief Generator
 // ==========================================================================
 
 let currentLang = localStorage.getItem('lexscribe_lang') || 'en';
-let currentTheme = localStorage.getItem('lexscribe_theme') || 'dark'; // Default to authoritative dark mode
+let currentTheme = localStorage.getItem('lexscribe_theme') || 'dark'; // Authoritative Judicial Dark Mode by default
 let currentCurrency = localStorage.getItem('lexscribe_curr') || 'USD';
+
+// Standardized Chambers Registrar Contact Hotline (International Format)
+const CHAMBERS_REGISTRAR_WHATSAPP = '923000000000'; // Chambers Desk Routing
+const CHAMBERS_REGISTRAR_EMAIL = 'registrar@lexscribe.com';
 
 const currencyData = {
     USD: { symbol: '$', rate: 1 },
@@ -55,80 +60,156 @@ const bilingualClauses = {
     }
 };
 
-// Dossier preview details
+// Bilingual Dossier preview specifications
 const dossierPreviews = {
     qabza: {
-        title: "The Overseas Property & Qabza Shield (Dossier 01)",
-        content: `
-            <div class="space-y-3 text-xs leading-relaxed">
-                <p><strong>Overview:</strong> Comprehensive statutory defense protocol designed for overseas owners facing illegal land grabbing, forged Patwari mutations, or armed dispossession.</p>
-                <div class="p-3 bg-gold/10 border-l-2 border-gold rounded">
-                    <strong>Included Model Pleadings:</strong>
-                    <ul class="list-disc list-inside mt-1 space-y-1">
-                        <li>Emergency Sessions Court Complaint under Illegal Dispossession Act, 2005.</li>
-                        <li>High Court Writ Petition under Article 199 against Police Non-Registration.</li>
-                        <li>Revenue Court Revision Petition against Fraudulent Inteqal (Mutation).</li>
-                    </ul>
+        en: {
+            title: "The Overseas Property & Qabza Shield (Dossier 01)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-sans">
+                    <p><strong>Overview:</strong> Comprehensive statutory defense protocol designed for overseas owners facing illegal land grabbing, forged Patwari mutations, or armed dispossession.</p>
+                    <div class="p-3 bg-amber-500/10 border-l-2 border-gold rounded">
+                        <strong>Included Model Pleadings:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>Emergency Sessions Court Complaint under Illegal Dispossession Act, 2005.</li>
+                            <li>High Court Writ Petition under Article 199 against Police Inaction.</li>
+                            <li>Revenue Court Revision Petition against Fraudulent Inteqal (Mutation).</li>
+                        </ul>
+                    </div>
+                    <p><strong>Format:</strong> Digital PDF + Editable Microsoft Word Drafts (.docx) in English & High Court Legal Urdu.</p>
                 </div>
-                <p><strong>Format:</strong> Digital PDF + Editable Microsoft Word Drafts (.docx) in English & High Court Legal Urdu.</p>
-            </div>
-        `
+            `
+        },
+        ur: {
+            title: "اوورسیز جائیداد و تحفظِ قبضہ شیلڈ (دستاویز اول)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-urdu" dir="rtl">
+                    <p><strong>جائزہ:</strong> غیر قانونی قبضہ مافیا، پٹواری کے بوگس انتقالات اور مسلح قبضے کے خلاف اوورسیز پاکستانیوں کے لیے مکمل دفاعی عدالتی لائحہ عمل۔</p>
+                    <div class="p-3 bg-amber-500/10 border-r-2 border-gold rounded text-right">
+                        <strong>شامل شدہ عدالتی مسودات:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>سیشن کورٹ میں اللیگل ڈسپوزیشن ایکٹ ۲۰۰۵ء کے تحت فوری بے دخلی کی پٹیشن۔</li>
+                            <li>پولیس کی عدم کارروائی کے خلاف ہائی کورٹ رٹ پٹیشن (آرٹیکل ۱۹۹)۔</li>
+                            <li>بوگس انتقال اور جعلی فرد کے خلاف ریونیو کورٹ میں ریویژن کا مسودہ۔</li>
+                        </ul>
+                    </div>
+                    <p><strong>فارمیٹ:</strong> مصدقہ پی ڈی ایف + مائیکروسافٹ ورڈ ایڈیٹ ایبل فائلز (انگریزی و عدالتی اردو)۔</p>
+                </div>
+            `
+        }
     },
     poa: {
-        title: "The Consular Power of Attorney Drafting Vault (Dossier 02)",
-        content: `
-            <div class="space-y-3 text-xs leading-relaxed">
-                <p><strong>Overview:</strong> Bilingual Special Power of Attorney templates tested across embassies in London, New York, Dubai, Jeddah, Toronto, and Frankfurt.</p>
-                <div class="p-3 bg-gold/10 border-l-2 border-gold rounded">
-                    <strong>Included Protective Covenants:</strong>
-                    <ul class="list-disc list-inside mt-1 space-y-1">
-                        <li>Strict Anti-Sale, Anti-Gift (Hiba), and Anti-Mortgage Restrictive Covenants.</li>
-                        <li>Section 85 Qanun-e-Shahadat Express Revocation Deeds.</li>
-                        <li>NADRA Consular Attestation Checklist & Biometric Verification Protocol.</li>
-                    </ul>
+        en: {
+            title: "The Consular Power of Attorney Drafting Vault (Dossier 02)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-sans">
+                    <p><strong>Overview:</strong> Bilingual Special Power of Attorney templates tested across embassies in London, New York, Dubai, Jeddah, Toronto, and Frankfurt.</p>
+                    <div class="p-3 bg-amber-500/10 border-l-2 border-gold rounded">
+                        <strong>Included Protective Covenants:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>Strict Anti-Sale, Anti-Gift (Hiba), and Anti-Mortgage Restrictive Covenants.</li>
+                            <li>Section 85 Qanun-e-Shahadat Express Revocation Deeds.</li>
+                            <li>NADRA Consular Attestation Checklist & Biometric Verification Protocol.</li>
+                        </ul>
+                    </div>
+                    <p><strong>Format:</strong> Digital PDF + Bilingual Word Document Templates.</p>
                 </div>
-                <p><strong>Format:</strong> Digital PDF + Bilingual Word Document Templates.</p>
-            </div>
-        `
+            `
+        },
+        ur: {
+            title: "مختار نامہ مسودہ سازی والٹ (دستاویز دوم)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-urdu" dir="rtl">
+                    <p><strong>جائزہ:</strong> لندن، نیویارک، دبئی، جدہ، ٹورنٹو اور فرینکفرٹ کے پاکستانی سفارت خانوں میں آزمودہ خصوصی دو لسانی مختار نامے۔</p>
+                    <div class="p-3 bg-amber-500/10 border-r-2 border-gold rounded text-right">
+                        <strong>شامل شدہ حفاظتی شقیں:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>فروخت، ہبہ اور رہن پر قطعی اور غیر مبہم ممانعت کی شقیں۔</li>
+                            <li>قانونِ شہادت کی دفعہ ۸۵ کے تحت فوری تنسیخ کا سرکاری نوٹس۔</li>
+                            <li>نادرا قونصلر تصدیق چیک لسٹ اور بائیو میٹرک تصدیق کا طریقہ۔</li>
+                        </ul>
+                    </div>
+                    <p><strong>فارمیٹ:</strong> سرکاری مہر شدہ پی ڈی ایف + دو لسانی مائیکروسافٹ ورڈ فائلز۔</p>
+                </div>
+            `
+        }
     },
     succession: {
-        title: "Cross-Border Succession & Inheritance Blueprint (Dossier 03)",
-        content: `
-            <div class="space-y-3 text-xs leading-relaxed">
-                <p><strong>Overview:</strong> Strategic blueprint for navigating foreign probate, UK/UAE letters of administration, and Pakistani legal heirship without predatory family litigation.</p>
-                <div class="p-3 bg-gold/10 border-l-2 border-gold rounded">
-                    <strong>Included Instruments:</strong>
-                    <ul class="list-disc list-inside mt-1 space-y-1">
-                        <li>Bilingual Irrevocable Family Settlement Deed (Rajinama).</li>
-                        <li>NADRA Succession Certificate Fast-Track Processing Protocol.</li>
-                        <li>High Court Administration Suit for Partition of Dispersed Commercial Holdings.</li>
-                    </ul>
+        en: {
+            title: "Cross-Border Succession & Inheritance Blueprint (Dossier 03)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-sans">
+                    <p><strong>Overview:</strong> Strategic blueprint for navigating foreign probate, UK/UAE letters of administration, and Pakistani legal heirship without predatory family litigation.</p>
+                    <div class="p-3 bg-amber-500/10 border-l-2 border-gold rounded">
+                        <strong>Included Instruments:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>Bilingual Irrevocable Family Settlement Deed (Rajinama).</li>
+                            <li>NADRA Succession Certificate Fast-Track Processing Protocol.</li>
+                            <li>High Court Administration Suit for Partition of Dispersed Commercial Holdings.</li>
+                        </ul>
+                    </div>
+                    <p><strong>Format:</strong> Comprehensive Practice Guide + Certified Pleading Templates.</p>
                 </div>
-                <p><strong>Format:</strong> Comprehensive Practice Guide + Certified Pleading Templates.</p>
-            </div>
-        `
+            `
+        },
+        ur: {
+            title: "بین الاقوامی وراثت اور ترکہ رہنمائی (دستاویز سوم)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-urdu" dir="rtl">
+                    <p><strong>جائزہ:</strong> برطانیہ اور یو اے ای کی پروبیٹ عدالتوں اور پاکستان میں وارثان کے قانونی حقوق کے تحفظ کے لیے مکمل خاکہ۔</p>
+                    <div class="p-3 bg-amber-500/10 border-r-2 border-gold rounded text-right">
+                        <strong>شامل شدہ قانونی دستاویزات:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>غیر متزلزل دو لسانی خاندانی راضی نامہ (Family Settlement Deed)۔</li>
+                            <li>نادرا سکسیشن سہولت یونٹ کا فاسٹ ٹریک قانونی پروٹوکول۔</li>
+                            <li>کمرشل جائیدادوں اور اراضی کی تقسیم کے لیے ہائی کورٹ ایڈمنسٹریشن سوٹ کا مسودہ۔</li>
+                        </ul>
+                    </div>
+                    <p><strong>فارمیٹ:</strong> عدالتی پریکٹس گائیڈ + تصدیق شدہ پٹیشن ٹیمپلیٹس۔</p>
+                </div>
+            `
+        }
     },
     lease: {
-        title: "Commercial & Residential Lease Defense Kit (Dossier 04)",
-        content: `
-            <div class="space-y-3 text-xs leading-relaxed">
-                <p><strong>Overview:</strong> Bulletproof tenancy agreements and eviction protocols for overseas landlords with commercial plazas, agricultural land, or residential villas in Pakistan.</p>
-                <div class="p-3 bg-gold/10 border-l-2 border-gold rounded">
-                    <strong>Included Instruments:</strong>
-                    <ul class="list-disc list-inside mt-1 space-y-1">
-                        <li>Expedited Eviction Petition before Special Rent Tribunal.</li>
-                        <li>30-Day Mandatory Statutory Notice of Default.</li>
-                        <li>Anti-Subletting and Unauthorized Alteration Restrictive Covenants.</li>
-                    </ul>
+        en: {
+            title: "Commercial & Residential Lease Defense Kit (Dossier 04)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-sans">
+                    <p><strong>Overview:</strong> Bulletproof tenancy agreements and eviction protocols for overseas landlords with commercial plazas, agricultural land, or residential villas in Pakistan.</p>
+                    <div class="p-3 bg-amber-500/10 border-l-2 border-gold rounded">
+                        <strong>Included Instruments:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>Expedited Eviction Petition before Special Rent Tribunal.</li>
+                            <li>30-Day Mandatory Statutory Notice of Default.</li>
+                            <li>Anti-Subletting and Unauthorized Alteration Restrictive Covenants.</li>
+                        </ul>
+                    </div>
+                    <p><strong>Format:</strong> Digital PDF + High Court Urdu Tenancy Deeds.</p>
                 </div>
-                <p><strong>Format:</strong> Digital PDF + High Court Urdu Tenancy Deeds.</p>
-            </div>
-        `
+            `
+        },
+        ur: {
+            title: "کرایہ داری و دکان/مکان خالی کروانے کی کٹ (دستاویز چہارم)",
+            content: `
+                <div class="space-y-3 text-xs leading-relaxed font-urdu" dir="rtl">
+                    <p><strong>جائزہ:</strong> اوورسیز مالکان کے لیے نادہندہ کرایہ داروں کے خلاف قانونی معاہدات اور تیز رفتار بے دخلی کا ضابطہ۔</p>
+                    <div class="p-3 bg-amber-500/10 border-r-2 border-gold rounded text-right">
+                        <strong>شامل شدہ قانونی آلات:</strong>
+                        <ul class="list-disc list-inside mt-1 space-y-1">
+                            <li>اسپیشل رینٹ ٹربیونل کے روبرو فوری بے دخلی کی درخواست کا ماڈل۔</li>
+                            <li>۳۰ روزہ لازمی قانونی نوٹس برائے نادہندگی۔</li>
+                            <li>ذیلی کرایہ داری اور بغیر اجازت تعمیرات پر ممانعت کی شقیں۔</li>
+                        </ul>
+                    </div>
+                    <p><strong>فارمیٹ:</strong> ڈیجیٹل پی ڈی ایف + ہائی کورٹ اردو کرایہ نامہ مسودات۔</p>
+                </div>
+            `
+        }
     }
 };
 
 // ==========================================================================
-// 1. THEME ENGINE (DAY PARCHMENT vs. MIDNIGHT OBSIDIAN)
+// 1. THEME ENGINE (DAY COTTON PARCHMENT vs. MIDNIGHT OBSIDIAN)
 // ==========================================================================
 function initTheme() {
     if (currentTheme === 'dark') {
@@ -153,10 +234,10 @@ function updateThemeIcon(theme) {
     if (!iconContainer) return;
     if (theme === 'dark') {
         iconContainer.innerHTML = '☀️';
-        iconContainer.setAttribute('title', 'Switch to Day Mode (Parchment)');
+        iconContainer.setAttribute('title', 'Switch to Day Mode (Cotton Vellum Parchment)');
     } else {
         iconContainer.innerHTML = '🌙';
-        iconContainer.setAttribute('title', 'Switch to Dark Mode (Obsidian)');
+        iconContainer.setAttribute('title', 'Switch to Dark Mode (Midnight Obsidian)');
     }
 }
 
@@ -178,7 +259,7 @@ function setLanguage(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         if (btn.getAttribute('data-lang') === lang) {
             btn.classList.add('bg-gold', 'text-navy-dark', 'font-bold');
-            btn.classList.remove('text-gray-300');
+            btn.classList.remove('text-gray-300', 'text-theme-muted');
         } else {
             btn.classList.remove('bg-gold', 'text-navy-dark', 'font-bold');
             btn.classList.add('text-gray-300');
@@ -199,9 +280,17 @@ function setLanguage(lang) {
             }
         }
         if (val !== null) {
-            el.innerHTML = val;
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = val;
+            } else {
+                el.innerHTML = val;
+            }
         }
     });
+
+    // Translate bilingual tab clause content
+    const activeTabIndex = window.currentBilingualTab || 1;
+    switchBilingualTab(activeTabIndex);
 
     // Re-run triage result update if active
     const resultBox = document.getElementById('triage-result');
@@ -221,7 +310,7 @@ function setCurrency(curr) {
     document.querySelectorAll('.curr-btn').forEach(btn => {
         if (btn.getAttribute('data-curr') === curr) {
             btn.classList.add('bg-gold', 'text-navy-dark', 'font-bold');
-            btn.classList.remove('text-gray-300');
+            btn.classList.remove('text-gray-300', 'text-theme-muted');
         } else {
             btn.classList.remove('bg-gold', 'text-navy-dark', 'font-bold');
             btn.classList.add('text-gray-300');
@@ -252,7 +341,8 @@ function updateTriageResult() {
     if (!issueEl || !resultBox) return;
 
     const issue = issueEl.value;
-    const cityText = cityEl ? cityEl.options[cityEl.selectedIndex].text : "Pakistan";
+    const selectedCityOption = cityEl ? cityEl.options[cityEl.selectedIndex] : null;
+    const cityText = selectedCityOption ? selectedCityOption.text : "Pakistan";
     const t = translations[currentLang].triage;
     let rec = "";
 
@@ -271,8 +361,8 @@ function updateTriageResult() {
     }
 
     const cityNotice = currentLang === 'ur'
-        ? `<div class="mt-2.5 pt-2 border-t border-gold/30 text-[11px] text-gold font-urdu"><strong>متعلقہ ضلع:</strong> ${cityText} میں ہمارے چیمبرز کی زیرِ نگرانی مصدقہ عدالتی کارروائی میسر ہے۔</div>`
-        : `<div class="mt-2.5 pt-2 border-t border-gold/30 text-[11px] text-gold font-sans"><strong>Jurisdiction Note:</strong> Chambers provides active statutory coverage and precedent filing in ${cityText}.</div>`;
+        ? `<div class="mt-3 pt-2.5 border-t border-gold/30 text-[11px] text-gold font-urdu" dir="rtl"><strong>متعلقہ ضلع:</strong> ${cityText} میں ہمارے چیمبرز کی زیرِ نگرانی ہائی کورٹ اور متعلقہ ماتحت عدالت میں فوری قانونی کارروائی میسر ہے۔</div>`
+        : `<div class="mt-3 pt-2.5 border-t border-gold/30 text-[11px] text-gold font-sans"><strong>Jurisdiction Note:</strong> Chambers provides active statutory coverage, caveats, and precedent filing in ${cityText}.</div>`;
 
     resultBox.innerHTML = rec + cityNotice;
     resultBox.classList.remove('hidden');
@@ -282,14 +372,16 @@ function updateTriageResult() {
 // 5. INTERACTIVE BILINGUAL CLAUSE TABS
 // ==========================================================================
 function switchBilingualTab(tabIndex) {
+    window.currentBilingualTab = tabIndex;
+
     // Update active tab button style
     document.querySelectorAll('.bilingual-tab').forEach((btn, idx) => {
         if (idx + 1 === tabIndex) {
             btn.classList.add('bg-gold', 'text-navy-dark', 'font-bold');
-            btn.classList.remove('bg-navy', 'text-gray-300');
+            btn.classList.remove('bg-theme-card-contrast', 'text-theme-muted');
         } else {
             btn.classList.remove('bg-gold', 'text-navy-dark', 'font-bold');
-            btn.classList.add('bg-navy', 'text-gray-300');
+            btn.classList.add('bg-theme-card-contrast', 'text-theme-muted');
         }
     });
 
@@ -335,7 +427,7 @@ function closePreviewModal() {
 }
 
 // ==========================================================================
-// 7. DOSSIER PREVIEW MODAL
+// 7. DOSSIER PREVIEW MODAL (100% BILINGUAL)
 // ==========================================================================
 function openDossierModal(dossierKey) {
     const modal = document.getElementById('dossier-modal');
@@ -343,9 +435,11 @@ function openDossierModal(dossierKey) {
     const bodyEl = document.getElementById('dossier-modal-body');
     if (!modal) return;
 
-    const data = dossierPreviews[dossierKey] || dossierPreviews.qabza;
-    if (titleEl) titleEl.textContent = data.title;
-    if (bodyEl) bodyEl.innerHTML = data.content;
+    const dossierItem = dossierPreviews[dossierKey] || dossierPreviews.qabza;
+    const langData = dossierItem[currentLang] || dossierItem.en;
+
+    if (titleEl) titleEl.textContent = langData.title;
+    if (bodyEl) bodyEl.innerHTML = langData.content;
 
     modal.classList.remove('hidden');
     document.body.classList.add('overflow-hidden');
@@ -360,34 +454,90 @@ function closeDossierModal() {
 }
 
 // ==========================================================================
-// 8. INTERACTIVE WHATSAPP BRIEF GENERATOR
+// 8. INTERACTIVE CASE BRIEF GENERATOR (WHATSAPP, EMAIL, & CLIPBOARD COPY)
 // ==========================================================================
-function generateWhatsAppBrief(e) {
-    if (e) e.preventDefault();
-    
+function buildStructuredBrief() {
     const countryEl = document.getElementById('brief-country');
     const cityEl = document.getElementById('brief-city');
     const typeEl = document.getElementById('brief-type');
     const detailsEl = document.getElementById('brief-details');
 
     const country = countryEl ? countryEl.value : 'Overseas';
-    const city = cityEl ? cityEl.value : 'Pakistan';
+    const city = cityEl && cityEl.value.trim() ? cityEl.value.trim() : 'Pakistan';
     const type = typeEl ? typeEl.value : 'General Advisory';
-    const details = detailsEl ? detailsEl.value.trim() : 'I require legal advisory.';
+    const details = detailsEl && detailsEl.value.trim() ? detailsEl.value.trim() : 'I require legal advisory.';
 
-    const message = 
-`*CONFIDENTIAL LEGAL INTAKE — LEXSCRIBE CHAMBERS*
+    return `*CONFIDENTIAL LEGAL INTAKE — LEXSCRIBE CHAMBERS*
 ------------------------------------------------
 *Origin Country:* ${country}
 *Property / Dispute District:* ${city}
 *Matter Classification:* ${type}
-*Brief Summary:* ${details}
+*Summary of Concern:* ${details}
 
-*Attention:* Chambers of Ch. Muhammad Zafar Iqbal (Advocate High Court). Please advise on audit schedule and formal procedure.`;
+*Attention:* Chambers of Ch. Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine). Please advise on audit schedule and formal procedure.`;
+}
 
+function generateWhatsAppBrief(e) {
+    if (e) e.preventDefault();
+    const message = buildStructuredBrief();
     const encoded = encodeURIComponent(message);
-    const waUrl = `https://wa.me/?text=${encoded}`;
+    const waUrl = `https://wa.me/${CHAMBERS_REGISTRAR_WHATSAPP}?text=${encoded}`;
     window.open(waUrl, '_blank');
+}
+
+function copyFormattedBrief(e) {
+    if (e) e.preventDefault();
+    const message = buildStructuredBrief();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(message).then(() => {
+            showToast();
+        }).catch(() => {
+            fallbackCopyText(message);
+        });
+    } else {
+        fallbackCopyText(message);
+    }
+}
+
+function fallbackCopyText(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        showToast();
+    } catch (err) {
+        alert("Brief ready. Please copy: \n\n" + text);
+    }
+    document.body.removeChild(textArea);
+}
+
+function sendEmailBrief(e) {
+    if (e) e.preventDefault();
+    const message = buildStructuredBrief();
+    const subject = encodeURIComponent("Confidential Legal Brief — LexScribe Chambers");
+    const body = encodeURIComponent(message);
+    window.location.href = `mailto:${CHAMBERS_REGISTRAR_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+function showToast() {
+    let toast = document.getElementById('lexscribe-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'lexscribe-toast';
+        toast.className = 'bg-emerald-700 text-white px-5 py-3 rounded-lg shadow-2xl text-xs font-bold border border-emerald-400 flex items-center gap-2';
+        toast.innerHTML = `<span class="text-base">✓</span> <span data-i18n="brief_builder.copied_toast">Legal Brief Copied to Clipboard!</span>`;
+        document.body.appendChild(toast);
+    }
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3200);
 }
 
 // ==========================================================================
