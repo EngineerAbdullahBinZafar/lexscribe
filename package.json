@@ -1,0 +1,23 @@
+{
+  "name": "lexscribe-chambers",
+  "version": "2.0.0",
+  "description": "LexScribe Chambers | High-Authority Legal Advisory Portal for Overseas Pakistanis | Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine)",
+  "main": "index.html",
+  "scripts": {
+    "test": "node verify_site.js",
+    "start": "npx serve .",
+    "build": "node verify_site.js"
+  },
+  "keywords": [
+    "lexscribe",
+    "legal-advisory",
+    "overseas-pakistanis",
+    "high-court",
+    "ch-muhammad-zafar-iqbal",
+    "qabza-defense",
+    "power-of-attorney"
+  ],
+  "author": "LexScribe Chambers",
+  "license": "UNLICENSED",
+  "private": true
+}
