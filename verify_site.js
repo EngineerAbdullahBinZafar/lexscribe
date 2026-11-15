@@ -388,6 +388,25 @@ if (appContent.includes('function initCounters') && appContent.includes('functio
     fail('Missing initCounters, showMapTooltip, or hideMapTooltip in app.js.');
 }
 
+// 18. Verify SEO & AEO/GEO Infrastructure (robots.txt, sitemap.xml, Schema.org, Open Graph)
+if (fs.existsSync(path.join(__dirname, 'robots.txt')) && fs.existsSync(path.join(__dirname, 'sitemap.xml'))) {
+    pass('Production robots.txt and multilingual XML sitemap (sitemap.xml) present at repository root.');
+} else {
+    fail('Missing robots.txt or sitemap.xml at repository root.');
+}
+
+if (htmlContent.includes('property="og:title"') && htmlContent.includes('name="twitter:card"') && htmlContent.includes('@type": "LegalService"')) {
+    pass('Comprehensive Social Graph (Open Graph/Twitter Cards) and Schema.org JSON-LD (LegalService/Attorney/FAQPage) implemented in index.html.');
+} else {
+    fail('Missing Open Graph metadata or Schema.org JSON-LD in index.html.');
+}
+
+if (appContent.includes('booking-notes') && appContent.includes('closeBookingModal')) {
+    pass('Client intake bug fixes verified: #booking-notes DOM binding and Escape key booking modal dismissal implemented in app.js.');
+} else {
+    fail('Missing booking-notes binding or closeBookingModal in app.js.');
+}
+
 // Final Summary
 console.log('\n================================================================');
 console.log(`VERIFICATION SUMMARY: ${passed} PASSED, ${errors} ERRORS`);

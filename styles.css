@@ -28,6 +28,7 @@
     --gold-foil-base: #A6803C;
     --gold-foil-dark: #745722;
     --gold-foil-glow: rgba(197, 160, 89, 0.28);
+    --text-gold-accessible: #826026;
 
     --forest: #0A3822;
     --forest-deep: #052014;
@@ -72,6 +73,7 @@
     --gold-foil-base: #BA944C;
     --gold-foil-dark: #8C6A2B;
     --gold-foil-glow: rgba(212, 175, 55, 0.22);
+    --text-gold-accessible: #D4AF37;
 
     --forest: #14593C;
     --forest-deep: #0A2D1F;
@@ -164,7 +166,8 @@ body {
 }
 
 .text-gold {
-    color: var(--gold-foil-mid);
+    color: var(--text-gold-accessible);
+    font-weight: 600;
 }
 
 .text-gold-light {

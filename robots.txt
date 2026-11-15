@@ -1,0 +1,19 @@
+# LexScribe Chambers - High Court Practice Web Infrastructure
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /audit-sample.html
+Allow: /dossiers.html
+Allow: /jurisprudence.html
+Allow: /terms.html
+Allow: /styles.css
+Allow: /app.js
+Allow: /translations.js
+
+# Prevent indexing of internal scripts and deployment batches
+Disallow: /verify_site.js
+Disallow: /*.bat
+Disallow: /.*
+
+# Canonical XML Sitemap
+Sitemap: https://lexscribe.com/sitemap.xml

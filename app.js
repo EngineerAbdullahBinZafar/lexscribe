@@ -594,7 +594,12 @@ function sendEmailBrief(e) {
     const message = buildStructuredBrief();
     const subject = encodeURIComponent("Confidential Legal Brief — LexScribe Chambers");
     const body = encodeURIComponent(message);
-    window.location.href = `mailto:${CHAMBERS_REGISTRAR_EMAIL}?subject=${subject}&body=${body}`;
+    const emailTarget = (typeof CHAMBERS_REGISTRAR_EMAIL !== 'undefined' && CHAMBERS_REGISTRAR_EMAIL) ? CHAMBERS_REGISTRAR_EMAIL : '';
+    if (emailTarget) {
+        window.location.href = `mailto:${emailTarget}?subject=${subject}&body=${body}`;
+    } else {
+        generateWhatsAppBrief();
+    }
 }
 
 function showToast() {
@@ -640,7 +645,8 @@ function handleBookingSubmit(e) {
     const country = (document.getElementById('booking-country') || {}).value || 'Overseas';
     const slot = (document.getElementById('booking-slot') || {}).value || 'Next Available Slot';
     const matter = (document.getElementById('booking-matter') || {}).value || 'Property & Legal Consultation';
-    const summary = (document.getElementById('booking-summary') || {}).value || 'Document Scrutiny and Advisory';
+    const summaryEl = document.getElementById('booking-notes') || document.getElementById('booking-summary');
+    const summary = (summaryEl && summaryEl.value && summaryEl.value.trim()) ? summaryEl.value.trim() : 'Document Scrutiny and Advisory';
 
     const rawMessage = '*PRIORITY ADVISORY SLOT BOOKING ($10 CONSULTATION)*\n' +
         '• Instructing Client: ' + name + '\n' +
@@ -674,6 +680,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closePreviewModal();
         closeDossierModal();
+        closeBookingModal();
     }
 });
 
