@@ -90,12 +90,20 @@
     --shadow-xl: 0 20px 45px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.12);
 }
 
-/* 3. BASE ELEMENT BEHAVIOR */
+/* 3. BASE ELEMENT BEHAVIOR & UNIVERSAL BOUNDARY ENFORCEMENT */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 84px;
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
@@ -105,6 +113,25 @@ body {
     line-height: 1.6;
     transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/* Guard against media & SVG blowout on mobile screens */
+img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+}
+
+/* Container safety boundary */
+main, section, header, footer, nav, aside {
+    max-width: 100%;
+}
+
+/* Prevent long unbroken strings from forcing viewport overflow */
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 /* 4. LUXURIOUS COLOR & SURFACE HELPERS */
