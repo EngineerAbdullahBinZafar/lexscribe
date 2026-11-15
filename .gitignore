@@ -1,0 +1,103 @@
+# ==============================================================================
+# LexScribe Chambers - Hardened Security & Shielding Policy
+# ==============================================================================
+
+# 1. Environment & Private Variables
+.env
+.env.*
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 2. Private Keys, Certificates & Authentication Tokens
+*.pem
+*.key
+*.pfx
+*.pkcs12
+*.p12
+*.cer
+*.crt
+id_rsa*
+id_ed25519*
+id_ecdsa*
+id_dsa*
+credentials.json
+service-account*.json
+client_secret*.json
+*.secret
+*.token
+
+# 3. Node Dependencies & Package Manager Artifacts
+node_modules/
+jspm_packages/
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# 4. Vercel & Cloud Deployment Metadata
+.vercel
+.vercel/
+
+# 5. Build, Bundler & Test Artifacts
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+coverage/
+.nyc_output/
+*.lcov
+
+# 6. Debug Logs & Crash Reports
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 7. Operating System Metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Tt]humbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+
+# 8. IDE, Editor & Workspace Files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+*.sublime-project
+*.sublime-workspace
+
+# 9. Temporary & Backup Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+~$*
+.#*
+
+# 10. Agent & Teamwork Scratch Folders
+.agents/
+.gemini/
