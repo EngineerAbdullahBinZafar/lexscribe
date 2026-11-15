@@ -1,7 +1,7 @@
 {
   "name": "lexscribe-chambers",
   "version": "2.1.0",
-  "description": "LexScribe Chambers | High-Authority Flagship Jurisprudence Platform for Overseas Pakistanis | Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine)",
+  "description": "LexScribe Chambers | High-Authority Flagship Jurisprudence Platform for Overseas Pakistanis | Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court & Senior Jurist)",
   "main": "index.html",
   "scripts": {
     "test": "node verify_site.js",

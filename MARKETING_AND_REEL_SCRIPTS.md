@@ -26,7 +26,7 @@
 بار کے نوجوان وکلاء کی معاونت کے لیے، ابتدائی 50 ساتھیوں کے لیے یہ خصوصی مرتب شدہ گائیڈ برائے نام ہدیہ (صرف 1,999 روپے) میں ڈیجیٹل فارمیٹ میں دستیاب کی جا رہی ہے۔
 
 اپنی کاپی حاصل کرنے اور فہرست مضامین دیکھنے کے لیے نیچے دیے گئے لنک پر چیمبرز رجسٹرار سے واٹس ایپ پر رابطہ فرمائیں:
-👉 [WhatsApp Link]
+👉 https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20order%20the%20Digital%20Court%20Drafting%20Dossier
 
 دعا گو،
 چوہدری محمد ظفر اقبال
@@ -90,5 +90,13 @@ Save these as Quick Replies in your Dual WhatsApp Business (`Settings > Business
 > *Fee: $29 USD / £24 GBP / 110 AED (or PKR 8,000).*  
 > *Payment Methods:*  
 > *• Wise / Remitly / International Wire: [Your Bank IBAN Details]*  
-> *• Domestic: Raast ID / SadaBiz: [Your Mobile/Raast]*  
+> *• Domestic: Raast ID: 03037446225 (Chambers Registrar) / SadaBiz*  
 > *Upon proof of remittance, Senior Counsel will review the clauses and deliver your formal 1-page Risk Assessment Report within 48 hours."*
+
+### Template 3: Priority Advisory Call & Counsel Scrutiny Booking
+> *"Thank you for your inquiry. To schedule a direct **Priority Advisory Consultation Call & Scrutiny Slot** with Senior Counsel Ch. Muhammad Zafar Iqbal (Advocate High Court):*  
+> *Priority Retainer: $25 USD / £20 GBP / 90 AED (or PKR 7,000).*  
+> *Payment Methods:*  
+> *• International: Wise / Remitly / International Wire to Chambers Account*  
+> *• Domestic: Raast ID: 03037446225 (Chambers Registrar) / SadaBiz*  
+> *Upon proof of remittance, the Registrar will confirm your dedicated time window on Senior Counsel's court calendar and provide the direct Chambers conference briefing details."*

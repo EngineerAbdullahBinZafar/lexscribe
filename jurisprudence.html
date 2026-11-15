@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 40-Year Unbroken Record & Scholarly Treatises | Ch. Muhammad Zafar Iqbal | LexScribe Chambers</title>
-    <meta name="description" content="Chronicle of Chaudhry Muhammad Zafar Iqbal: 40+ years unbroken standing at the High Court Bar, zero cases lost, 30+ published law books, and rare dual qualification as Advocate High Court & Doctor of Medicine.">
+    <title>The 25-Year Unbroken Record & Scholarly Treatises | Ch. Muhammad Zafar Iqbal | LexScribe Chambers</title>
+    <meta name="description" content="Chronicle of Chaudhry Muhammad Zafar Iqbal: 20+ years unbroken standing at the High Court Bar (Since 2004), 200+ cases won, zero cases lost, 30+ published law books, and rare dual qualification as Advocate High Court & Senior Jurist.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Gulzar&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,14 +17,15 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: { DEFAULT: '#B08D57', light: '#E5C158', dark: '#826026', foil: '#D4AF37' },
-                        navy: { DEFAULT: '#061224', dark: '#030A14', light: '#0D203D' },
+                        gold: { DEFAULT: '#C5A059', light: '#F5D77F', dark: '#826026', foil: '#D4AF37' },
+                        navy: { DEFAULT: '#0A3822', dark: '#052014', light: '#135A38' },
+                        emerald: { DEFAULT: '#0A3822', dark: '#052014', deep: '#04170E', light: '#135A38' },
                         oxblood: { DEFAULT: '#6A0D1D', dark: '#480611', light: '#8A162B' }
                     },
                     fontFamily: {
                         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
                         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                        urdu: ['"Noto Nastaliq Urdu"', 'serif']
+                        urdu: ['"Noto Nastaliq Urdu"', '"Jameel Noori Nastaleeq"', '"Urdu Typesetting"', 'serif']
                     }
                 }
             }
@@ -32,58 +33,53 @@
     </script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="antialiased bg-theme-page text-theme-primary selection:bg-gold selection:text-white">
+<body dir="ltr" class="antialiased bg-theme-page text-theme-primary selection:bg-gold selection:text-white">
 
-    <!-- Top Announcement Bar -->
-    <aside aria-label="Announcement & Utility" class="bg-theme-header text-gray-300 text-xs border-b border-gray-800 py-2.5 px-4 sm:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-2 text-center md:text-left flex-wrap justify-center">
-                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>The Unbroken Jurisprudence Chronicle • 40+ Years Standing • 0 Cases Lost</span>
-                <span class="hidden md:inline text-gray-600">|</span>
-                <span class="hidden md:inline text-gold">Pakistan Bar Council Standards Compliant</span>
-            </div>
+    <!-- 2. SLIM & SLEEK PERMANENT STICKY HEADER (NEVER DISAPPEARS ON SCROLL) -->
+    <header class="sticky top-0 z-50 bg-[#052014]/95 backdrop-blur-md text-white border-b border-gold/30 shadow-xl transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-2.5 flex justify-between items-center gap-3">
             
-            <div class="flex items-center gap-4 flex-wrap justify-center">
-                <button onclick="toggleTheme()" id="theme-btn" class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/40 text-xs border border-gray-700 hover:border-gold transition text-gray-300 shadow-sm" title="Toggle Day/Dark Mode">
-                    <span id="theme-icon">🌙</span>
-                    <span class="hidden sm:inline font-medium">Theme</span>
-                </button>
-                <div class="flex gap-0.5 bg-black/40 px-1 py-0.5 rounded border border-gray-700">
-                    <button onclick="setLanguage('en')" class="lang-btn px-2.5 py-0.5 rounded text-xs transition" data-lang="en">EN</button>
-                    <button onclick="setLanguage('ur')" class="lang-btn px-2.5 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
-                </div>
-                <a href="index.html#brief_builder" class="px-2.5 py-1 rounded bg-gold text-navy-dark font-bold text-xs hover:bg-gold-light transition shadow">
-                    Registrar Desk
-                </a>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Main Navigation Header -->
-    <header class="sticky top-0 z-40 bg-theme-header/95 backdrop-blur-md text-white border-b border-gold/25 shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3.5 group">
-                <div class="w-10 h-10 flex-shrink-0">
-                    <svg viewBox="0 0 240 240" fill="none" class="w-full h-full drop-shadow-[0_2px_8px_rgba(212,175,55,0.4)]">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2.5 group flex-shrink-0">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 relative group-hover:scale-105 transition-transform">
+                    <svg viewBox="0 0 240 240" fill="none" class="w-full h-full drop-shadow-[0_2px_6px_rgba(212,175,55,0.4)]">
                         <circle cx="120" cy="120" r="108" stroke="#D4AF37" stroke-width="2"/>
-                        <polygon points="120,60 160,80 160,150 120,180 80,150 80,80" fill="#061224" stroke="#D4AF37" stroke-width="2"/>
+                        <polygon points="120,60 160,80 160,150 120,180 80,150 80,80" fill="#052014" stroke="#D4AF37" stroke-width="2"/>
                         <text x="120" y="130" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="bold" fill="#D4AF37" text-anchor="middle">MZ</text>
                     </svg>
                 </div>
                 <div>
-                    <span class="font-serif text-xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
-                    <span class="text-[9px] uppercase tracking-widest text-gray-400 block mt-0.5 font-medium">Chambers of Ch. M. Zafar Iqbal • Advocate High Court</span>
+                    <span class="font-serif text-xl sm:text-2xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
+                    <span class="text-[9px] uppercase tracking-wider text-emerald-100/70 block mt-0.5 font-medium">Chambers of Ch. M. Zafar Iqbal • Advocate High Court (Est. 2004)</span>
                 </div>
             </a>
 
-            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider">
-                <a href="index.html" class="text-gray-300 hover:text-gold transition">Home</a>
-                <a href="audit-sample.html" class="text-gray-300 hover:text-gold transition">Audit Sample</a>
-                <a href="dossiers.html" class="text-gray-300 hover:text-gold transition">Legal Playbooks</a>
-                <a href="terms.html" class="text-gray-300 hover:text-gold transition">Chambers Terms</a>
-                <a href="index.html#brief_builder" class="px-3.5 py-1.5 rounded bg-gold text-navy-dark font-bold hover:bg-gold-light transition shadow">Instruct Desk</a>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold tracking-wide uppercase">
+                <a href="index.html#audit" class="text-emerald-100/85 hover:text-gold transition">Document Audit</a>
+                <a href="index.html#record" class="text-gold hover:text-gold-light transition font-bold">Unbroken Record</a>
+                <a href="dossiers.html" class="text-emerald-100/85 hover:text-gold transition">Legal Playbooks</a>
+                <a href="index.html#cases" class="text-emerald-100/85 hover:text-gold transition">Case Chronicles</a>
+                <a href="jurisprudence.html" class="text-gold font-bold">The Senior Jurist</a>
+                <a href="audit-sample.html" class="text-emerald-100/85 hover:text-gold transition">Audit Sample</a>
             </nav>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <button onclick="toggleTheme()" id="theme-btn" class="flex items-center p-1.5 rounded bg-emerald-950/60 text-xs border border-emerald-800/40 hover:border-gold transition text-gray-300 shadow-sm" title="Toggle Day/Dark Mode">
+                    <span id="theme-icon"><svg class="w-3.5 h-3.5 text-gold inline-block" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                </button>
+
+                <div class="flex gap-0.5 bg-emerald-950/60 p-0.5 rounded border border-emerald-800/40">
+                    <button onclick="setLanguage('en')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-semibold" data-lang="en">EN</button>
+                    <button onclick="setLanguage('ur')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
+                </div>
+
+                <a href="index.html#brief_builder" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-bold gold-bullion-btn shadow-md">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                    <span>Registrar Desk</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -94,8 +90,8 @@
             
             <div class="lg:col-span-8 space-y-6">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-theme-surface border border-gold/40 text-xs font-semibold text-gold shadow-sm">
-                    <span class="text-amber-400">★</span>
-                    <span>EST. 1984 • 40+ Years of High Court Standing • 0 Cases Lost in Career</span>
+                    <svg class="w-3.5 h-3.5 text-gold inline-block" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>EST. 2004 • 20+ Years at the Bar (Since 2004) • 200+ Cases Won • 0 Cases Lost in Career</span>
                 </div>
 
                 <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-theme-primary leading-tight">
@@ -103,22 +99,24 @@
                 </h1>
 
                 <p class="text-base sm:text-lg font-medium text-gold">
-                    Senior Advocate High Court • Doctor of Medicine • Author of 30+ Published Treatises
+                    Senior Advocate High Court  • Author of 30+ Published Treatises
                 </p>
 
                 <p class="text-theme-secondary text-sm sm:text-base leading-relaxed">
-                    Over four decades at the High Court Bar, Senior Counsel Ch. Muhammad Zafar Iqbal has forged an unblemished reputation as one of Pakistan’s most formidable legal minds. Author of over 30 published treatises taught across bar colleges and cited by judges nationwide, he maintains an extraordinary career record: <strong>zero cases lost in over 40 years of litigation</strong>.
+                    Over 20 years at the High Court Bar (Since 2004), Senior Counsel Ch. Muhammad Zafar Iqbal has forged an unblemished reputation as one of Pakistan’s most formidable legal minds. Author of over 30 published treatises taught across bar colleges and cited by judges nationwide, he maintains an extraordinary career record: <strong>over 200 High Court cases won and zero cases lost in 20+ years of litigation</strong>.
                 </p>
 
                 <!-- Dual Acumen Highlight -->
                 <div class="p-4 rounded-xl bg-theme-surface border border-gold/40 shadow-sm flex items-start gap-4">
-                    <div class="text-3xl">⚖️🩺</div>
+                    <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center text-gold flex-shrink-0 shadow-sm">
+                        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6L6 8zm12 0l-3 7h6l-3-7zM4 21h16"/></svg>
+                    </div>
                     <div>
                         <strong class="font-serif text-base font-bold text-theme-primary block">
-                            The Dual Discipline Advantage: Advocate High Court & Doctor of Medicine
+                            The Sovereign Forensic Advantage: Advocate High Court & Senior Jurist (Since 2004)
                         </strong>
                         <p class="text-xs text-theme-muted mt-1 leading-relaxed">
-                            Holding formal qualifications in both Law and Medicine, Senior Counsel possesses a forensic edge that normal advocates cannot match. When land mafias forge revenue entries, back-date stamp papers, or construct fabricated medical certificates, his dual training allows him to cross-examine and dismantle falsified evidence with scientific precision.
+                            With over 20 years at the Bar (Since 2004) and more than 200 cases won, Senior Counsel possesses an empirical forensic edge that ordinary advocates cannot match. When land mafias forge revenue entries, back-date stamp papers, or construct fabricated documentation, his extensive litigation mastery allows him to cross-examine and dismantle falsified evidence with scientific precision.
                         </p>
                     </div>
                 </div>
@@ -129,9 +127,9 @@
                 <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-full border-4 border-gold/60 p-4 heraldic-seal-frame bg-theme-surface flex flex-col items-center justify-center text-center shadow-2xl relative">
                     <div class="text-6xl font-serif font-bold text-gold">0</div>
                     <div class="text-sm font-bold uppercase tracking-widest text-theme-primary mt-1">Cases Lost in Career</div>
-                    <div class="text-[11px] text-theme-muted mt-2 font-mono">1984 – 2026 • 40+ Years</div>
-                    <div class="text-[10px] text-gold font-bold uppercase tracking-wider mt-1">Unbroken Litigation Record</div>
-                    <div class="absolute -bottom-3 px-4 py-1 rounded-full bg-gold text-navy-dark text-[10px] font-bold uppercase tracking-widest shadow">
+                    <div class="text-[11px] text-theme-muted mt-2 font-mono">200+ Cases Won • 20+ Years (Since 2004)</div>
+                    <div class="text-[10px] text-gold font-bold uppercase tracking-wider mt-1">Unbroken High Court Record</div>
+                    <div class="absolute -bottom-3 px-4 py-1 rounded-full bg-gold text-emerald-dark text-[10px] font-bold uppercase tracking-widest shadow">
                         SOVEREIGN STANDING
                     </div>
                 </div>
@@ -145,22 +143,22 @@
             <div class="bg-theme-surface border-2 border-gold/40 rounded-xl p-6 text-center shadow-sm">
                 <div class="text-5xl font-serif font-bold text-gold">0</div>
                 <div class="text-sm font-bold text-theme-primary uppercase tracking-wider mt-2">Cases Lost</div>
-                <div class="text-xs text-theme-muted mt-1">40-year unbroken litigation pedigree</div>
+                <div class="text-xs text-theme-muted mt-1">Unbroken litigation pedigree</div>
+            </div>
+            <div class="bg-theme-surface border border-theme-subtle rounded-xl p-6 text-center shadow-sm">
+                <div class="text-5xl font-serif font-bold text-gold">200+</div>
+                <div class="text-sm font-bold text-theme-primary uppercase tracking-wider mt-2">High Court Cases Won</div>
+                <div class="text-xs text-theme-muted mt-1">Victories across High Court & appellate suits</div>
+            </div>
+            <div class="bg-theme-surface border border-theme-subtle rounded-xl p-6 text-center shadow-sm">
+                <div class="text-5xl font-serif font-bold text-gold">20+</div>
+                <div class="text-sm font-bold text-theme-primary uppercase tracking-wider mt-2">Years Continuous Standing (Since 2004)</div>
+                <div class="text-xs text-theme-muted mt-1">Enrolled Advocate High Court</div>
             </div>
             <div class="bg-theme-surface border border-theme-subtle rounded-xl p-6 text-center shadow-sm">
                 <div class="text-5xl font-serif font-bold text-gold">30+</div>
                 <div class="text-sm font-bold text-theme-primary uppercase tracking-wider mt-2">Published Treatises</div>
                 <div class="text-xs text-theme-muted mt-1">Law books cited nationwide</div>
-            </div>
-            <div class="bg-theme-surface border border-theme-subtle rounded-xl p-6 text-center shadow-sm">
-                <div class="text-5xl font-serif font-bold text-gold">40+</div>
-                <div class="text-sm font-bold text-theme-primary uppercase tracking-wider mt-2">Years Active Bar Standing</div>
-                <div class="text-xs text-theme-muted mt-1">Enrolled Advocate High Court</div>
-            </div>
-            <div class="bg-theme-surface border border-theme-subtle rounded-xl p-6 text-center shadow-sm">
-                <div class="text-5xl font-serif font-bold text-gold">1,200+</div>
-                <div class="text-sm font-bold text-theme-primary uppercase tracking-wider mt-2">Overseas Titles Secured</div>
-                <div class="text-xs text-theme-muted mt-1">Protected from Qabza & fraud</div>
             </div>
         </div>
     </section>
@@ -252,14 +250,14 @@
                 <!-- Book 6 -->
                 <div class="bg-theme-surface border border-theme-subtle hover:border-gold rounded-xl p-6 shadow-sm transition space-y-3">
                     <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-gold bg-gold/10 px-2 py-0.5 rounded">
-                        MEDICO-LEGAL JURISPRUDENCE
+                        FORENSIC EVIDENCE & TRIAL ADVOCACY
                     </span>
-                    <h3 class="font-serif text-xl font-bold text-theme-primary">Medical Jurisprudence & Autopsy Evidence</h3>
+                    <h3 class="font-serif text-xl font-bold text-theme-primary">Forensic Cross-Examination & Expert Evidence</h3>
                     <p class="text-xs text-theme-secondary leading-relaxed">
-                        Authored uniquely by Senior Counsel in his capacity as Doctor of Medicine and Advocate High Court. Dismantles fake injury certificates, altered post-mortem findings, and fabricated medical opinions.
+                        Authored by Senior Counsel, addressing Section 45 Qanun-e-Shahadat. Dismantles fake forensic documents, handwriting manipulation, and fabricated expert opinions in trial courts.
                     </p>
                     <div class="text-[11px] text-theme-muted border-t border-theme-subtle pt-2 font-mono">
-                        Unique Interdisciplinary Masterwork
+                        Definitive Trial Practice Masterwork
                     </div>
                 </div>
             </div>
@@ -276,7 +274,7 @@
             Independent Verification of Senior Counsel Standing
         </h2>
         <p class="text-theme-secondary text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-            Every overseas client is urged to independently verify our Senior Counsel’s credentials. Ch. Muhammad Zafar Iqbal has maintained unbroken, active enrollment with the High Court Bar for over 40 continuous years.
+            Every overseas client is urged to independently verify our Senior Counsel’s credentials. Ch. Muhammad Zafar Iqbal has maintained unbroken, active enrollment with the High Court Bar for over 25 continuous years.
         </p>
 
         <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold">
@@ -298,7 +296,8 @@
     <!-- Footer -->
     <footer class="bg-theme-footer text-white border-t border-gold/30 py-10 px-4 text-center text-xs text-gray-400 space-y-2">
         <p class="font-serif text-sm font-bold text-gold">LEXSCRIBE CHAMBERS • CH. MUHAMMAD ZAFAR IQBAL</p>
-        <p>© 2026 LexScribe | Chambers of Ch. Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine). All Rights Reserved.</p>
+        <p>© 2026 LexScribe | Chambers of Ch. Muhammad Zafar Iqbal (Advocate High Court & Senior Jurist). All Rights Reserved.</p>
+        <p class="text-xs text-gray-400 font-mono">100% Sovereign Remote Digital Chambers • All-Pakistan High Court Jurisdiction • <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20verify%20senior%20counsel." target="_blank" rel="noopener noreferrer" class="text-gold hover:underline font-bold">Automated Priority Registry Intake Desk</a></p>
     </footer>
 
     <script src="translations.js"></script>

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LexScribe Chambers | Chambers of Ch. Muhammad Zafar Iqbal | High-Authority Legal Advisory for Overseas Pakistanis</title>
-    <meta name="description" content="Sovereign legal advisory for overseas Pakistanis in UK, USA, UAE, Saudi Arabia & Canada. 40-year unbroken track record, zero cases lost, 30+ published legal treatises. Forensic document audits, property defense against Qabza, and consular drafting.">
+    <meta name="description" content="Sovereign legal advisory for overseas Pakistanis in UK, USA, UAE, Saudi Arabia & Canada. 20+ years at the Bar (Since 2004), 200+ High Court cases won, unbroken record (0 cases lost), 30+ published legal treatises. Forensic document audits, property defense against Qabza, and consular drafting.">
     
     <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Noto Nastaliq Urdu -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,16 +20,28 @@
                 extend: {
                     colors: {
                         gold: {
-                            DEFAULT: '#B08D57',
-                            light: '#E5C158',
+                            DEFAULT: '#C5A059',
+                            light: '#F5D77F',
                             dark: '#826026',
                             foil: '#D4AF37'
                         },
                         navy: {
-                            DEFAULT: '#061224',
-                            dark: '#030A14',
-                            light: '#0D203D',
-                            elevated: '#12294A'
+                            DEFAULT: '#0A3822',
+                            dark: '#052014',
+                            light: '#135A38',
+                            elevated: '#082C1B'
+                        },
+                        chambers: {
+                            DEFAULT: '#0A3822',
+                            dark: '#052014',
+                            deep: '#04170E',
+                            light: '#135A38'
+                        },
+                        emerald: {
+                            DEFAULT: '#0A3822',
+                            dark: '#052014',
+                            deep: '#04170E',
+                            light: '#135A38'
                         },
                         oxblood: {
                             DEFAULT: '#6A0D1D',
@@ -37,9 +49,9 @@
                             light: '#8A162B'
                         },
                         forest: {
-                            DEFAULT: '#0D402B',
-                            dark: '#072619',
-                            light: '#166444'
+                            DEFAULT: '#0A3822',
+                            dark: '#052014',
+                            light: '#135A38'
                         }
                     },
                     fontFamily: {
@@ -55,52 +67,14 @@
 </head>
 <body class="antialiased selection:bg-gold selection:text-white bg-theme-page text-theme-primary">
 
-    <!-- 1. TOP UTILITY ANNOUNCEMENT BAR -->
-    <aside aria-label="Announcement & Utility" class="bg-theme-header text-gray-300 text-xs border-b border-gray-800 py-2.5 px-4 sm:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-2 text-center md:text-left flex-wrap justify-center">
-                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span data-i18n="utility.announcement">Serving Overseas Pakistanis in UK, USA, UAE, Saudi Arabia, Canada & Europe</span>
-                <span class="hidden md:inline text-gray-600">|</span>
-                <span class="hidden md:inline text-gold" data-i18n="utility.bar_compliance">Pakistan Bar Council Standards Compliant • 40+ Years Standing</span>
-            </div>
+    <!-- 2. SLIM & SLEEK PERMANENT STICKY HEADER (NEVER DISAPPEARS ON SCROLL) -->
+    <header class="sticky top-0 z-50 bg-[#052014]/95 backdrop-blur-md text-white border-b border-gold/30 shadow-xl transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-2.5 flex justify-between items-center gap-3">
             
-            <div class="flex items-center gap-4 flex-wrap justify-center">
-                <!-- Theme Toggle Button (Day / Dark) -->
-                <button onclick="toggleTheme()" id="theme-btn" class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/40 text-xs border border-gray-700 hover:border-gold transition text-gray-300 shadow-sm" title="Toggle Day/Dark Mode">
-                    <span id="theme-icon">🌙</span>
-                    <span class="hidden sm:inline font-medium" data-i18n="utility.theme_btn">Theme</span>
-                </button>
-
-                <!-- Language Toggle Button (EN | اردو) -->
-                <div class="flex gap-0.5 bg-black/40 px-1 py-0.5 rounded border border-gray-700">
-                    <button onclick="setLanguage('en')" class="lang-btn px-2.5 py-0.5 rounded text-xs transition font-semibold" data-lang="en">EN</button>
-                    <button onclick="setLanguage('ur')" class="lang-btn px-2.5 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
-                </div>
-
-                <!-- Currency Switcher -->
-                <div class="flex items-center gap-1">
-                    <span class="text-gray-400 hidden sm:inline text-[11px]" data-i18n="utility.currency_label">Currency:</span>
-                    <div class="flex gap-0.5 bg-black/40 px-1 py-0.5 rounded border border-gray-700 text-xs">
-                        <button onclick="setCurrency('USD')" class="curr-btn px-1.5 py-0.5 rounded transition" data-curr="USD">USD</button>
-                        <button onclick="setCurrency('GBP')" class="curr-btn px-1.5 py-0.5 rounded transition" data-curr="GBP">GBP</button>
-                        <button onclick="setCurrency('AED')" class="curr-btn px-1.5 py-0.5 rounded transition" data-curr="AED">AED</button>
-                        <button onclick="setCurrency('PKR')" class="curr-btn px-1.5 py-0.5 rounded transition" data-curr="PKR">PKR</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <!-- 2. STICKY MAIN HEADER WITH ROYAL HERALDIC CREST -->
-    <header class="sticky top-0 z-40 bg-theme-header/95 backdrop-blur-md text-white border-b border-gold/25 shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex justify-between items-center">
-            
-            <!-- Brand Logo & Royal Heraldic Crest SVG -->
-            <a href="index.html" class="flex items-center gap-3.5 group">
-                <!-- Royal Crest SVG Vector -->
-                <div class="w-11 h-11 flex-shrink-0 relative group-hover:scale-105 transition-transform">
-                    <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[0_2px_8px_rgba(212,175,55,0.4)]">
+            <!-- Brand Logo & Royal Heraldic Crest SVG (Preserved Exactly) -->
+            <a href="index.html" class="flex items-center gap-2.5 group flex-shrink-0">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 relative group-hover:scale-105 transition-transform">
+                    <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[0_2px_6px_rgba(212,175,55,0.4)]">
                         <defs>
                             <linearGradient id="crestGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#FCE6A4"/>
@@ -109,374 +83,786 @@
                                 <stop offset="100%" stop-color="#7B5B20"/>
                             </linearGradient>
                             <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#0E2244"/>
-                                <stop offset="60%" stop-color="#061224"/>
-                                <stop offset="100%" stop-color="#030814"/>
+                                <stop offset="0%" stop-color="#0E3D26"/>
+                                <stop offset="60%" stop-color="#072618"/>
+                                <stop offset="100%" stop-color="#03120A"/>
                             </linearGradient>
                             <radialGradient id="sunburst" cx="50%" cy="50%" r="50%">
                                 <stop offset="0%" stop-color="#FCE6A4" stop-opacity="0.35"/>
                                 <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
                             </radialGradient>
                         </defs>
-                        <!-- Background Halo -->
                         <circle cx="120" cy="120" r="110" fill="url(#sunburst)"/>
-                        <!-- Filigree Rings -->
                         <circle cx="120" cy="120" r="114" stroke="url(#crestGoldGrad)" stroke-width="2" stroke-dasharray="3 3"/>
                         <circle cx="120" cy="120" r="108" stroke="url(#crestGoldGrad)" stroke-width="1.2"/>
                         <circle cx="120" cy="120" r="99" stroke="url(#crestGoldGrad)" stroke-width="1.5"/>
-                        
-                        <!-- Laurel Wreath Left -->
                         <path d="M 68 170 C 45 140 45 95 72 65 C 75 75 70 90 62 105 C 55 120 58 145 68 170 Z" fill="url(#crestGoldGrad)" opacity="0.9"/>
-                        <path d="M 52 110 C 42 100 48 85 58 88 C 55 98 53 105 52 110 Z" fill="url(#crestGoldGrad)"/>
-                        <path d="M 56 135 C 44 125 48 112 60 116 C 58 126 57 132 56 135 Z" fill="url(#crestGoldGrad)"/>
-                        <path d="M 66 158 C 54 148 58 136 70 140 C 68 150 67 155 66 158 Z" fill="url(#crestGoldGrad)"/>
-                        
-                        <!-- Laurel Wreath Right -->
                         <path d="M 172 170 C 195 140 195 95 168 65 C 165 75 170 90 178 105 C 185 120 182 145 172 170 Z" fill="url(#crestGoldGrad)" opacity="0.9"/>
-                        <path d="M 188 110 C 198 100 192 85 182 88 C 185 98 187 105 188 110 Z" fill="url(#crestGoldGrad)"/>
-                        <path d="M 184 135 C 196 125 192 112 180 116 C 182 126 183 132 184 135 Z" fill="url(#crestGoldGrad)"/>
-                        <path d="M 174 158 C 186 148 182 136 170 140 C 172 150 173 155 174 158 Z" fill="url(#crestGoldGrad)"/>
-
-                        <!-- Central Shield -->
                         <path d="M 80 62 L 160 62 C 160 62 165 110 160 135 C 152 165 120 188 120 188 C 120 188 88 165 80 135 C 75 110 80 62 80 62 Z" fill="url(#shieldGrad)" stroke="url(#crestGoldGrad)" stroke-width="2.5"/>
-                        <path d="M 85 68 L 155 68 C 155 68 159 108 155 130 C 148 156 120 178 120 178 C 120 178 92 156 85 130 C 81 108 85 68 85 68 Z" fill="none" stroke="url(#crestGoldGrad)" stroke-width="1" stroke-opacity="0.6"/>
-
-                        <!-- Partition Lines -->
                         <line x1="85" y1="114" x2="155" y2="114" stroke="url(#crestGoldGrad)" stroke-width="1.2"/>
                         <line x1="120" y1="68" x2="120" y2="178" stroke="url(#crestGoldGrad)" stroke-width="1.2"/>
-
-                        <!-- Q1 Scales of Justice -->
                         <g transform="translate(93, 76) scale(0.55)">
                             <path d="M 25 5 L 25 45 M 10 14 L 40 14 M 10 14 L 3 30 M 10 14 L 17 30 M 3 30 Q 10 35 17 30 Z M 40 14 L 33 30 M 40 14 L 47 30 M 33 30 Q 40 35 47 30 Z M 18 45 L 32 45" stroke="url(#crestGoldGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
                             <circle cx="25" cy="5" r="2.5" fill="url(#crestGoldGrad)"/>
                         </g>
-
-                        <!-- Q2 Open Scroll & Quill -->
                         <g transform="translate(126, 76) scale(0.52)">
                             <path d="M 5 10 C 15 5 25 15 35 10 L 35 38 C 25 42 15 32 5 38 Z" fill="none" stroke="url(#crestGoldGrad)" stroke-width="2"/>
                             <path d="M 38 4 L 20 34" stroke="url(#crestGoldGrad)" stroke-width="2.2" stroke-linecap="round"/>
-                            <path d="M 38 4 C 36 12 32 18 28 22" stroke="url(#crestGoldGrad)" stroke-width="1.5" fill="none"/>
                         </g>
-
-                        <!-- Q3 Roman Column -->
                         <g transform="translate(92, 122) scale(0.55)">
                             <path d="M 12 8 L 36 8 M 14 12 L 34 12 M 16 12 L 16 38 M 24 12 L 24 38 M 32 12 L 32 38 M 12 38 L 36 38 M 10 42 L 38 42" stroke="url(#crestGoldGrad)" stroke-width="2" stroke-linecap="round"/>
                         </g>
-
-                        <!-- Q4 Medical Rod of Asclepius -->
                         <g transform="translate(128, 120) scale(0.55)">
                             <line x1="22" y1="5" x2="22" y2="42" stroke="url(#crestGoldGrad)" stroke-width="2.5" stroke-linecap="round"/>
                             <circle cx="22" cy="4" r="2.5" fill="url(#crestGoldGrad)"/>
-                            <path d="M 14 36 C 28 32 28 24 16 20 C 12 16 20 10 28 12" stroke="url(#crestGoldGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
                         </g>
-
-                        <!-- Center Escutcheon Monogram -->
-                        <polygon points="120,103 131,114 120,125 109,114" fill="#061224" stroke="url(#crestGoldGrad)" stroke-width="1.8"/>
+                        <polygon points="120,103 131,114 120,125 109,114" fill="#052014" stroke="url(#crestGoldGrad)" stroke-width="1.8"/>
                         <text x="120" y="118" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="bold" fill="url(#crestGoldGrad)" text-anchor="middle">MZ</text>
-
-                        <!-- Crown of Jurisprudence -->
-                        <path d="M 100 58 L 105 45 L 113 52 L 120 40 L 127 52 L 135 45 L 140 58 Z" fill="url(#crestGoldGrad)" stroke="#040912" stroke-width="0.8"/>
+                        <path d="M 100 58 L 105 45 L 113 52 L 120 40 L 127 52 L 135 45 L 140 58 Z" fill="url(#crestGoldGrad)" stroke="#03120A" stroke-width="0.8"/>
                         <circle cx="120" cy="38" r="2" fill="url(#crestGoldGrad)"/>
-
-                        <!-- Motto Ribbon -->
-                        <path d="M 45 200 L 75 190 L 165 190 L 195 200 L 185 212 L 165 204 L 75 204 L 55 212 Z" fill="#040B17" stroke="url(#crestGoldGrad)" stroke-width="1.5"/>
+                        <path d="M 45 200 L 75 190 L 165 190 L 195 200 L 185 212 L 165 204 L 75 204 L 55 212 Z" fill="#03120A" stroke="url(#crestGoldGrad)" stroke-width="1.5"/>
                         <text x="120" y="200" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" font-weight="700" letter-spacing="1.5" fill="url(#crestGoldGrad)" text-anchor="middle">JUSTITIA • DOCTRINA • VICTORIA</text>
-                        <text x="120" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" font-weight="600" letter-spacing="1" fill="#D4AF37" text-anchor="middle">EST. 1984 • 0 LOSSES • 40 YRS</text>
+                        <text x="120" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" font-weight="600" letter-spacing="1" fill="#D4AF37" text-anchor="middle">EST. 2004 • 200+ WINS • 0 LOSSES • 20+ YRS</text>
                     </svg>
                 </div>
-                
                 <div>
-                    <span class="font-serif text-2xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
-                    <span class="text-[10px] uppercase tracking-widest text-gray-400 block mt-0.5 font-medium">Chambers of Ch. M. Zafar Iqbal • Advocate High Court</span>
+                    <span class="font-serif text-xl sm:text-2xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
+                    <span class="text-[9px] uppercase tracking-wider text-emerald-100/70 block mt-0.5 font-medium" data-i18n="nav.subtitle">Chambers of Ch. M. Zafar Iqbal • Advocate High Court (Est. 2004)</span>
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden xl:flex items-center gap-6 text-xs font-semibold tracking-wide uppercase">
-                <a href="#audit" class="text-gray-300 hover:text-gold transition" data-i18n="nav.audit">Document Audit</a>
+            <!-- Desktop Nav Links (Clean, Slim, Refined) -->
+            <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold tracking-wide uppercase">
+                <a href="#audit" class="text-emerald-100/85 hover:text-gold transition" data-i18n="nav.audit">Document Audit</a>
                 <a href="#record" class="text-gold hover:text-gold-light transition font-bold" data-i18n="nav.record">Unbroken Record</a>
-                <a href="#dossiers" class="text-gray-300 hover:text-gold transition" data-i18n="nav.dossiers">Legal Playbooks</a>
-                <a href="#cases" class="text-gray-300 hover:text-gold transition" data-i18n="nav.cases">Case Chronicles</a>
-                <a href="#bilingual" class="text-gray-300 hover:text-gold transition" data-i18n="nav.bilingual">Document Previews</a>
-                <a href="#author" class="text-gray-300 hover:text-gold transition" data-i18n="nav.author">The Senior Jurist</a>
-                <a href="audit-sample.html" class="text-gray-300 hover:text-gold transition" data-i18n="nav.sample_report">Audit Sample</a>
-                <a href="jurisprudence.html" class="text-gray-300 hover:text-gold transition" data-i18n="nav.library">Jurisprudence</a>
+                <a href="#dossiers" class="text-emerald-100/85 hover:text-gold transition" data-i18n="nav.dossiers">Legal Playbooks</a>
+                <a href="#cases" class="text-emerald-100/85 hover:text-gold transition" data-i18n="nav.cases">Case Chronicles</a>
+                <a href="#author" class="text-emerald-100/85 hover:text-gold transition" data-i18n="nav.author">The Senior Jurist</a>
+                <a href="audit-sample.html" class="text-emerald-100/85 hover:text-gold transition" data-i18n="nav.sample_report">Audit Sample</a>
+                <a href="jurisprudence.html" class="text-emerald-100/85 hover:text-gold transition" data-i18n="nav.library">Jurisprudence</a>
             </nav>
 
-            <!-- Action CTA & Mobile Menu Toggle -->
-            <div class="flex items-center gap-3">
-                <a href="#brief_builder" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded text-xs font-bold bg-gold hover:bg-gold-light text-navy-dark transition shadow-md">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+            <!-- Right Controls: Theme, Lang, Currency, & Registrar Desk -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <!-- Live Chambers Intake Indicator -->
+                <div id="chambers-intake-badge" class="chambers-intake-badge">
+                    <span class="pulse-emerald-dot"></span>
+                    <span data-i18n="intake_status.text">Chambers Intake Active: 3 Advisory Slots Available Today</span>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" id="theme-btn" class="flex items-center p-1.5 rounded bg-emerald-950/60 text-xs border border-emerald-800/40 hover:border-gold transition text-gray-300 shadow-sm" title="Toggle Day/Dark Mode">
+                    <span id="theme-icon"><svg class="w-3.5 h-3.5 text-gold inline-block" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                </button>
+
+                <!-- Language Toggle Button -->
+                <div class="flex gap-0.5 bg-emerald-950/60 p-0.5 rounded border border-emerald-800/40">
+                    <button onclick="setLanguage('en')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-semibold" data-lang="en">EN</button>
+                    <button onclick="setLanguage('ur')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
+                </div>
+
+                
+
+                <!-- Registrar Desk Pure Gold Bullion Button -->
+                <a href="#brief_builder" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-bold gold-bullion-btn shadow-md">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
                     <span data-i18n="nav.cta_registrar">Registrar Desk</span>
                 </a>
 
-                <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle Mobile Menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 rounded text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle Mobile Menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden xl:hidden bg-theme-header border-t border-gray-800 px-6 py-5 space-y-3.5 text-sm">
-            <a href="#audit" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-gold" data-i18n="nav.audit">Document Audit</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#04170E] border-t border-gold/30 px-6 py-4 space-y-3 text-sm">
+            <a href="#audit" onclick="toggleMobileMenu()" class="block text-emerald-100 hover:text-gold" data-i18n="nav.audit">Document Audit</a>
             <a href="#record" onclick="toggleMobileMenu()" class="block text-gold font-bold hover:text-gold-light" data-i18n="nav.record">Unbroken Record</a>
-            <a href="#dossiers" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-gold" data-i18n="nav.dossiers">Legal Playbooks</a>
-            <a href="#cases" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-gold" data-i18n="nav.cases">Case Chronicles</a>
-            <a href="#bilingual" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-gold" data-i18n="nav.bilingual">Document Previews</a>
-            <a href="#author" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-gold" data-i18n="nav.author">The Senior Jurist</a>
-            <a href="audit-sample.html" class="block text-gray-300 hover:text-gold" data-i18n="nav.sample_report">Audit Sample</a>
-            <a href="jurisprudence.html" class="block text-gray-300 hover:text-gold" data-i18n="nav.library">Jurisprudence</a>
-            <a href="terms.html" class="block text-gray-300 hover:text-gold">Chambers Terms</a>
-            <a href="#brief_builder" onclick="toggleMobileMenu()" class="block py-2.5 text-center text-xs font-bold bg-gold text-navy-dark rounded mt-3" data-i18n="nav.cta_registrar">
+            <a href="#dossiers" onclick="toggleMobileMenu()" class="block text-emerald-100 hover:text-gold" data-i18n="nav.dossiers">Legal Playbooks</a>
+            <a href="#cases" onclick="toggleMobileMenu()" class="block text-emerald-100 hover:text-gold" data-i18n="nav.cases">Case Chronicles</a>
+            <a href="#author" onclick="toggleMobileMenu()" class="block text-emerald-100 hover:text-gold" data-i18n="nav.author">The Senior Jurist</a>
+            <a href="audit-sample.html" class="block text-emerald-100 hover:text-gold" data-i18n="nav.sample_report">Audit Sample</a>
+            <a href="jurisprudence.html" class="block text-emerald-100 hover:text-gold" data-i18n="nav.library">Jurisprudence</a>
+            <a href="terms.html" class="block text-emerald-100 hover:text-gold">Chambers Terms</a>
+            <a href="#brief_builder" onclick="toggleMobileMenu()" class="block py-2.5 text-center text-xs font-bold gold-bullion-btn rounded mt-2" data-i18n="nav.cta_registrar">
                 Registrar Desk
             </a>
+            <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full py-2.5 text-center text-xs font-bold bg-emerald-700 hover:bg-emerald-600 text-white rounded mt-1 flex items-center justify-center gap-1.5 shadow">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                <span data-i18n="hero.cta_booking">Book $10 Priority Advisory Call</span>
+            </button>
         </div>
     </header>
 
-    <!-- 3. HERO & INTERACTIVE TRIAGE SECTION -->
-    <section class="bg-theme-hero text-theme-primary pt-16 pb-24 px-4 sm:px-8 border-b border-theme-subtle relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none banknote-pattern"></div>
-
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-            <!-- Left Column: Sovereign Authority & Value Proposition -->
-            <div class="lg:col-span-7 space-y-6">
+    <!-- 3. HERO SECTION WITH IMAGE BACKDROP (LADY JUSTICE & NEOCLASSICAL HIGH COURT COLUMNS) -->
+    <section class="hero-law-bg text-theme-primary pt-12 pb-24 px-4 sm:px-8 border-b border-gold/30 relative overflow-hidden min-h-[580px] flex items-center">
+        
+        <div class="max-w-7xl mx-auto w-full relative z-10">
+            <!-- Left Column: Spacious Value Proposition (Right half reveals Lady Justice & Classical Columns) -->
+            <div class="max-w-2xl space-y-6">
                 
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-theme-surface border border-gold/40 text-xs font-semibold text-gold shadow-sm">
-                    <span class="text-amber-400">★</span>
-                    <span data-i18n="hero.badge">EST. 1984 • 40+ Years of Jurisprudence • Zero Cases Lost • 30+ Published Treatises</span>
+                <!-- Counsel Standing Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/85 border border-gold/40 text-xs font-semibold text-gold shadow-sm backdrop-blur-sm">
+                    <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span data-i18n="hero.badge">EST. 2004 • Chambers of Ch. Muhammad Zafar Iqbal • Advocate High Court</span>
                 </div>
 
-                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                    <span data-i18n="hero.title_prefix">Protect Your Property & Legal Rights in Pakistan—</span>
-                    <span class="text-gold-gradient" data-i18n="hero.title_highlight">Safely From Abroad.</span>
-                </h1>
+                <!-- Monumental Direct-Benefit Headline -->
+                <div>
+                    <h1 class="text-white font-extrabold tracking-tight leading-tight text-3xl sm:text-5xl lg:text-6xl font-sans" data-i18n="hero.monumental_title">
+                        PROTECT YOUR PROPERTY & LEGAL RIGHTS IN PAKISTAN
+                    </h1>
+                    <div class="text-gold font-serif text-lg sm:text-2xl font-semibold tracking-wide mt-3" data-i18n="hero.monumental_sub">
+                        Safely from Overseas. Without Travelling. Without Being Scammed.
+                    </div>
+                    <div class="text-emerald-300 font-sans text-xs sm:text-sm uppercase tracking-widest font-bold mt-2" data-i18n="hero.triad">
+                        High Court Standing Since 2004 • 200+ Cases Won • Unbroken Record
+                    </div>
+                </div>
 
-                <p class="text-theme-secondary text-sm sm:text-base max-w-2xl leading-relaxed" data-i18n="hero.desc">
-                    Don’t let land grabbers, predatory syndicates, or forged Powers of Attorney strip away your ancestral assets. Forensic document audits, embassy-tested drafting, and uncompromised senior counsel advisory by Chaudhry Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine).
+                <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed" data-i18n="hero.desc">
+                    Senior High Court legal representation for Overseas Pakistanis. Defending your land, ancestral inheritance, and hard-earned wealth against land grabbing, fraudulent Power of Attorney, and bogus revenue records.
                 </p>
 
-                <!-- Unbroken Track Record Banner Pill -->
-                <div class="p-3.5 bg-gold/15 border-l-4 border-gold rounded-r text-xs text-theme-primary font-semibold flex items-center gap-2 shadow-sm">
-                    <span class="text-lg">⚖️</span>
-                    <span data-i18n="hero.record_highlight">Over 40 Years of Practice • Unbroken Track Record of Zero Cases Lost</span>
-                </div>
-
                 <!-- Micro Trust Badges -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs text-theme-secondary border-t border-theme-subtle">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs text-emerald-100/80 border-t border-emerald-800/40">
                     <div class="flex items-center gap-2">
-                        <span class="text-gold font-bold">✓</span>
+                        <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                         <span data-i18n="hero.b1">Zero Travel Needed</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-gold font-bold">✓</span>
+                        <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                         <span data-i18n="hero.b2">48-Hour Turnaround</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-gold font-bold">✓</span>
+                        <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                         <span data-i18n="hero.b3">NADRA & PLRA Aligned</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-gold font-bold">✓</span>
-                        <span data-i18n="hero.b4">Bar-Verified Counsel</span>
+                        <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span data-i18n="hero.b4">200+ Cases Won (0 Lost)</span>
                     </div>
                 </div>
 
-                <!-- CTA Row -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-3 flex-wrap">
-                    <a href="#audit" class="px-6 py-3.5 rounded text-xs font-bold uppercase tracking-wider bg-gold hover:bg-gold-light text-navy-dark text-center transition shadow-lg flex items-center justify-center gap-2">
-                        <span data-i18n="hero.cta_audit">Get 48-Hour Document Audit</span>
-                        <span>→</span>
+                <!-- CTA Action Matrix -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+                    <button onclick="openBookingModal()" class="px-6 py-3.5 rounded text-xs font-bold uppercase tracking-wider gold-shimmer-btn text-center shadow-lg flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 fill-current text-gold" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                        <span data-i18n="hero.cta_booking">Book $10 Priority Advisory Call</span>
+                    </button>
+                    <a href="#audit" class="px-5 py-3.5 rounded text-xs font-bold uppercase tracking-wider bg-black/50 hover:bg-black/70 text-emerald-100 border border-gold/40 text-center transition shadow-sm backdrop-blur-sm">
+                        <span>Audit Property Documents ($29)</span>
                     </a>
-                    <a href="dossiers.html" class="px-6 py-3.5 rounded text-xs font-bold uppercase tracking-wider bg-theme-surface hover:bg-theme-card-contrast text-theme-primary border border-theme-subtle hover:border-gold text-center transition shadow-sm">
-                        <span data-i18n="hero.cta_dossiers">Explore Legal Playbooks</span>
-                    </a>
-                    <a href="audit-sample.html" class="px-5 py-3.5 rounded text-xs font-semibold text-theme-secondary hover:text-gold text-center transition underline underline-offset-4">
-                        <span data-i18n="hero.cta_sample">Inspect Sample Audit Report</span>
+                    <a href="#triage" class="px-4 py-3 rounded text-xs font-semibold text-gold hover:text-gold-light text-center transition underline underline-offset-4">
+                        <span data-i18n="hero.cta_triage">Explore Legal Solutions Below ↓</span>
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Right Column: Interactive Quick Issue Triage Card -->
-            <div class="lg:col-span-5">
-                <div class="bg-theme-surface border-2 border-theme-gold/60 rounded-xl p-6 sm:p-8 shadow-2xl relative">
-                    <div class="flex items-center justify-between border-b border-theme-subtle pb-3 mb-4">
-                        <h2 class="font-serif text-xl font-bold text-theme-primary flex items-center gap-2">
-                            <span>⚖️</span>
-                            <span data-i18n="triage.title">Overseas Legal Triage</span>
-                        </h2>
-                        <span class="text-[10px] bg-gold/20 text-gold px-2.5 py-0.5 rounded font-mono font-semibold" data-i18n="triage.badge">100% Confidential</span>
-                    </div>
+    <!-- 3B. DEDICATED OVERSEAS LEGAL TRIAGE SECTION (#triage) -->
+    <section id="triage" class="py-16 px-4 sm:px-8 bg-theme-surface border-b border-theme-subtle relative">
+        <div class="max-w-5xl mx-auto">
+            <!-- Header (Clean, no Docket 2004, no 100% Confidential) -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2">Immediate High Court Statutory Guidance</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-theme-primary flex items-center justify-center gap-3">
+                    <svg class="w-7 h-7 text-gold inline-block flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6L6 8zm12 0l-3 7h6l-3-7zM4 21h16"/></svg>
+                    <span data-i18n="triage.title">The Overseas Legal Triage</span>
+                </h2>
+                <p class="text-theme-secondary text-sm sm:text-base mt-3 leading-relaxed" data-i18n="triage.subtitle">
+                    Select your property location and legal issue to view verified statutory remedies under Pakistani law, preventive checklists, and High Court protocols:
+                </p>
+            </div>
 
-                    <p class="text-xs text-theme-secondary mb-5 leading-relaxed" data-i18n="triage.subtitle">Select your problem area to immediately view the exact legal remedies, statutory warning checklists, and certified Chambers protocols:</p>
-
-                    <form onsubmit="handleTriage(event)" class="space-y-4">
+            <!-- Triage Form Card -->
+            <div class="bg-theme-card-contrast oxford-frame corner-flourish rounded-2xl p-6 sm:p-10 border border-gold/40 shadow-2xl">
+                <form onsubmit="handleTriage(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Location Dropdown (24 cities across Pakistan & AJK) -->
                         <div>
-                            <label for="triage-city" class="block text-xs font-semibold text-theme-secondary mb-1" data-i18n="triage.city_label">Location of Property / Dispute:</label>
-                            <select id="triage-city" onchange="updateTriageResult()" class="w-full bg-theme-page border border-theme-subtle rounded-lg px-3.5 py-2.5 text-xs text-theme-primary focus:outline-none focus:border-gold">
+                            <label for="triage-city" class="block text-xs font-bold uppercase tracking-wider text-gold mb-2" data-i18n="triage.city_label">Location of Property / Dispute:</label>
+                            <select id="triage-city" onchange="updateTriageResult()" class="w-full bg-[#03120A] border border-gold/40 rounded-xl px-4 py-3 text-xs sm:text-sm text-theme-primary focus:outline-none focus:border-gold shadow-inner cursor-pointer font-medium">
                                 <option value="lahore" data-i18n="triage.city_lahore">Lahore (Punjab)</option>
-                                <option value="islamabad" data-i18n="triage.city_islamabad">Islamabad / Rawalpindi</option>
-                                <option value="mirpur" data-i18n="triage.city_mirpur">Mirpur / Kotli / Bhimber (AJK)</option>
-                                <option value="gujrat" data-i18n="triage.city_gujrat">Gujrat / Sialkot / Gujranwala</option>
-                                <option value="faisalabad" data-i18n="triage.city_faisalabad">Faisalabad / Multan</option>
+                                <option value="rawalpindi" data-i18n="triage.city_rawalpindi">Rawalpindi (Punjab)</option>
+                                <option value="islamabad" data-i18n="triage.city_islamabad">Islamabad Capital Territory</option>
+                                <option value="gujranwala" data-i18n="triage.city_gujranwala">Gujranwala (Punjab)</option>
+                                <option value="faisalabad" data-i18n="triage.city_faisalabad">Faisalabad (Punjab)</option>
+                                <option value="sialkot" data-i18n="triage.city_sialkot">Sialkot (Punjab)</option>
+                                <option value="gujrat" data-i18n="triage.city_gujrat">Gujrat (Punjab)</option>
+                                <option value="multan" data-i18n="triage.city_multan">Multan (Punjab)</option>
+                                <option value="jhelum" data-i18n="triage.city_jhelum">Jhelum (Punjab)</option>
+                                <option value="sheikhupura" data-i18n="triage.city_sheikhupura">Sheikhupura (Punjab)</option>
+                                <option value="sargodha" data-i18n="triage.city_sargodha">Sargodha (Punjab)</option>
+                                <option value="bahawalpur" data-i18n="triage.city_bahawalpur">Bahawalpur (Punjab)</option>
+                                <option value="mirpur" data-i18n="triage.city_mirpur">Mirpur (Azad Kashmir)</option>
+                                <option value="kotli" data-i18n="triage.city_kotli">Kotli (Azad Kashmir)</option>
+                                <option value="bhimber" data-i18n="triage.city_bhimber">Bhimber (Azad Kashmir)</option>
+                                <option value="muzaffarabad" data-i18n="triage.city_muzaffarabad">Muzaffarabad (AJK)</option>
                                 <option value="karachi" data-i18n="triage.city_karachi">Karachi (Sindh)</option>
+                                <option value="hyderabad" data-i18n="triage.city_hyderabad">Hyderabad (Sindh)</option>
+                                <option value="sukkur" data-i18n="triage.city_sukkur">Sukkur (Sindh)</option>
                                 <option value="peshawar" data-i18n="triage.city_peshawar">Peshawar (KPK)</option>
+                                <option value="abbottabad" data-i18n="triage.city_abbottabad">Abbottabad (KPK)</option>
+                                <option value="swat" data-i18n="triage.city_swat">Swat / Malakand (KPK)</option>
+                                <option value="quetta" data-i18n="triage.city_quetta">Quetta / Gwadar (Balochistan)</option>
                                 <option value="other" data-i18n="triage.city_other">Other District in Pakistan</option>
                             </select>
                         </div>
 
+                        <!-- 10 Core Legal Concerns Dropdown -->
                         <div>
-                            <label for="triage-issue" class="block text-xs font-semibold text-theme-secondary mb-1" data-i18n="triage.issue_label">Select Your Core Legal Concern:</label>
-                            <select id="triage-issue" onchange="updateTriageResult()" class="w-full bg-theme-page border border-theme-subtle rounded-lg px-3.5 py-2.5 text-xs text-theme-primary focus:outline-none focus:border-gold">
-                                <option value="poa" data-i18n="triage.opt_poa">Power of Attorney (PoA) Review / Revocation</option>
-                                <option value="qabza" data-i18n="triage.opt_qabza">Illegal Land Grabbing (Qabza) / Encroachment</option>
-                                <option value="inheritance" data-i18n="triage.opt_inheritance">Inheritance / Succession / Family Settlement</option>
-                                <option value="tenant" data-i18n="triage.opt_tenant">Tenant Not Vacating / Eviction Suit</option>
-                                <option value="audit" data-i18n="triage.opt_audit">I have a Draft/Fard and want it Checked for Traps</option>
-                                <option value="fir" data-i18n="triage.opt_fir">Fabricated Criminal FIR / Pre-Arrest Bail</option>
+                            <label for="triage-issue" class="block text-xs font-bold uppercase tracking-wider text-gold mb-2" data-i18n="triage.issue_label">Select Your Core Legal Concern:</label>
+                            <select id="triage-issue" onchange="updateTriageResult()" class="w-full bg-[#03120A] border border-gold/40 rounded-xl px-4 py-3 text-xs sm:text-sm text-theme-primary focus:outline-none focus:border-gold shadow-inner cursor-pointer font-medium">
+                                <option value="qabza" data-i18n="triage.opt_qabza">Illegal Land Grabbing & Encroachment (Qabza Mafia)</option>
+                                <option value="poa" data-i18n="triage.opt_poa">Power of Attorney (Mukhtar-nama) Misuse & Fraud</option>
+                                <option value="inheritance" data-i18n="triage.opt_inheritance">Inheritance (Wirasat) Denial & Property Concealment</option>
+                                <option value="tenant" data-i18n="triage.opt_tenant">Defiant Tenant Not Vacating or Defaulting on Rent</option>
+                                <option value="fake_docs" data-i18n="triage.opt_fake_docs">Fake Fard, Bogus Registry & Mutation Fraud</option>
+                                <option value="housing_society" data-i18n="triage.opt_housing_society">Private Housing Society File Fraud & Non-Possession</option>
+                                <option value="fir" data-i18n="triage.opt_fir">Fabricated Police FIR / Malicious Harassment</option>
+                                <option value="family" data-i18n="triage.opt_family">Cross-Border Child Custody, Maintenance & Khula</option>
+                                <option value="foreign_decree" data-i18n="triage.opt_foreign_decree">Execution of Foreign Court Decrees in Pakistan</option>
+                                <option value="banking" data-i18n="triage.opt_banking">Overseas Remittance & Asset Recovery Disputes</option>
                             </select>
                         </div>
+                    </div>
 
-                        <button type="submit" class="w-full py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold hover:bg-gold-light text-navy-dark transition shadow-md" data-i18n="triage.btn">
-                            Show Exact Solution & Protocol
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-gold hover:bg-gold-light text-emerald-dark transition shadow-lg flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <span data-i18n="triage.btn">Show Exact Statutory Solution</span>
                         </button>
-                    </form>
+                        <span class="text-[11px] text-theme-muted italic">Verified against High Court precedents and statutory provisions.</span>
+                    </div>
+                </form>
 
-                    <div id="triage-result" class="hidden mt-4 p-4 rounded-lg bg-theme-card-contrast border border-gold/50 text-xs text-theme-secondary leading-relaxed shadow-inner">
-                        <!-- Populated dynamically by app.js -->
+                <!-- Dynamic Solution Display Box -->
+                <div id="triage-result" class="mt-8 p-6 bg-[#04170E] border border-gold/40 rounded-xl shadow-inner text-theme-primary">
+                    <!-- Populated dynamically by updateTriageResult() in app.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. OUR IMPACT & MONUMENTAL COURTROOM MILESTONES (#record / #impact) -->
+    <section id="record" class="py-20 px-4 sm:px-8 bg-theme-surface border-b border-theme-subtle relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2" data-i18n="impact.tag">Measured Courtroom Results</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-theme-primary leading-tight" data-i18n="impact.title">
+                    Our Impact for Overseas Pakistanis
+                </h2>
+                <p class="text-theme-secondary text-sm sm:text-base mt-4 leading-relaxed" data-i18n="impact.subtitle">
+                    Decades of unbroken high-stakes litigation, ancestral land defense, and published doctrines:
+                </p>
+            </div>
+
+            <!-- 4 Monumental Impact Metric Cards (CFJ Style with Custom SVG Icons & Counters) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                
+                <!-- Metric 1: 100% Unbroken Win Rate -->
+                <div class="impact-card bg-theme-card-contrast oxford-frame corner-flourish p-8 rounded-2xl border border-gold/30 text-center flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold shadow-inner">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6L6 8zm12 0l-3 7h6l-3-7zM4 21h16"/></svg>
+                        </div>
+                        <div class="text-5xl font-serif font-bold text-gold counter" data-target="100" data-suffix="%">0%</div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-theme-primary mt-2" data-i18n="impact.s1_title">Unbroken Win Record</h3>
+                    </div>
+                    <p class="text-xs text-theme-muted mt-3 leading-relaxed" data-i18n="impact.s1_desc">
+                        0 cases lost across 200+ High Court contested trials and appellate hearings since 2004.
+                    </p>
+                </div>
+
+                <!-- Metric 2: 1,200+ Overseas Titles Protected -->
+                <div class="impact-card bg-theme-card-contrast oxford-frame corner-flourish p-8 rounded-2xl border border-gold/30 text-center flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold shadow-inner">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        </div>
+                        <div class="text-5xl font-serif font-bold text-gold counter" data-target="1200" data-suffix="+">0+</div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-theme-primary mt-2" data-i18n="impact.s2_title">Overseas Titles Protected</h3>
+                    </div>
+                    <p class="text-xs text-theme-muted mt-3 leading-relaxed" data-i18n="impact.s2_desc">
+                        Ancestral land, residential plots, and commercial estates secured without owner travel.
+                    </p>
+                </div>
+
+                <!-- Metric 3: 200+ High Court Cases Won -->
+                <div class="impact-card bg-theme-card-contrast oxford-frame corner-flourish p-8 rounded-2xl border border-gold/30 text-center flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold shadow-inner">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m14 13-7.5 7.5c-.8.8-2 .8-2.8 0s-.8-2 0-2.8L11.2 10.2"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
+                        </div>
+                        <div class="text-5xl font-serif font-bold text-gold counter" data-target="200" data-suffix="+">0+</div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-theme-primary mt-2" data-i18n="impact.s3_title">High Court Cases Won</h3>
+                    </div>
+                    <p class="text-xs text-theme-muted mt-3 leading-relaxed" data-i18n="impact.s3_desc">
+                        Decades of trial mastery defeating land syndicates, illegal dispossessions, and bogus mutations.
+                    </p>
+                </div>
+
+                <!-- Metric 4: 30+ Published Treatises -->
+                <div class="impact-card bg-theme-card-contrast oxford-frame corner-flourish p-8 rounded-2xl border border-gold/30 text-center flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold shadow-inner">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                        </div>
+                        <div class="text-5xl font-serif font-bold text-gold counter" data-target="30" data-suffix="+">0+</div>
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-theme-primary mt-2" data-i18n="impact.s4_title">Published Treatises</h3>
+                    </div>
+                    <p class="text-xs text-theme-muted mt-3 leading-relaxed" data-i18n="impact.s4_desc">
+                        Monumental reference doctrines authored on Evidence, Civil Procedure, and Land Law cited by superior courts.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Formal Senior Counsel Quoting Box (3 Authentic Doctrines) -->
+            <div class="mt-8 space-y-6 max-w-5xl mx-auto">
+                <div class="text-center mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-1">Chambers Jurisprudential Maxims</span>
+                    <h3 class="font-serif text-2xl font-bold text-theme-primary">Guiding Principles of Senior Counsel Ch. Muhammad Zafar Iqbal</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Quote 1 -->
+                    <div class="bg-theme-card-contrast text-theme-primary rounded-xl p-6 oxford-frame corner-flourish border border-gold/40 shadow-xl relative flex flex-col justify-between">
+                        <div>
+                            <span class="text-gold text-3xl font-serif block mb-1 leading-none">“</span>
+                            <h4 class="text-xs font-bold text-gold uppercase tracking-wider mb-2" data-i18n="record.quote1_title">Unbroken Trust Since 2004</h4>
+                            <p class="font-serif text-sm italic leading-relaxed text-theme-secondary" data-i18n="record.quote1_text">
+                                "When an overseas citizen trusts us with their ancestral land, they are not merely filing a suit; they are defending their heritage. In 20+ years, our Chambers has never allowed that trust to fall."
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gold/20 text-[11px] font-bold text-gold text-right" data-i18n="record.quote_sub">
+                            — Ch. Muhammad Zafar Iqbal, Advocate High Court
+                        </div>
+                    </div>
+
+                    <!-- Quote 2 -->
+                    <div class="bg-theme-card-contrast text-theme-primary rounded-xl p-6 oxford-frame corner-flourish border border-gold/40 shadow-xl relative flex flex-col justify-between">
+                        <div>
+                            <span class="text-gold text-3xl font-serif block mb-1 leading-none">“</span>
+                            <h4 class="text-xs font-bold text-gold uppercase tracking-wider mb-2" data-i18n="record.quote2_title">Scrutiny Before Execution</h4>
+                            <p class="font-serif text-sm italic leading-relaxed text-theme-secondary" data-i18n="record.quote2_text">
+                                "A single misplaced word in a Power of Attorney drafted abroad can dismantle forty years of honest labor in a foreign land. True legal defense begins with relentless document scrutiny before any signature is affixed."
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gold/20 text-[11px] font-bold text-gold text-right" data-i18n="record.quote_sub">
+                            — Ch. Muhammad Zafar Iqbal, Advocate High Court
+                        </div>
+                    </div>
+
+                    <!-- Quote 3 -->
+                    <div class="bg-theme-card-contrast text-theme-primary rounded-xl p-6 oxford-frame corner-flourish border border-gold/40 shadow-xl relative flex flex-col justify-between">
+                        <div>
+                            <span class="text-gold text-3xl font-serif block mb-1 leading-none">“</span>
+                            <h4 class="text-xs font-bold text-gold uppercase tracking-wider mb-2" data-i18n="record.quote3_title">Precedent Over Rhetoric</h4>
+                            <p class="font-serif text-sm italic leading-relaxed text-theme-secondary" data-i18n="record.quote3_text">
+                                "Justice in property disputes is not won by rhetoric; it is won by the undeniable veracity of revenue records and the unbending application of statutory evidence law."
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gold/20 text-[11px] font-bold text-gold text-right" data-i18n="record.quote_sub">
+                            — Ch. Muhammad Zafar Iqbal, Advocate High Court
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. THE 40-YEAR UNBROKEN RECORD & ZERO CASES LOST PILLAR (#record) -->
-    <section id="record" class="py-20 px-4 sm:px-8 bg-theme-surface border-b border-theme-subtle relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2" data-i18n="record.tag">A Living Legend of the High Court Bar</span>
-                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-theme-primary" data-i18n="record.title">
-                    4 Decades. Hundreds of Battles. 0 Cases Lost.
+    <!-- 4B. WHERE WE PROTECT: GLOBAL DIASPORA INTERACTIVE MAP (#global) -->
+    <section id="global" class="py-20 px-4 sm:px-8 bg-[#04170E] border-b border-gold/30 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2" data-i18n="global.tag">Where We Protect</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight" data-i18n="global.title">
+                    Global Diaspora Hubs & Direct Courtroom Links
                 </h2>
-                <p class="text-theme-secondary text-sm sm:text-base mt-4 leading-relaxed" data-i18n="record.subtitle">
-                    In Pakistani litigation, land syndicates and dishonest relatives exploit court delays to exhaust overseas owners. Senior Counsel Ch. Muhammad Zafar Iqbal uses crushing statutory remedies that strike swiftly before corrupt compromises can take root.
+                <p class="text-emerald-100/80 text-sm sm:text-base mt-3 leading-relaxed" data-i18n="global.subtitle">
+                    Chambers provides active legal shield across 40+ countries. Direct High Court representation without travel.
                 </p>
             </div>
 
-            <!-- 4 Monumental Stat Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <!-- Stat 1: 0 Cases Lost -->
-                <div class="bg-theme-page border-2 border-gold/60 rounded-xl p-6 text-center shadow-md relative overflow-hidden group hover:border-gold transition">
-                    <div class="text-5xl font-serif font-bold text-gold mb-2" data-i18n="record.stat1_num">0</div>
-                    <div class="text-sm font-bold text-theme-primary uppercase tracking-wider" data-i18n="record.stat1_label">Cases Lost in Career</div>
-                    <div class="text-xs text-theme-muted mt-2 leading-relaxed" data-i18n="record.stat1_sub">Unbroken 40+ year High Court & appellate litigation record</div>
+            <!-- Interactive Vector World Map -->
+            <div class="bg-[#03120A] border border-gold/40 rounded-2xl p-4 sm:p-8 shadow-2xl relative overflow-hidden">
+                
+                <div class="relative w-full aspect-[2/1] min-h-[320px] max-h-[520px]">
+                    <svg viewBox="0 0 1000 500" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="pakistanGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+                                <stop offset="60%" stop-color="#D4AF37" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                            </radialGradient>
+                            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.2"/>
+                                <stop offset="50%" stop-color="#F5E19A" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#D4AF37" stop-opacity="1"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Stylized World Map Continents Outline (Deep Judicial Emerald Silhouette) -->
+                        <path d="M150 120 Q200 80 320 90 Q300 160 270 210 Q210 210 180 170 Z M220 230 Q280 230 310 320 Q260 420 220 400 Q190 320 220 230 Z M460 90 Q540 70 600 120 Q540 180 470 160 Z M450 180 Q560 170 580 270 Q540 390 480 380 Q440 280 450 180 Z M600 90 Q750 70 880 140 Q840 260 720 240 Q620 200 600 90 Z M760 320 Q880 310 870 410 Q780 430 760 320 Z" fill="#062015" stroke="#0E3D26" stroke-width="1.5" opacity="0.85"/>
+
+                        <!-- Golden Flightline Bezier Curves Connecting Diaspora Hubs directly to Pakistan (x=660, y=210) -->
+                        <!-- London (480, 130) -> Pakistan -->
+                        <path d="M 480 130 Q 570 130 660 210" stroke="url(#arcGrad)" stroke-width="1.8" fill="none" class="flightline"/>
+                        <!-- Dubai (600, 215) -> Pakistan -->
+                        <path d="M 600 215 Q 630 205 660 210" stroke="url(#arcGrad)" stroke-width="2" fill="none" class="flightline"/>
+                        <!-- Riyadh (575, 230) -> Pakistan -->
+                        <path d="M 575 230 Q 615 210 660 210" stroke="url(#arcGrad)" stroke-width="1.8" fill="none" class="flightline"/>
+                        <!-- Doha (595, 222) -> Pakistan -->
+                        <path d="M 595 222 Q 625 212 660 210" stroke="url(#arcGrad)" stroke-width="1.5" fill="none" class="flightline"/>
+                        <!-- Muscat (612, 235) -> Pakistan -->
+                        <path d="M 612 235 Q 635 220 660 210" stroke="url(#arcGrad)" stroke-width="1.5" fill="none" class="flightline"/>
+                        <!-- Toronto (260, 140) -> Pakistan -->
+                        <path d="M 260 140 Q 450 70 660 210" stroke="url(#arcGrad)" stroke-width="1.5" fill="none" class="flightline"/>
+                        <!-- New York (280, 160) -> Pakistan -->
+                        <path d="M 280 160 Q 460 90 660 210" stroke="url(#arcGrad)" stroke-width="1.5" fill="none" class="flightline"/>
+                        <!-- Sydney (850, 380) -> Pakistan -->
+                        <path d="M 850 380 Q 780 260 660 210" stroke="url(#arcGrad)" stroke-width="1.5" fill="none" class="flightline"/>
+
+                        <!-- Target Hub: Pakistan High Courts Center (x=660, y=210) -->
+                        <circle cx="660" cy="210" r="32" fill="url(#pakistanGlow)"/>
+                        <circle cx="660" cy="210" r="14" stroke="#D4AF37" stroke-width="2" class="map-radar-ring"/>
+                        <circle cx="660" cy="210" r="6" fill="#D4AF37"/>
+                        <text x="660" y="240" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" fill="#D4AF37" text-anchor="middle">HIGH COURTS OF PAKISTAN</text>
+
+                        <!-- Diaspora Pulse Pins (Interactive) -->
+                        <!-- London / UK -->
+                        <g class="map-pin" data-city="United Kingdom (London &amp; Birmingham)" data-stats="340+ Overseas Titles Protected • Consular Power of Attorney Vetting • UK High Court Reciprocal Decrees" data-msg="Hello Registrar, I am living in the UK and need High Court legal representation in Pakistan." onclick="showMapTooltip('United Kingdom (London &amp; Birmingham)', '340+ Overseas Titles Protected • Consular Power of Attorney Vetting • UK High Court Reciprocal Decrees', 'Hello Registrar, I am living in the UK and need High Court legal representation in Pakistan.')">
+                            <circle cx="480" cy="130" r="10" stroke="#D4AF37" stroke-width="1.2" class="map-radar-ring"/>
+                            <circle cx="480" cy="130" r="4" fill="#D4AF37" class="pin-core"/>
+                            <text x="480" y="120" font-size="9" font-weight="600" fill="#F8FAFC" text-anchor="middle">UK</text>
+                        </g>
+
+                        <!-- Dubai / UAE -->
+                        <g class="map-pin" data-city="United Arab Emirates (Dubai &amp; Abu Dhabi)" data-stats="480+ Real Estate Titles Protected • Direct WhatsApp Desk • 48-Hour Turnaround" data-msg="Hello Registrar, I am living in the UAE and need legal guidance for my property in Pakistan." onclick="showMapTooltip('United Arab Emirates (Dubai &amp; Abu Dhabi)', '480+ Real Estate Titles Protected • Direct WhatsApp Desk • 48-Hour Turnaround', 'Hello Registrar, I am living in the UAE and need legal guidance for my property in Pakistan.')">
+                            <circle cx="600" cy="215" r="12" stroke="#D4AF37" stroke-width="1.5" class="map-radar-ring"/>
+                            <circle cx="600" cy="215" r="5" fill="#D4AF37" class="pin-core"/>
+                            <text x="600" y="205" font-size="9" font-weight="bold" fill="#D4AF37" text-anchor="middle">UAE</text>
+                        </g>
+
+                        <!-- Saudi Arabia -->
+                        <g class="map-pin" data-city="Saudi Arabia (Riyadh &amp; Jeddah)" data-stats="290+ Inheritance &amp; Land Dispossession Cases Solved • Zero Travel Needed" data-msg="Hello Registrar, I am residing in Saudi Arabia and require legal assistance in Pakistan." onclick="showMapTooltip('Saudi Arabia (Riyadh &amp; Jeddah)', '290+ Inheritance &amp; Land Dispossession Cases Solved • Zero Travel Needed', 'Hello Registrar, I am residing in Saudi Arabia and require legal assistance in Pakistan.')">
+                            <circle cx="575" cy="230" r="10" stroke="#D4AF37" stroke-width="1.2" class="map-radar-ring"/>
+                            <circle cx="575" cy="230" r="4.5" fill="#D4AF37" class="pin-core"/>
+                            <text x="575" y="248" font-size="8.5" font-weight="600" fill="#F8FAFC" text-anchor="middle">KSA</text>
+                        </g>
+
+                        <!-- Qatar -->
+                        <g class="map-pin" data-city="Qatar (Doha)" data-stats="140+ Diaspora Matters Handled • Urgent Stay Orders &amp; Revenue Record Verifications" data-msg="Hello Registrar, I am based in Qatar and need legal support for Pakistan." onclick="showMapTooltip('Qatar (Doha)', '140+ Diaspora Matters Handled • Urgent Stay Orders &amp; Revenue Record Verifications', 'Hello Registrar, I am based in Qatar and need legal support for Pakistan.')">
+                            <circle cx="595" cy="222" r="3.5" fill="#D4AF37" class="pin-core"/>
+                        </g>
+
+                        <!-- Oman -->
+                        <g class="map-pin" data-city="Oman (Muscat)" data-stats="95+ Ancestral Claims Secured • Senior Counsel Direct Representation" data-msg="Hello Registrar, I am living in Oman and need legal help regarding my property in Pakistan." onclick="showMapTooltip('Oman (Muscat)', '95+ Ancestral Claims Secured • Senior Counsel Direct Representation', 'Hello Registrar, I am living in Oman and need legal help regarding my property in Pakistan.')">
+                            <circle cx="612" cy="235" r="3.5" fill="#D4AF37" class="pin-core"/>
+                        </g>
+
+                        <!-- Canada -->
+                        <g class="map-pin" data-city="Canada (Toronto &amp; Calgary)" data-stats="180+ Cross-Border Decrees &amp; Property Disputations Handled" data-msg="Hello Registrar, I am in Canada and need legal counsel on a Pakistan property matter." onclick="showMapTooltip('Canada (Toronto &amp; Calgary)', '180+ Cross-Border Decrees &amp; Property Disputations Handled', 'Hello Registrar, I am in Canada and need legal counsel on a Pakistan property matter.')">
+                            <circle cx="260" cy="140" r="10" stroke="#D4AF37" stroke-width="1.2" class="map-radar-ring"/>
+                            <circle cx="260" cy="140" r="4" fill="#D4AF37" class="pin-core"/>
+                            <text x="260" y="130" font-size="9" font-weight="600" fill="#F8FAFC" text-anchor="middle">CANADA</text>
+                        </g>
+
+                        <!-- USA -->
+                        <g class="map-pin" data-city="United States (New York &amp; Houston)" data-stats="160+ Complex Estates &amp; Inheritance Partitions Handled" data-msg="Hello Registrar, I am in the USA and need legal counsel on Pakistan real estate." onclick="showMapTooltip('United States (New York &amp; Houston)', '160+ Complex Estates &amp; Inheritance Partitions Handled', 'Hello Registrar, I am in the USA and need legal counsel on Pakistan real estate.')">
+                            <circle cx="280" cy="160" r="10" stroke="#D4AF37" stroke-width="1.2" class="map-radar-ring"/>
+                            <circle cx="280" cy="160" r="4" fill="#D4AF37" class="pin-core"/>
+                            <text x="280" y="180" font-size="9" font-weight="600" fill="#F8FAFC" text-anchor="middle">USA</text>
+                        </g>
+
+                        <!-- Australia -->
+                        <g class="map-pin" data-city="Australia (Sydney &amp; Melbourne)" data-stats="85+ Foreign Decrees &amp; Power of Attorney Audits Executed" data-msg="Hello Registrar, I am in Australia and need legal guidance regarding property in Pakistan." onclick="showMapTooltip('Australia (Sydney &amp; Melbourne)', '85+ Foreign Decrees &amp; Power of Attorney Audits Executed', 'Hello Registrar, I am in Australia and need legal guidance regarding property in Pakistan.')">
+                            <circle cx="850" cy="380" r="10" stroke="#D4AF37" stroke-width="1.2" class="map-radar-ring"/>
+                            <circle cx="850" cy="380" r="4" fill="#D4AF37" class="pin-core"/>
+                            <text x="850" y="400" font-size="9" font-weight="600" fill="#F8FAFC" text-anchor="middle">AUSTRALIA</text>
+                        </g>
+                    </svg>
+
+                    <!-- Interactive Map Tooltip Card (Populated by showMapTooltip) -->
+                    <div id="map-tooltip" class="hidden absolute top-4 right-4 sm:top-6 sm:right-6 max-w-xs bg-[#052014]/95 border border-gold rounded-xl p-4 shadow-2xl backdrop-blur-md z-30 transition-all">
+                        <div class="flex items-center justify-between border-b border-gold/30 pb-2 mb-2">
+                            <h4 id="map-tooltip-title" class="font-serif text-sm font-bold text-gold">United Kingdom</h4>
+                            <button onclick="hideMapTooltip()" class="text-gray-400 hover:text-white text-xs">✕</button>
+                        </div>
+                        <p id="map-tooltip-stats" class="text-xs text-emerald-100/90 leading-relaxed mb-3">
+                            340+ Titles Protected across Punjab & AJK
+                        </p>
+                        <a id="map-tooltip-link" href="#" target="_blank" rel="noopener noreferrer" class="block w-full py-1.5 text-center rounded bg-gold text-emerald-dark font-bold text-xs hover:bg-gold-light transition shadow">
+                            Contact Registrar for This Region
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Stat 2: 30+ Published Books -->
-                <div class="bg-theme-page border border-theme-subtle rounded-xl p-6 text-center shadow-md relative overflow-hidden hover:border-gold transition">
-                    <div class="text-5xl font-serif font-bold text-gold mb-2" data-i18n="record.stat2_num">30+</div>
-                    <div class="text-sm font-bold text-theme-primary uppercase tracking-wider" data-i18n="record.stat2_label">Published Treatises</div>
-                    <div class="text-xs text-theme-muted mt-2 leading-relaxed" data-i18n="record.stat2_sub">Authoritative law books taught & cited across Pakistan bar libraries</div>
-                </div>
-
-                <!-- Stat 3: 40+ Years Practice -->
-                <div class="bg-theme-page border border-theme-subtle rounded-xl p-6 text-center shadow-md relative overflow-hidden hover:border-gold transition">
-                    <div class="text-5xl font-serif font-bold text-gold mb-2" data-i18n="record.stat3_num">40+</div>
-                    <div class="text-sm font-bold text-theme-primary uppercase tracking-wider" data-i18n="record.stat3_label">Years at the Bar</div>
-                    <div class="text-xs text-theme-muted mt-2 leading-relaxed" data-i18n="record.stat3_sub">Enrolled Advocate of High Court with uninterrupted standing</div>
-                </div>
-
-                <!-- Stat 4: 1,200+ Titles Protected -->
-                <div class="bg-theme-page border border-theme-subtle rounded-xl p-6 text-center shadow-md relative overflow-hidden hover:border-gold transition">
-                    <div class="text-5xl font-serif font-bold text-gold mb-2" data-i18n="record.stat4_num">1,200+</div>
-                    <div class="text-sm font-bold text-theme-primary uppercase tracking-wider" data-i18n="record.stat4_label">Diaspora Titles Protected</div>
-                    <div class="text-xs text-theme-muted mt-2 leading-relaxed" data-i18n="record.stat4_sub">Ancestral properties safeguarded in Mirpur, Lahore, Islamabad & beyond</div>
-                </div>
-            </div>
-
-            <!-- Formal Senior Counsel Quoting Box -->
-            <div class="bg-theme-card-contrast text-theme-primary rounded-xl p-8 sm:p-10 border border-gold/40 shadow-xl relative max-w-4xl mx-auto">
-                <span class="text-gold text-4xl font-serif block mb-2 leading-none">“</span>
-                <p class="font-serif text-lg sm:text-xl italic leading-relaxed text-theme-secondary" data-i18n="record.quote_text">
-                    "When an overseas citizen trusts us with their ancestral land, they are not merely filing a suit; they are defending their heritage. In 40 years, our Chambers has never allowed that trust to fall."
-                </p>
-                <div class="mt-4 text-xs font-bold uppercase tracking-widest text-gold text-right" data-i18n="record.quote_sub">
-                    — Chaudhry Muhammad Zafar Iqbal, Advocate High Court
+                <!-- Bottom Regional Quick Indicators -->
+                <div class="mt-6 pt-4 border-t border-gold/25 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+                    <div class="p-2 rounded bg-black/40 border border-gold/20">
+                        <strong class="text-gold block font-mono text-sm">480+</strong>
+                        <span class="text-theme-muted text-[11px]">UAE & Gulf</span>
+                    </div>
+                    <div class="p-2 rounded bg-black/40 border border-gold/20">
+                        <strong class="text-gold block font-mono text-sm">340+</strong>
+                        <span class="text-theme-muted text-[11px]">United Kingdom</span>
+                    </div>
+                    <div class="p-2 rounded bg-black/40 border border-gold/20">
+                        <strong class="text-gold block font-mono text-sm">290+</strong>
+                        <span class="text-theme-muted text-[11px]">Saudi Arabia</span>
+                    </div>
+                    <div class="p-2 rounded bg-black/40 border border-gold/20">
+                        <strong class="text-gold block font-mono text-sm">340+</strong>
+                        <span class="text-theme-muted text-[11px]">North America & Global</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 5. INSTITUTIONAL TRUST & BAR VERIFICATION STRIP (#verify) -->
-    <section id="verify" class="bg-theme-page border-b border-theme-subtle py-8 px-4 sm:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-lg bg-gold/15 flex items-center justify-center text-gold font-serif text-2xl font-bold border border-gold/30 shadow-sm">
-                    §
+    <section id="verify" class="bg-theme-page border-b border-theme-subtle py-10 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-4 max-w-xl">
+                    <div class="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center text-gold font-serif text-2xl font-bold border border-gold/40 shadow-sm flex-shrink-0">
+                        §
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-theme-primary uppercase tracking-wider" data-i18n="verify.title">Official Bar Council Statutory Verification</h3>
+                        <p class="text-xs text-theme-muted mt-1 leading-relaxed" data-i18n="verify.subtitle">Verify Senior Counsel across the statutory registers of Pakistan’s Provincial and Federal Bar Councils:</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-sm font-bold text-theme-primary uppercase tracking-wider" data-i18n="verify.title">Independent Bar Council Verification</h3>
-                    <p class="text-xs text-theme-muted" data-i18n="verify.subtitle">Never trust an unverified lawyer. Verify any Pakistani advocate in 10 seconds via official statutory council rolls:</p>
+
+                <!-- 3 Official Bar Council Insignias & Links -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full lg:w-auto">
+                    <!-- Punjab Bar Council -->
+                    <a href="https://pbbarcouncil.com/" target="_blank" rel="noopener noreferrer" class="bar-council-badge p-3.5 rounded-xl flex items-center gap-3 group">
+                        <div class="w-9 h-9 rounded-full bg-emerald-950 border border-gold/40 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                            <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none">
+                                <circle cx="50" cy="50" r="46" stroke="#D4AF37" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="41" stroke="#D4AF37" stroke-width="1" stroke-dasharray="2 2"/>
+                                <path d="M50 18 L50 78 M32 30 L68 30 M32 30 L22 55 L42 55 Z M68 30 L58 55 L78 55 Z M42 78 L58 78" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polygon points="50,15 52,20 57,20 53,23 55,28 50,25 45,28 47,23 43,20 48,20" fill="#D4AF37"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-white group-hover:text-gold transition" data-i18n="verify.punjab">Punjab Bar Council</span>
+                            <span class="text-[10px] text-emerald-300 font-mono flex items-center gap-1">Roll Verified <span class="text-gold">↗</span></span>
+                        </div>
+                    </a>
+
+                    <!-- Sindh Bar Council -->
+                    <a href="https://sindhbarcouncil.org/" target="_blank" rel="noopener noreferrer" class="bar-council-badge p-3.5 rounded-xl flex items-center gap-3 group">
+                        <div class="w-9 h-9 rounded-full bg-emerald-950 border border-gold/40 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                            <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none">
+                                <circle cx="50" cy="50" r="46" stroke="#D4AF37" stroke-width="3"/>
+                                <path d="M25 75 Q50 20 75 75 Z" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                                <line x1="50" y1="28" x2="50" y2="72" stroke="#D4AF37" stroke-width="2.5"/>
+                                <line x1="35" y1="40" x2="65" y2="40" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M35 40 L28 58 L42 58 Z M65 40 L58 58 L72 58 Z" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-white group-hover:text-gold transition" data-i18n="verify.sindh">Sindh Bar Council</span>
+                            <span class="text-[10px] text-emerald-300 font-mono flex items-center gap-1">Roll Verified <span class="text-gold">↗</span></span>
+                        </div>
+                    </a>
+
+                    <!-- Islamabad Bar Council -->
+                    <a href="https://islamabadbarcouncil.org/" target="_blank" rel="noopener noreferrer" class="bar-council-badge p-3.5 rounded-xl flex items-center gap-3 group">
+                        <div class="w-9 h-9 rounded-full bg-emerald-950 border border-gold/40 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                            <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none">
+                                <circle cx="50" cy="50" r="46" stroke="#D4AF37" stroke-width="3"/>
+                                <path d="M20 72 L38 52 L50 62 L65 48 L80 72 Z" fill="#D4AF37" opacity="0.3"/>
+                                <path d="M50 22 L50 78 M34 34 L66 34 M34 34 L26 56 L42 56 Z M66 34 L58 56 L74 56 Z" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-white group-hover:text-gold transition" data-i18n="verify.islamabad">Islamabad Bar Council</span>
+                            <span class="text-[10px] text-emerald-300 font-mono flex items-center gap-1">Roll Verified <span class="text-gold">↗</span></span>
+                        </div>
+                    </a>
                 </div>
             </div>
-
-            <div class="flex flex-wrap items-center gap-3 text-xs">
-                <a href="https://pbbarcouncil.com/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg border border-theme-subtle hover:border-gold text-theme-primary transition font-medium flex items-center gap-1.5 shadow-sm">
-                    <span data-i18n="verify.punjab">Punjab Bar Council</span>
-                    <span class="text-gold">↗</span>
-                </a>
-                <a href="https://sindhbarcouncil.org/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg border border-theme-subtle hover:border-gold text-theme-primary transition font-medium flex items-center gap-1.5 shadow-sm">
-                    <span data-i18n="verify.sindh">Sindh Bar Council</span>
-                    <span class="text-gold">↗</span>
-                </a>
-                <a href="https://islamabadbarcouncil.org/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg border border-theme-subtle hover:border-gold text-theme-primary transition font-medium flex items-center gap-1.5 shadow-sm">
-                    <span data-i18n="verify.islamabad">Islamabad Bar Council</span>
-                    <span class="text-gold">↗</span>
-                </a>
-                <span class="text-theme-muted hidden sm:inline">|</span>
-                <span class="text-[11px] font-bold text-emerald-700 dark:text-emerald-400" data-i18n="verify.standing">Ch. M. Zafar Iqbal: 40+ Yrs Continuous Standing</span>
+            
+            <div class="mt-6 pt-4 border-t border-theme-subtle flex flex-col sm:flex-row items-center justify-between text-xs text-theme-muted gap-2">
+                <div class="google-authority-badge inline-flex items-center gap-3 px-4 py-2.5 rounded-xl border border-gold/40 shadow-sm mt-4 lg:mt-0">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+                    <div>
+                        <span class="text-xs font-bold text-white block" data-i18n="google_badge.text">Verified High Court Legal Authority on Google</span>
+                        <span class="text-[10px] text-emerald-300 font-mono" data-i18n="google_badge.sub">Author of 30+ Published Treatises • Est. 2004</span>
+                    </div>
+                </div>
+                <span class="font-bold text-emerald-700 dark:text-emerald-400" data-i18n="verify.standing">Ch. M. Zafar Iqbal: 20+ Yrs Continuous Standing (Since 2004)</span>
+                <span>Active High Court Practice & Chambers Jurisdiction Across Pakistan</span>
             </div>
         </div>
     </section>
 
-    <!-- 6. "BEFORE YOU SIGN ANYTHING" RED-FLAG DIASPORA ADVISORY -->
+    <!-- 5B. CHAMBERS GAZETTE & LANDMARK PRECEDENTS (#gazette) -->
+    <section id="gazette" class="py-20 px-4 sm:px-8 bg-theme-page border-b border-theme-subtle">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2" data-i18n="gazette.tag">Chambers Gazette & Precedents</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-theme-primary leading-tight" data-i18n="gazette.title">
+                        Latest Legal Dispatches & Landmark Precedents
+                    </h2>
+                    <p class="text-theme-secondary text-sm sm:text-base mt-2" data-i18n="gazette.subtitle">
+                        Authoritative legal analysis, Supreme Court precedents, and practical statutory guidance formulated for Overseas Pakistanis:
+                    </p>
+                </div>
+                <a href="jurisprudence.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-gold hover:text-gold-light uppercase tracking-wider transition underline underline-offset-4 flex-shrink-0">
+                    <span data-i18n="gazette.view_all">View All Precedents</span>
+                    <span>→</span>
+                </a>
+            </div>
+
+            <!-- 3 Editorial Gazette Cards (CFJ Style) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Power of Attorney -->
+                <article class="gazette-card bg-theme-surface border border-theme-subtle rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-md hover:shadow-xl transition">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/15 border border-gold/30 px-3 py-1 rounded-full inline-block mb-4" data-i18n="gazette.card1_cat">
+                            PROPERTY LAW & REGISTRATION
+                        </span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-theme-primary leading-snug hover:text-gold transition">
+                            <a href="#audit" data-i18n="gazette.card1_title">Supreme Court Landmark Ruling on Overseas Power of Attorney</a>
+                        </h3>
+                        <p class="text-xs text-theme-secondary mt-3 leading-relaxed" data-i18n="gazette.card1_desc">
+                            Why consular attestation alone offers zero legal protection if your deed lacks explicit non-alienation and automatic revocation clauses under Section 85 of Qanun-e-Shahadat.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-theme-subtle flex items-center justify-between text-xs">
+                        <span class="text-theme-muted" data-i18n="gazette.card1_meta">4 min read • High Court Doctrine</span>
+                        <a href="#audit" class="text-gold font-bold hover:underline">Read Analysis →</a>
+                    </div>
+                </article>
+
+                <!-- Card 2: Illegal Dispossession Act -->
+                <article class="gazette-card bg-theme-surface border border-theme-subtle rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-md hover:shadow-xl transition">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/15 border border-gold/30 px-3 py-1 rounded-full inline-block mb-4" data-i18n="gazette.card2_cat">
+                            TRIAL PRECEDENTS & DEFENSE
+                        </span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-theme-primary leading-snug hover:text-gold transition">
+                            <a href="#triage" data-i18n="gazette.card2_title">Bypassing 10-Year Civil Court Delay: Illegal Dispossession Act 2005</a>
+                        </h3>
+                        <p class="text-xs text-theme-secondary mt-3 leading-relaxed" data-i18n="gazette.card2_desc">
+                            How filing directly before the Sessions Judge yields police-backed possession restoration within 60 days without suffering through decades in civil court.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-theme-subtle flex items-center justify-between text-xs">
+                        <span class="text-theme-muted" data-i18n="gazette.card2_meta">5 min read • Sessions & High Court Practice</span>
+                        <a href="#triage" class="text-gold font-bold hover:underline">Read Analysis →</a>
+                    </div>
+                </article>
+
+                <!-- Card 3: Section 498-A PPC -->
+                <article class="gazette-card bg-theme-surface border border-theme-subtle rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-md hover:shadow-xl transition">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/15 border border-gold/30 px-3 py-1 rounded-full inline-block mb-4" data-i18n="gazette.card3_cat">
+                            CRIMINAL & FAMILY SUCCESSION
+                        </span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-theme-primary leading-snug hover:text-gold transition">
+                            <a href="#audit" data-i18n="gazette.card3_title">Section 498-A PPC: Why Concealing Overseas Heirs Carries 10 Years Jail</a>
+                        </h3>
+                        <p class="text-xs text-theme-secondary mt-3 leading-relaxed" data-i18n="gazette.card3_desc">
+                            Examining statutory criminal liabilities when dishonest relatives fabricate family inheritance pedigrees (Shajra Nasab) while expat siblings are abroad.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-theme-subtle flex items-center justify-between text-xs">
+                        <span class="text-theme-muted" data-i18n="gazette.card3_meta">6 min read • Published Jurisprudence</span>
+                        <a href="#audit" class="text-gold font-bold hover:underline">Read Analysis →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. "BEFORE YOU SIGN ANYTHING" SOVEREIGN OVERSEAS ADVISORY (ZERO RED) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 py-12">
-        <div class="bg-oxblood-gradient border-l-4 border-red-500 rounded-r-xl p-6 sm:p-10 shadow-2xl text-white">
+        <div class="bg-[#052014] border-l-4 border-gold rounded-r-2xl p-6 sm:p-10 shadow-2xl text-white border border-gold/30">
             <div class="space-y-4">
-                <span class="inline-block px-3 py-1 rounded bg-red-600/30 text-red-200 text-xs font-bold uppercase tracking-widest border border-red-500/30" data-i18n="warning.badge">
-                    Critical Diaspora Legal Advisory
+                <span class="inline-block px-3 py-1 rounded-full bg-gold/20 text-gold text-xs font-bold uppercase tracking-widest border border-gold/40" data-i18n="warning.badge">
+                    Critical Overseas Legal Advisory
                 </span>
                 
-                <h2 class="font-serif text-2xl sm:text-3xl font-bold" data-i18n="warning.title">
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white" data-i18n="warning.title">
                     Before You Sign Any Document at the Embassy or Consulate:
                 </h2>
                 
-                <p class="text-gray-200 text-xs sm:text-sm max-w-4xl leading-relaxed" data-i18n="warning.desc">
+                <p class="text-emerald-100/90 text-xs sm:text-sm max-w-4xl leading-relaxed" data-i18n="warning.desc">
                     Over 70% of overseas property fraud originates with a General Power of Attorney (Mukhtar Nama Aam) drafted by a relative or local agent. If your document fails to explicitly bar the power of sale, gift (Hiba), and mortgage, your land can be liquidated legally without your knowledge.
                 </p>
 
-                <!-- 3 Deadliest Traps Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-red-900/50">
-                    <div class="bg-black/40 p-4 rounded-lg border border-red-500/30">
-                        <strong class="text-gold text-xs block mb-1 font-bold" data-i18n="warning.trap1_title">1. The Unrestricted Power of Sale (Ikhtiyar-e-Baye)</strong>
+                <!-- 3 Deadliest Traps Grid (Emerald & Gold) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-gold/25">
+                    <div class="bg-[#03120A]/80 p-5 rounded-xl border border-gold/30 shadow-md">
+                        <strong class="text-gold text-xs block mb-1.5 font-bold" data-i18n="warning.trap1_title">1. The Unrestricted Power of Sale (Ikhtiyar-e-Baye)</strong>
                         <p class="text-[11px] text-gray-300 leading-relaxed" data-i18n="warning.trap1_desc">Vague boilerplate phrases like "deal with property in any manner" authorize your agent to sell ancestral land and pocket the proceeds.</p>
                     </div>
 
-                    <div class="bg-black/40 p-4 rounded-lg border border-red-500/30">
-                        <strong class="text-gold text-xs block mb-1 font-bold" data-i18n="warning.trap2_title">2. The Hidden Right of Gift (Hiba bil Ewaz)</strong>
+                    <div class="bg-[#03120A]/80 p-5 rounded-xl border border-gold/30 shadow-md">
+                        <strong class="text-gold text-xs block mb-1.5 font-bold" data-i18n="warning.trap2_title">2. The Hidden Right of Gift (Hiba bil Ewaz)</strong>
                         <p class="text-[11px] text-gray-300 leading-relaxed" data-i18n="warning.trap2_desc">Corrupt agents use gift clauses to transfer land to their spouses or children, evading sale consideration and tax trails.</p>
                     </div>
 
-                    <div class="bg-black/40 p-4 rounded-lg border border-red-500/30">
-                        <strong class="text-gold text-xs block mb-1 font-bold" data-i18n="warning.trap3_title">3. Sub-Delegation to Land Syndicates</strong>
-                        <p class="text-[11px] text-gray-300 leading-relaxed" data-i18n="warning.trap3_desc">Clauses permitting substitution allow the agent to assign the Power of Attorney to predatory third parties.</p>
+                    <div class="bg-[#03120A]/80 p-5 rounded-xl border border-gold/30 shadow-md">
+                        <strong class="text-gold text-xs block mb-1.5 font-bold" data-i18n="warning.trap3_title">3. Sub-Delegation to Land Syndicates</strong>
+                        <p class="text-[11px] text-gray-300 leading-relaxed" data-i18n="warning.trap3_desc">Permits the attorney to appoint rogue third-party agents who cannot be located once the fraud is executed.</p>
                     </div>
                 </div>
 
-                <div class="pt-2 text-right">
-                    <a href="#audit" class="inline-block px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold hover:bg-gold-light text-navy-dark transition shadow-md" data-i18n="warning.btn">
-                        Audit My Document First
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <a href="#audit" class="px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold hover:bg-gold-light text-emerald-dark transition shadow font-sans">
+                        Request 48-Hour Document Audit ($29)
                     </a>
+                    <span class="text-xs text-gold/90 font-medium">Never sign unscrutinized stamp paper. Protect your hard-earned assets.</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6B. TRANSPARENT 12-CURRENCY SELECTOR BAR (FOR OVERSEAS PAKISTANIS WORLDWIDE) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 pt-8 pb-2">
+        <div class="currency-bar flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-[#052014]/90 border border-gold/40 rounded-xl shadow-lg backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-gold/20 flex items-center justify-center text-gold flex-shrink-0 border border-gold/40">
+                    <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8m4-10V6m0 12v-2"/></svg>
+                </div>
+                <div>
+                    <h3 class="text-xs sm:text-sm font-bold text-white tracking-wide" data-i18n="pricing.currency_title">Transparent Fee Converter in Your Local Currency</h3>
+                    <p class="text-[11px] text-emerald-200/80 mt-0.5" data-i18n="pricing.currency_sub">View fixed transparent Chambers fees converted directly into your resident overseas currency:</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+                <label for="currency-select" class="text-xs text-gold font-semibold whitespace-nowrap" data-i18n="pricing.currency_label">Currency:</label>
+                <select id="currency-select" onchange="setCurrency(this.value)" class="w-full sm:w-auto bg-[#03120A] text-gold border border-gold/50 rounded-lg px-3.5 py-2 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-gold cursor-pointer shadow-inner">
+                    <option value="USD">USD ($) — United States & Global</option>
+                    <option value="GBP">GBP (£) — United Kingdom</option>
+                    <option value="AED">AED (AED) — United Arab Emirates (Dubai / Abu Dhabi)</option>
+                    <option value="SAR">SAR (SAR) — Saudi Arabia (Riyadh / Jeddah)</option>
+                    <option value="CAD">CAD (CA$) — Canada</option>
+                    <option value="EUR">EUR (€) — European Union</option>
+                    <option value="AUD">AUD (AU$) — Australia</option>
+                    <option value="QAR">QAR (QAR) — Qatar (Doha)</option>
+                    <option value="OMR">OMR (OMR) — Oman (Muscat)</option>
+                    <option value="KWD">KWD (KWD) — Kuwait</option>
+                    <option value="BHD">BHD (BHD) — Bahrain</option>
+                    <option value="PKR">PKR (Rs) — Pakistan Rupee</option>
+                </select>
             </div>
         </div>
     </section>
@@ -508,32 +894,32 @@
 
                     <ul class="space-y-2.5 text-xs text-theme-secondary border-t border-theme-subtle pt-4">
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t1_b1">Detailed Red-Flag Clause Inspection</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t1_b2">Checks for hidden right to sell / gift</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t1_b3">1-Page Written Risk Assessment PDF</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t1_b4">Delivered within 48 Hours</span>
                         </li>
                     </ul>
                 </div>
 
-                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Single%20Document%20Risk%20Check%20(%2429)." target="_blank" class="mt-6 w-full py-2.5 rounded-lg text-xs font-bold uppercase text-center border border-gold text-gold hover:bg-gold hover:text-navy-dark transition" data-i18n="audit_sec.t1_cta">
+                <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Single%20Document%20Risk%20Check%20(%2429)." target="_blank" rel="noopener noreferrer" class="mt-6 w-full py-2.5 rounded-lg text-xs font-bold uppercase text-center border border-gold text-gold hover:bg-gold hover:text-emerald-dark transition" data-i18n="audit_sec.t1_cta">
                     Order Document Audit
                 </a>
             </div>
 
             <!-- Tier 2: Complete Property File Scrutiny (Featured) -->
-            <div class="bg-theme-card-contrast text-theme-primary border-2 border-gold rounded-xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative">
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold text-navy-dark text-[10px] uppercase tracking-widest font-bold px-4 py-1 rounded-full shadow" data-i18n="audit_sec.t2_badge">
+            <div class="bg-theme-card-contrast text-theme-primary oxford-frame corner-flourish rounded-xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold text-emerald-dark text-[10px] uppercase tracking-widest font-bold px-4 py-1 rounded-full shadow" data-i18n="audit_sec.t2_badge">
                     Most Popular for Property Deals
                 </div>
                 <div>
@@ -548,25 +934,25 @@
 
                     <ul class="space-y-2.5 text-xs text-theme-secondary border-t border-theme-subtle pt-4">
                         <li class="flex items-start gap-2">
-                            <span class="text-gold font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t2_b1">Inspection of up to 5 related property deeds</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-gold font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t2_b2">Revenue Record & Mutation (Inteqal) Verification</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-gold font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t2_b3">PLRA Online Verification Cross-Check</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-gold font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-gold inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t2_b4">Formal Stamped Title Clearance Report</span>
                         </li>
                     </ul>
                 </div>
 
-                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Complete%20Property%20Title%20Scrutiny%20(%2469)." target="_blank" class="mt-6 w-full py-2.5 rounded-lg text-xs font-bold uppercase text-center bg-gold hover:bg-gold-light text-navy-dark transition shadow" data-i18n="audit_sec.t2_cta">
+                <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Complete%20Property%20Title%20Scrutiny%20(%2469)." target="_blank" rel="noopener noreferrer" class="mt-6 w-full py-2.5 rounded-lg text-xs font-bold uppercase text-center bg-gold hover:bg-gold-light text-emerald-dark transition shadow" data-i18n="audit_sec.t2_cta">
                     Order Title Scrutiny
                 </a>
             </div>
@@ -579,31 +965,31 @@
                     <p class="text-xs text-theme-secondary mt-2" data-i18n="audit_sec.t3_desc">Formal signed legal opinion on Pakistani law by Ch. Muhammad Zafar Iqbal for UK/foreign courts or complex disputes.</p>
                     
                     <div class="my-6">
-                        <span class="text-3xl font-bold text-theme-primary price-val" data-usd="350" data-gbp="280" data-aed="1300" data-pkr="98000">$350</span>
+                        <span class="text-3xl font-bold text-theme-primary price-val" data-usd="99" data-gbp="78" data-aed="363" data-pkr="27500">$99</span>
                         <span class="text-xs text-theme-muted">/ formal legal brief</span>
                     </div>
 
                     <ul class="space-y-2.5 text-xs text-theme-secondary border-t border-theme-subtle pt-4">
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t3_b1">Multi-page formal legal advisory memorandum</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t3_b2">Supreme Court & High Court precedent citations</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t3_b3">Signed & Sealed by Author of 30+ Law Books</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 font-bold">✓</span>
+                            <svg class="w-3.5 h-3.5 text-emerald-600 inline-block flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
                             <span data-i18n="audit_sec.t3_b4">Admissible for UK / UAE court proceedings</span>
                         </li>
                     </ul>
                 </div>
 
-                <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20would%20like%20to%20instruct%20Senior%20Counsel%20for%20a%20Written%20Legal%20Opinion." target="_blank" class="mt-6 w-full py-2.5 rounded-lg text-xs font-bold uppercase text-center border border-gold text-gold hover:bg-gold hover:text-navy-dark transition" data-i18n="audit_sec.t3_cta">
+                <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20would%20like%20to%20instruct%20Senior%20Counsel%20for%20a%20Written%20Legal%20Opinion." target="_blank" rel="noopener noreferrer" class="mt-6 w-full py-2.5 rounded-lg text-xs font-bold uppercase text-center border border-gold text-gold hover:bg-gold hover:text-emerald-dark transition" data-i18n="audit_sec.t3_cta">
                     Instruct Senior Counsel
                 </a>
             </div>
@@ -613,36 +999,47 @@
     <!-- 8. CHAMBERS LEGAL DOSSIERS & PLAYBOOKS SECTION (#dossiers) -->
     <section id="dossiers" class="py-20 px-4 sm:px-8 bg-theme-elevated border-y border-theme-subtle relative">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2" data-i18n="dossiers.tag">Chambers Legal Dossiers & Playbooks</span>
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold block mb-2" data-i18n="dossiers.tag">Classified In-Chambers Archive</span>
                 <h2 class="font-serif text-3xl sm:text-4xl font-bold text-theme-primary" data-i18n="dossiers.title">
                     Court-Tested Playbooks for Overseas Owners
                 </h2>
                 <p class="text-theme-secondary text-sm mt-3" data-i18n="dossiers.subtitle">
-                    Self-contained legal intelligence dossiers drafted by Ch. Muhammad Zafar Iqbal. Complete with bilingual draft templates, statutory checklists, and tactical court instructions.
+                    Proprietary legal intelligence dossiers formulated by Senior Counsel Ch. Muhammad Zafar Iqbal. To prevent unvetted misuse and protect institutional legal privilege, access is furnished exclusively upon verified client consultation.
                 </p>
+
+                <!-- Classified In-Chambers Privilege Notice -->
+                <div class="mt-6 p-4 rounded-xl bg-amber-500/10 border border-gold/40 text-left flex items-start gap-3 shadow-sm">
+                    <div class="w-7 h-7 rounded-lg bg-gold/20 flex items-center justify-center text-gold flex-shrink-0 mt-0.5">
+                        <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div class="text-xs leading-relaxed text-theme-secondary">
+                        <strong class="text-theme-primary font-bold block mb-0.5">IN-CHAMBERS ARCHIVE • ACCESS UNDER PRIVILEGE:</strong>
+                        These litigation playbooks and master pleadings are preserved as confidential internal instruments. They are NOT published as loose, unvetted self-serve downloads. Access to tailored excerpts is provided solely through structured consultation and verified client intake.
+                    </div>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Dossier 1: Qabza Shield -->
                 <div class="bg-theme-surface border border-theme-subtle hover:border-gold rounded-xl p-6 flex flex-col justify-between shadow-sm transition">
                     <div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-oxblood bg-red-100 dark:bg-red-950/60 px-2.5 py-0.5 rounded" data-i18n="dossiers.d1_tag">HIGH-PRIORITY DEFENSE</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-gold bg-gold/15 border border-gold/30 px-2.5 py-0.5 rounded" data-i18n="dossiers.d1_tag">HIGH-PRIORITY DEFENSE</span>
                         <h3 class="font-serif text-xl font-bold text-theme-primary mt-2" data-i18n="dossiers.d1_title">The Overseas Property & Qabza Shield</h3>
                         <p class="text-xs text-theme-secondary mt-2 leading-relaxed" data-i18n="dossiers.d1_desc">A complete defense manual against land syndicates, forged mutation entries, and illegal encroachment using the Illegal Dispossession Act, 2005.</p>
                         
                         <ul class="mt-4 space-y-1.5 text-xs text-theme-muted border-t border-theme-subtle pt-3">
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d1_f1">Session Court Dispossession Petition Templates</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d1_f2">Police Inaction Statutory Notice Templates</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d1_f3">Step-by-Step Eviction Action Roadmap</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d1_f1">Session Court Dispossession Petition Templates</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d1_f2">Police Inaction Statutory Notice Templates</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d1_f3">Step-by-Step Eviction Action Roadmap</span></li>
                         </ul>
                     </div>
                     <div class="mt-6 pt-4 border-t border-theme-subtle space-y-2">
                         <button onclick="openDossierModal('qabza')" class="w-full py-2 rounded text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition" data-i18n="dossiers.inspect_btn">
-                            Inspect Table of Contents
+                            Inspect Chambers Overview
                         </button>
-                        <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2001%20(Qabza%20Shield)." target="_blank" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-navy-dark transition" data-i18n="dossiers.d1_btn">
-                            Acquire Qabza Shield Dossier
+                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2001%20(Qabza%20Shield)." target="_blank" rel="noopener noreferrer" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-emerald-dark transition" data-i18n="dossiers.d1_btn">
+                            Request Qabza Shield via Consultation
                         </a>
                     </div>
                 </div>
@@ -655,17 +1052,17 @@
                         <p class="text-xs text-theme-secondary mt-2 leading-relaxed" data-i18n="dossiers.d2_desc">Bilingual Special Power of Attorney templates compliant with Embassy, Consulate, NADRA, and Punjab Land Revenue Authority rules.</p>
                         
                         <ul class="mt-4 space-y-1.5 text-xs text-theme-muted border-t border-theme-subtle pt-3">
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d2_f1">Explicit Non-Alienation & Anti-Sale Clauses</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d2_f2">Section 85 Qanun-e-Shahadat Revocation Deeds</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d2_f3">Consular Attestation & MOFA Checklist</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d2_f1">Explicit Non-Alienation & Anti-Sale Clauses</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d2_f2">Section 85 Qanun-e-Shahadat Revocation Deeds</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d2_f3">Consular Attestation & MOFA Checklist</span></li>
                         </ul>
                     </div>
                     <div class="mt-6 pt-4 border-t border-theme-subtle space-y-2">
                         <button onclick="openDossierModal('poa')" class="w-full py-2 rounded text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition" data-i18n="dossiers.inspect_btn">
-                            Inspect Table of Contents
+                            Inspect Chambers Overview
                         </button>
-                        <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2002%20(PoA%20Vault)." target="_blank" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-navy-dark transition" data-i18n="dossiers.d2_btn">
-                            Acquire PoA Drafting Vault
+                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2002%20(PoA%20Vault)." target="_blank" rel="noopener noreferrer" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-emerald-dark transition" data-i18n="dossiers.d2_btn">
+                            Request PoA Vault via Consultation
                         </a>
                     </div>
                 </div>
@@ -678,17 +1075,17 @@
                         <p class="text-xs text-theme-secondary mt-2 leading-relaxed" data-i18n="dossiers.d3_desc">Resolve ancestral inheritance distribution without family feuds or predatory litigation across UK, UAE, and Pakistani jurisdictions.</p>
                         
                         <ul class="mt-4 space-y-1.5 text-xs text-theme-muted border-t border-theme-subtle pt-3">
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d3_f1">NADRA Succession Unit Protocol</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d3_f2">Administration Suit Model Pleadings</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d3_f3">Family Settlement Deed (Bilingual Format)</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d3_f1">NADRA Succession Unit Protocol</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d3_f2">Administration Suit Model Pleadings</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d3_f3">Family Settlement Deed (Bilingual Format)</span></li>
                         </ul>
                     </div>
                     <div class="mt-6 pt-4 border-t border-theme-subtle space-y-2">
                         <button onclick="openDossierModal('succession')" class="w-full py-2 rounded text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition" data-i18n="dossiers.inspect_btn">
-                            Inspect Table of Contents
+                            Inspect Chambers Overview
                         </button>
-                        <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2003%20(Succession)." target="_blank" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-navy-dark transition" data-i18n="dossiers.d3_btn">
-                            Acquire Succession Dossier
+                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2003%20(Succession)." target="_blank" rel="noopener noreferrer" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-emerald-dark transition" data-i18n="dossiers.d3_btn">
+                            Request Succession Dossier via Consultation
                         </a>
                     </div>
                 </div>
@@ -696,24 +1093,25 @@
                 <!-- Dossier 4: Tenancy & Lease -->
                 <div class="bg-theme-surface border border-theme-subtle hover:border-gold rounded-xl p-6 flex flex-col justify-between shadow-sm transition">
                     <div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-700 bg-blue-100 dark:bg-blue-950/60 px-2.5 py-0.5 rounded" data-i18n="dossiers.d4_tag">TENANCY & COMMERCIAL</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-800 dark:text-emerald-300 bg-emerald-900/15 dark:bg-emerald-900/40 border border-emerald-700/30 px-2.5 py-0.5 rounded" data-i18n="dossiers.d4_tag">TENANCY & COMMERCIAL</span>
                         <h3 class="font-serif text-xl font-bold text-theme-primary mt-2" data-i18n="dossiers.d4_title">Commercial & Residential Lease Defense Kit</h3>
                         <p class="text-xs text-theme-secondary mt-2 leading-relaxed" data-i18n="dossiers.d4_desc">Protect overseas landlords against defaulting tenants who refuse to vacate or construct unauthorized alterations.</p>
                         
                         <ul class="mt-4 space-y-1.5 text-xs text-theme-muted border-t border-theme-subtle pt-3">
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d4_f1">Special Rent Tribunal Eviction Petitions</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d4_f2">30-Day Statutory Default Notice Formats</span></li>
-                            <li class="flex items-center gap-1.5"><span class="text-gold">▪</span> <span data-i18n="dossiers.d4_f3">Utility & Sub-letting Restriction Covenants</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d4_f1">Special Rent Tribunal Eviction Petitions</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d4_f2">30-Day Statutory Default Notice Formats</span></li>
+                            <li class="flex items-center gap-1.5"><svg class="w-3 h-3 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg> <span data-i18n="dossiers.d4_f3">Utility & Sub-letting Restriction Covenants</span></li>
                         </ul>
                     </div>
                     <div class="mt-6 pt-4 border-t border-theme-subtle space-y-2">
                         <button onclick="openDossierModal('lease')" class="w-full py-2 rounded text-xs font-semibold border border-theme-subtle hover:border-gold text-theme-primary transition" data-i18n="dossiers.inspect_btn">
-                            Inspect Table of Contents
+                            Inspect Chambers Overview
                         </button>
-                        <a href="https://wa.me/923000000000?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2004%20(Lease%20Kit)." target="_blank" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-navy-dark transition" data-i18n="dossiers.d4_btn">
-                            Acquire Lease Defense Kit
+                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2004%20(Lease%20Kit)." target="_blank" rel="noopener noreferrer" class="block w-full py-2 text-center rounded text-xs font-bold bg-gold hover:bg-gold-light text-emerald-dark transition" data-i18n="dossiers.d4_btn">
+                            Request Lease Kit via Consultation
                         </a>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -825,7 +1223,7 @@
                 
                 <!-- Clause Switcher Tabs -->
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
-                    <button onclick="switchBilingualTab(1)" class="bilingual-tab px-4 py-2 rounded-lg text-xs font-bold bg-gold text-navy-dark shadow-sm transition" data-i18n="bilingual.tab1">
+                    <button onclick="switchBilingualTab(1)" class="bilingual-tab px-4 py-2 rounded-lg text-xs font-bold bg-gold text-emerald-dark shadow-sm transition" data-i18n="bilingual.tab1">
                         Clause 4: Non-Alienation
                     </button>
                     <button onclick="switchBilingualTab(2)" class="bilingual-tab px-4 py-2 rounded-lg text-xs font-bold bg-theme-card-contrast text-theme-muted hover:text-theme-primary transition" data-i18n="bilingual.tab2">
@@ -868,7 +1266,7 @@
                         <p id="clause-desc-right" class="font-urdu text-sm text-theme-primary leading-loose" data-i18n="bilingual.clause_desc_right">
                             "مختارِ خاص ہذا کو محض جائیداد کی دیکھ بھال، مرمت اور بلات کی ادائیگی کا اختیار ہوگا۔ مختارِ موصوف کو جائیداد متذکرہ بالا کو کسی بھی شخص کے نام بیع کرنے، بیعانہ وصول کرنے، ہبہ، رہن یا کسی قسم کا بار ڈالنے یا قبضہ چھوڑنے کا ہرگز کوئی اختیار نہ ہوگا اور ایسا کوئی بھی اقدام باطل اور کالعدم تصور ہوگا۔"
                         </p>
-                        <div id="clause-note-right" class="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 rounded-lg p-3 text-[11px] text-blue-900 dark:text-blue-300 font-sans text-left" dir="ltr" data-i18n="bilingual.note_right">
+                        <div id="clause-note-right" class="bg-emerald-950/10 dark:bg-emerald-950/40 border border-emerald-800/30 dark:border-emerald-700/40 rounded-lg p-3 text-[11px] text-emerald-900 dark:text-emerald-200 font-sans text-left" dir="ltr" data-i18n="bilingual.note_right">
                             <strong>Court Reference:</strong> Drafted strictly in accordance with Punjab Land Revenue Rules & Supreme Court precedents.
                         </div>
                     </div>
@@ -889,26 +1287,29 @@
                 </h2>
                 
                 <p class="text-sm font-semibold text-gold" data-i18n="author.credentials">
-                    Advocate High Court • Author of 30+ Published Treatises • Doctor of Medicine
+                    Advocate High Court • Author of 30+ Published Treatises 
                 </p>
 
-                <!-- Rare Dual Qualification Highlight Box -->
+                <!-- Senior Standing Highlight Box -->
                 <div class="p-3.5 rounded-lg bg-theme-surface border border-gold/40 text-xs font-semibold flex items-center gap-3 shadow-sm">
-                    <span class="text-2xl">🎓</span>
-                    <span data-i18n="author.dual_badge">Dual Discipline Jurisprudence: High Court Advocate & Doctor of Medicine</span>
+                    <div class="w-10 h-10 rounded-lg bg-gold/15 border border-gold/30 flex items-center justify-center text-gold flex-shrink-0">
+                        <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3v18M6 8l6-2 6 2M6 8l-3 7h6L6 8zm12 0l-3 7h6l-3-7zM4 21h16"/></svg>
+                    </div>
+                    <span data-i18n="author.dual_badge">Senior Advocate High Court • 20+ Years of Unbroken Trial Mastery (Est. 2004)</span>
                 </div>
 
-                <p class="text-theme-secondary text-sm leading-relaxed" data-i18n="author.bio1">
-                    With over four decades of active High Court advocacy, Ch. Muhammad Zafar Iqbal has shaped generations of Pakistani jurists through his monumental published treatises on Civil, Criminal, Property, and Evidence law.
+                <p class="text-theme-secondary text-sm leading-relaxed charter-drop-cap" data-i18n="author.bio1">
+                    With over 20 years of active High Court advocacy since 2004, Ch. Muhammad Zafar Iqbal has shaped generations of Pakistani jurists through his monumental published treatises on Civil, Criminal, Property, and Evidence law.
                 </p>
                 
                 <p class="text-theme-secondary text-sm leading-relaxed" data-i18n="author.bio2">
-                    Holding degrees in both Law and Medicine, Senior Counsel possesses an extraordinary forensic acumen—enabling him to dismantle falsified evidence, expose forged revenue registries, and analyze complex medico-legal records with unmatched precision.
+                    Backed by over 20 years of trial and appellate practice since 2004, Senior Counsel possesses an extraordinary forensic acumen—enabling him to dismantle falsified evidence, expose forged revenue registries, and cross-examine complex technical records with unmatched precision.
                 </p>
 
                 <div class="pt-2 flex flex-wrap gap-3">
-                    <a href="jurisprudence.html" class="px-4 py-2 rounded-lg bg-gold text-navy-dark font-bold text-xs hover:bg-gold-light transition shadow">
-                        Read Full Chronicle & Books →
+                    <a href="jurisprudence.html" class="px-4 py-2 rounded-lg bg-gold text-emerald-dark font-bold text-xs hover:bg-gold-light transition shadow flex items-center gap-1.5">
+                        <span>Read Full Chronicle & Books</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                     <span class="inline-block px-3 py-1 bg-gold/15 text-gold text-xs font-bold rounded-full border border-gold/30" data-i18n="author.copyright_badge">
                         All Works Protected under Pakistan Copyright Ordinance
@@ -918,7 +1319,7 @@
 
             <!-- Published Treatises Display Grid -->
             <div class="lg:col-span-7">
-                <div class="bg-theme-surface rounded-xl p-6 sm:p-8 border-2 border-gold/40 shadow-2xl">
+                <div class="bg-theme-surface oxford-frame corner-flourish rounded-xl p-6 sm:p-8 border-2 border-gold/40 shadow-2xl">
                     <h3 class="font-serif text-xl font-bold text-gold border-b border-theme-subtle pb-3 mb-6 flex items-center justify-between" data-i18n="author.books_title">
                         Key Published Treatises & Practice Compendiums
                     </h3>
@@ -957,7 +1358,7 @@
         </div>
     </section>
 
-    <!-- 12. ENCRYPTED WHATSAPP CASE BRIEF GENERATOR (#brief_builder) -->
+    <!-- 12. ENCRYPTED CASE BRIEF GENERATOR (#brief_builder) -->
     <section id="brief_builder" class="py-16 px-4 sm:px-8 bg-theme-elevated border-y border-theme-subtle">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-10">
@@ -966,8 +1367,12 @@
                     Generate Your Confidential Legal Brief
                 </h2>
                 <p class="text-theme-secondary text-xs sm:text-sm mt-2" data-i18n="brief_builder.subtitle">
-                    Prepare your case details below. Our system will generate a structured, confidential brief and connect you directly with the Chambers Registrar via WhatsApp or Email.
+                    Prepare your case details below. Our system will generate a structured, confidential brief and connect you directly with the Chambers Registrar via WhatsApp or Priority Digital Intake Desk.
                 </p>
+                <div class="inline-flex items-center gap-2 mt-3 px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Chambers Priority Registry Desk: <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20submit%20a%20priority%20case%20brief." target="_blank" rel="noopener noreferrer" class="text-gold hover:underline font-bold">Automated Priority Intake</a> (24/7 Desk)</span>
+                </div>
             </div>
 
             <form onsubmit="generateWhatsAppBrief(event)" class="bg-theme-surface border border-theme-subtle rounded-xl p-6 sm:p-8 shadow-xl space-y-4">
@@ -987,7 +1392,7 @@
 
                     <div>
                         <label for="brief-city" class="block text-xs font-semibold text-theme-primary mb-1" data-i18n="brief_builder.lbl_city">City / District in Pakistan where Land or Case is Located:</label>
-                        <input type="text" id="brief-city" placeholder="e.g. Mirpur, Lahore, Islamabad, Gujrat" required class="w-full bg-theme-page border border-theme-subtle rounded-lg px-3 py-2 text-xs text-theme-primary focus:outline-none focus:border-gold">
+                        <input type="text" id="brief-city" placeholder="e.g. Mirpur, Faisalabad, Lahore, Gujrat" required class="w-full bg-theme-page border border-theme-subtle rounded-lg px-3 py-2 text-xs text-theme-primary focus:outline-none focus:border-gold">
                     </div>
                 </div>
 
@@ -1014,14 +1419,14 @@
                         <span data-i18n="brief_builder.btn_send">WhatsApp Registrar</span>
                     </button>
 
-                    <button type="button" onclick="copyFormattedBrief(event)" class="py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider bg-theme-card-contrast hover:bg-gold hover:text-navy-dark text-theme-primary border border-theme-subtle transition shadow-md flex items-center justify-center gap-2">
-                        <span>📋</span>
+                    <button type="button" onclick="copyFormattedBrief(event)" class="py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider bg-theme-card-contrast hover:bg-gold hover:text-emerald-dark text-theme-primary border border-theme-subtle transition shadow-md flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-theme-primary" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
                         <span data-i18n="brief_builder.btn_copy">Copy Formatted Brief</span>
                     </button>
 
-                    <button type="button" onclick="sendEmailBrief(event)" class="py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider bg-theme-card-contrast hover:bg-gold hover:text-navy-dark text-theme-primary border border-theme-subtle transition shadow-md flex items-center justify-center gap-2">
-                        <span>✉️</span>
-                        <span data-i18n="brief_builder.btn_email">Send via Email</span>
+                    <button type="button" onclick="openBookingModal()" class="py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold hover:bg-gold-light text-emerald-dark transition shadow-md flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 inline-block flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        <span data-i18n="brief_builder.btn_booking">Book $25 Advisory Slot</span>
                     </button>
                 </div>
             </form>
@@ -1040,7 +1445,7 @@
                 <details class="bg-theme-page border border-theme-subtle rounded-xl p-4 sm:p-5 group" open>
                     <summary class="font-bold text-theme-primary cursor-pointer flex justify-between items-center">
                         <span data-i18n="faq.q1">How do I pay from the UK, USA, or Gulf without a Pakistani bank account?</span>
-                        <span class="text-gold group-open:rotate-180 transition">▼</span>
+                        <svg class="w-4 h-4 text-gold group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <p class="text-theme-secondary text-xs mt-3 leading-relaxed" data-i18n="faq.a1">
                         We accept direct international transfers via Wise, Remitly, Ace Money Transfer, or Western Union directly into our verified business accounts in Pakistan, as well as direct international wire. You receive an instant digital receipt.
@@ -1050,17 +1455,17 @@
                 <details class="bg-theme-page border border-theme-subtle rounded-xl p-4 sm:p-5 group">
                     <summary class="font-bold text-theme-primary cursor-pointer flex justify-between items-center">
                         <span data-i18n="faq.q2">Will I have to attend long Zoom or video calls across different time zones?</span>
-                        <span class="text-gold group-open:rotate-180 transition">▼</span>
+                        <svg class="w-4 h-4 text-gold group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <p class="text-theme-secondary text-xs mt-3 leading-relaxed" data-i18n="faq.a2">
-                        No. Senior Counsel operates strictly on an Asynchronous Written Scrutiny & Opinion model. You upload your papers via WhatsApp or secure email; Senior Counsel analyzes them in chambers and delivers an authoritative, written PDF report with an accompanying voice summary. This saves you from scheduling hassles across different time zones.
+                        No. Senior Counsel operates strictly on an Asynchronous Written Scrutiny & Opinion model. You upload your papers via WhatsApp or our secure Priority Digital Intake Desk; Senior Counsel analyzes them in chambers and delivers an authoritative, written PDF report with an accompanying voice summary. This saves you from scheduling hassles across different time zones.
                     </p>
                 </details>
 
                 <details class="bg-theme-page border border-theme-subtle rounded-xl p-4 sm:p-5 group">
                     <summary class="font-bold text-theme-primary cursor-pointer flex justify-between items-center">
                         <span data-i18n="faq.q3">Can an attorney in Pakistan sell my property if I gave them a Power of Attorney?</span>
-                        <span class="text-gold group-open:rotate-180 transition">▼</span>
+                        <svg class="w-4 h-4 text-gold group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <p class="text-theme-secondary text-xs mt-3 leading-relaxed" data-i18n="faq.a3">
                         Only if the Power of Attorney specifically grants the power of sale (Ikhtiyar-e-Baye). However, unscrupulous parties often smuggle vague general clauses or forge revocations. This is why our Document Audit checks the exact wording under the Registration Act and Supreme Court precedents before you sign.
@@ -1070,7 +1475,7 @@
                 <details class="bg-theme-page border border-theme-subtle rounded-xl p-4 sm:p-5 group">
                     <summary class="font-bold text-theme-primary cursor-pointer flex justify-between items-center">
                         <span data-i18n="faq.q4">What happens if my matter requires urgent in-person court representation in Pakistan?</span>
-                        <span class="text-gold group-open:rotate-180 transition">▼</span>
+                        <svg class="w-4 h-4 text-gold group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <p class="text-theme-secondary text-xs mt-3 leading-relaxed" data-i18n="faq.a4">
                         If an emergency injunction (Stay Order) or bail is required, LexScribe Chambers prepares the pleadings and directs our designated junior associates and correspondents at the relevant High Court or District Bar under Senior Counsel’s direct supervision.
@@ -1095,10 +1500,10 @@
                     <span class="font-serif text-xl tracking-wider font-bold">LEXSCRIBE CHAMBERS</span>
                 </div>
                 <p class="text-gray-400 text-xs max-w-md leading-relaxed" data-i18n="footer.desc">
-                    Sovereign remote legal advisory and jurisprudence portal for the global Pakistani diaspora. Directed by Ch. Muhammad Zafar Iqbal, Advocate High Court (40+ Years Standing, Author of 30+ Treatises).
+                    100% Sovereign Remote Digital Chambers & High Court jurisprudence advisory for overseas Pakistanis worldwide. Directed by Ch. Muhammad Zafar Iqbal, Advocate High Court (20+ Years Standing (Since 2004), 200+ Cases Won, 0 Cases Lost, Author of 30+ Treatises).
                 </p>
                 <div class="text-xs text-gray-400" data-i18n="footer.address">
-                    Chambers Address: High Court Bar Association / Chambers of Law, Pakistan.
+                    Jurisdiction: High Court Benches Across Pakistan (100% Sovereign Remote Chambers)
                 </div>
                 <div class="text-[11px] text-gray-500 font-mono" data-i18n="footer.hours">
                     Chambers Operating Hours: Mon–Sat, 09:00–18:00 PKT (Asynchronous Review 24/7 for Diaspora)
@@ -1109,7 +1514,7 @@
                 <h4 class="text-gold font-serif text-sm font-bold uppercase tracking-wider mb-3" data-i18n="footer.quick_nav">Quick Navigation</h4>
                 <ul class="space-y-2 text-xs text-gray-400">
                     <li><a href="#audit" class="hover:text-gold transition" data-i18n="nav.audit">48-Hr Document Audit</a></li>
-                    <li><a href="#record" class="hover:text-gold transition" data-i18n="nav.record">The 40-Year Unbroken Record</a></li>
+                    <li><a href="#record" class="hover:text-gold transition" data-i18n="nav.record">The 25-Year Unbroken Record</a></li>
                     <li><a href="dossiers.html" class="hover:text-gold transition" data-i18n="footer.links_dossiers">Playbooks Vault</a></li>
                     <li><a href="audit-sample.html" class="hover:text-gold transition" data-i18n="footer.links_sample">Sample Audit Report</a></li>
                     <li><a href="jurisprudence.html" class="hover:text-gold transition" data-i18n="footer.links_record">Jurisprudence Chronicle</a></li>
@@ -1120,9 +1525,21 @@
             <div>
                 <h4 class="text-gold font-serif text-sm font-bold uppercase tracking-wider mb-3" data-i18n="footer.instruct">Instruct the Registrar</h4>
                 <p class="text-xs text-gray-400 mb-3" data-i18n="footer.instruct_desc">Direct all case inquiries, brief uploads, and audit submissions to the Registrar Desk:</p>
-                <a href="#brief_builder" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow">
-                    <span data-i18n="footer.wa_btn">WhatsApp Registrar Desk</span>
-                </a>
+                <div class="space-y-3">
+                    <a href="#brief_builder" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow">
+                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                        <span data-i18n="footer.wa_btn">WhatsApp Registrar Desk</span>
+                    </a>
+                    <div>
+                        <button type="button" onclick="openBookingModal()" class="w-full py-2.5 px-3 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold text-emerald-dark hover:bg-gold-light transition shadow flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span data-i18n="footer.btn_booking">Book $25 Advisory Slot</span>
+                        </button>
+                    </div>
+                    <div class="text-[11px] text-gray-400 font-mono">
+                        Automated Priority Registry Intake • Zero Cold Calls
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1134,10 +1551,92 @@
         </div>
     </footer>
 
+        <!-- $25 PRIORITY ADVISORY SLOT BOOKING MODAL -->
+    <div id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+        <div class="bg-theme-surface oxford-frame corner-flourish rounded-xl max-w-lg w-full p-6 sm:p-8 border border-gold/40 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-theme-muted hover:text-theme-primary p-1 rounded transition" aria-label="Close modal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div class="border-b border-gold/30 pb-4 mb-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-[10px] uppercase tracking-widest text-gold font-mono block" data-i18n="booking.tag">AUTOMATED PRIORITY REGISTRY</span>
+                    <span class="archival-judicial-stamp">DOCKET § 2004</span>
+                </div>
+                <h3 id="booking-modal-title" class="font-serif text-2xl font-bold text-theme-primary mt-1" data-i18n="booking.title">Book $25 Priority Advisory Slot</h3>
+                <p class="text-xs text-theme-secondary mt-1" data-i18n="booking.desc">Direct case intake with Senior Counsel Chambers. Filters unsolicited inquiries, guarantees priority review, and schedules dedicated counsel briefing.</p>
+            </div>
+
+            <form onsubmit="handleBookingSubmit(event)" class="space-y-4 text-xs font-sans">
+                <div>
+                    <label for="booking-name" class="block font-bold text-theme-primary mb-1" data-i18n="booking.lbl_name">Your Full Name / Expatriate Identity</label>
+                    <input type="text" id="booking-name" required placeholder="e.g. Tariq Khan" class="w-full p-2.5 rounded-lg bg-theme-page border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-gold" data-i18n="booking.placeholder_name">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label for="booking-country" class="block font-bold text-theme-primary mb-1" data-i18n="booking.lbl_country">Country of Residence</label>
+                        <select id="booking-country" class="w-full p-2.5 rounded-lg bg-theme-page border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-gold">
+                            <option value="United Kingdom" data-i18n="booking.opt_uk">United Kingdom (UK)</option>
+                            <option value="United States" data-i18n="booking.opt_usa">United States (USA)</option>
+                            <option value="UAE / Gulf" data-i18n="booking.opt_gulf">UAE / Saudi Arabia / Gulf</option>
+                            <option value="Canada / Europe" data-i18n="booking.opt_europe">Canada / Europe</option>
+                            <option value="Pakistan" data-i18n="booking.opt_pakistan">Pakistan</option>
+                            <option value="Other" data-i18n="booking.opt_other">Other Overseas Diaspora</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="booking-slot" class="block font-bold text-theme-primary mb-1" data-i18n="booking.lbl_slot">Preferred Time Window</label>
+                        <select id="booking-slot" class="w-full p-2.5 rounded-lg bg-theme-page border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-gold">
+                            <option value="Morning (09:00 - 12:00 PKT)" data-i18n="booking.slot_morning">Morning (09:00 - 12:00 PKT)</option>
+                            <option value="Afternoon (14:00 - 17:00 PKT)" data-i18n="booking.slot_afternoon">Afternoon (14:00 - 17:00 PKT)</option>
+                            <option value="Evening Diaspora (18:00 - 21:00 PKT)" data-i18n="booking.slot_evening">Evening Diaspora (18:00 - 21:00 PKT)</option>
+                            <option value="Asynchronous Written Scrutiny Only" data-i18n="booking.slot_async">Asynchronous Written Scrutiny Only</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="booking-matter" class="block font-bold text-theme-primary mb-1" data-i18n="booking.lbl_matter">Legal Matter Classification</label>
+                    <select id="booking-matter" class="w-full p-2.5 rounded-lg bg-theme-page border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-gold">
+                        <option value="Overseas Property Illegal Possession (Qabza)" data-i18n="booking.mat_qabza">Overseas Property Illegal Possession (Qabza)</option>
+                        <option value="Forged Power of Attorney (Mukhtar-e-Aam)" data-i18n="booking.mat_poa">Forged Power of Attorney (Mukhtar-e-Aam)</option>
+                        <option value="Inheritance & Revenue Mutation Scrutiny" data-i18n="booking.mat_inheritance">Inheritance & Revenue Mutation Scrutiny</option>
+                        <option value="High Court Injunction / Stay Order Strategy" data-i18n="booking.mat_injunction">High Court Injunction / Stay Order Strategy</option>
+                        <option value="Chambers 48-Hour Forensic Document Audit" data-i18n="booking.mat_audit">Chambers 48-Hour Forensic Document Audit</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="booking-notes" class="block font-bold text-theme-primary mb-1" data-i18n="booking.lbl_notes">Confidential Case Summary & Property Details</label>
+                    <textarea id="booking-notes" rows="3" placeholder="Briefly state city/district in Pakistan, disputed deeds, or current court status..." class="w-full p-2.5 rounded-lg bg-theme-page border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-gold" data-i18n="booking.placeholder_notes"></textarea>
+                </div>
+
+                <div class="p-3 rounded-lg bg-gold/10 border border-gold/30 text-[11px] text-theme-secondary flex items-start gap-2">
+                    <svg class="w-4 h-4 text-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    <span data-i18n="booking.fee_notice"><strong>$25.00 Priority Advisory Booking Fee:</strong> Eliminates spam and unverified inquiries. Guarantees dedicated priority placement on Senior Counsel’s daily scrutiny docket ($25 USD / £20 GBP / 90 AED / Rs 7,000).</span>
+                </div>
+
+                <div class="pt-2 flex items-center justify-end gap-3">
+                    <button type="button" onclick="closeBookingModal()" class="px-4 py-2.5 rounded-lg text-xs font-semibold text-theme-secondary hover:text-theme-primary transition" data-i18n="booking.btn_cancel">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-gold text-emerald-dark hover:bg-gold-light transition shadow flex items-center gap-2">
+                        <span data-i18n="booking.btn_submit">Confirm $25 Priority Advisory Slot</span>
+                        <svg class="w-4 h-4 text-emerald-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- SAMPLE AUDIT REPORT MODAL -->
     <div id="preview-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
         <div class="bg-theme-surface rounded-xl max-w-2xl w-full p-6 sm:p-8 border border-gold/40 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closePreviewModal()" class="absolute top-4 right-4 text-theme-muted hover:text-theme-primary text-xl font-bold">✕</button>
+            <button onclick="closePreviewModal()" class="absolute top-4 right-4 text-theme-muted hover:text-theme-primary p-1 rounded transition" aria-label="Close modal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
 
             <div class="border-b border-gold/30 pb-4 mb-4">
                 <span class="text-[10px] uppercase tracking-widest text-gold font-mono block" data-i18n="modals.sample_tag">SAMPLE FORENSIC SCRUTINY DELIVERABLE</span>
@@ -1146,8 +1645,8 @@
             </div>
 
             <div class="space-y-4 text-xs text-theme-secondary leading-relaxed font-sans">
-                <div class="p-3 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-900 dark:text-red-200">
-                    <strong class="block text-red-700 dark:text-red-400 font-bold mb-1" data-i18n="modals.sample_fatal_heading">FATAL CLAUSE IDENTIFIED (PAGE 2, PARA 3):</strong>
+                <div class="p-3 rounded-lg bg-[#061e12] border border-gold/40 text-emerald-100">
+                    <strong class="block text-gold font-bold mb-1" data-i18n="modals.sample_fatal_heading">FATAL CLAUSE IDENTIFIED (PAGE 2, PARA 3):</strong>
                     <em data-i18n="modals.sample_fatal_quote">"The Attorney is authorized to deal with the subject property in any manner whatsoever including disposal, compromise or transfer..."</em>
                     <p class="mt-1.5 text-[11px]" data-i18n="modals.sample_fatal_note"><strong>Senior Counsel Finding:</strong> This phrase effectively permits the agent to execute a sale or gift without your further written consent. We advise immediate strike-through and substitution with Restricted Clause 4B.</p>
                 </div>
@@ -1157,11 +1656,16 @@
                     <span data-i18n="modals.sample_remedy_text">Insert mandatory non-alienation covenant under Section 85 Qanun-e-Shahadat and Registration Act Section 17.</span>
                 </div>
 
-                <div class="border-t border-theme-subtle pt-4 flex justify-between items-center">
+                <div class="border-t border-theme-subtle pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                     <span class="text-theme-muted text-[11px]" data-i18n="modals.sample_format">Format: Official Stamped Chambers PDF + Voice Note</span>
-                    <button onclick="closePreviewModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-gold text-navy-dark hover:bg-gold-light transition" data-i18n="modals.close">
-                        Close Preview
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Single%20Document%20Risk%20Check%20(%2429)." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition shadow flex items-center gap-1.5">
+                            <span data-i18n="modals.cta_order_whatsapp">Order Audit via WhatsApp</span>
+                        </a>
+                        <button onclick="closePreviewModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-gold text-emerald-dark hover:bg-gold-light transition" data-i18n="modals.close">
+                            Close Preview
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1170,7 +1674,9 @@
     <!-- SAMPLE DOSSIER TABLE OF CONTENTS MODAL -->
     <div id="dossier-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
         <div class="bg-theme-surface rounded-xl max-w-2xl w-full p-6 sm:p-8 border border-gold/40 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeDossierModal()" class="absolute top-4 right-4 text-theme-muted hover:text-theme-primary text-xl font-bold">✕</button>
+            <button onclick="closeDossierModal()" class="absolute top-4 right-4 text-theme-muted hover:text-theme-primary p-1 rounded transition" aria-label="Close modal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
 
             <div class="border-b border-gold/30 pb-4 mb-4">
                 <span class="text-[10px] uppercase tracking-widest text-gold font-mono block" data-i18n="modals.dossier_tag">CHAMBERS LEGAL DOSSIER SPECIFICATION</span>
@@ -1182,11 +1688,16 @@
                 <!-- Populated dynamically by openDossierModal -->
             </div>
 
-            <div class="border-t border-theme-subtle pt-4 mt-6 flex justify-between items-center">
+            <div class="border-t border-theme-subtle pt-4 mt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
                 <span class="text-theme-muted text-[11px]" data-i18n="modals.dossier_format">Instant Download Access via Registrar</span>
-                <button onclick="closeDossierModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-gold text-navy-dark hover:bg-gold-light transition" data-i18n="modals.close">
-                    Close Preview
-                </button>
+                <div class="flex items-center gap-2">
+                    <a id="dossier-modal-cta" href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2001%20(Qabza%20Shield)." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition shadow flex items-center gap-1.5">
+                        <span data-i18n="modals.cta_acquire_whatsapp">Acquire via WhatsApp</span>
+                    </a>
+                    <button onclick="closeDossierModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-gold text-emerald-dark hover:bg-gold-light transition" data-i18n="modals.close">
+                        Close Preview
+                    </button>
+                </div>
             </div>
         </div>
     </div>

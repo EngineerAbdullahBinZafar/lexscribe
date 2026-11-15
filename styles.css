@@ -1,102 +1,91 @@
 /* ==========================================================================
    LEXSCRIBE CHAMBERS — FLAGSHIP DIGITAL JURISPRUDENCE SYSTEM
-   Chambers of Chaudhry Muhammad Zafar Iqbal (Advocate High Court & Doctor of Medicine)
-   Bespoke Design Token Architecture: Imperial Judicial Lapis, Antique Burnished Gold,
-   Royal Oxblood Wax Seal, Heavy Cotton Vellum Parchment & Oxford Slate Ink
+   Chambers of Chaudhry Muhammad Zafar Iqbal (Advocate High Court & Senior Jurist)
+   Bespoke Design Token Architecture: Sovereign Pakistani Judicial Emerald, Antique Burnished Gold,
+   Heavy Cotton Vellum Parchment & Restrained Constitutional Slate Ink (Strict 3-Color Dignity)
    ========================================================================== */
 
 /* 1. ROOT DESIGN TOKENS (LIGHT / DAY MODE: LUXURIOUS COTTON VELLUM PARCHMENT) */
 :root {
     --bg-page: #FBF9F4;
     --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #F3EEE4;
+    --bg-surface-elevated: #F4EFE6;
     --bg-card: #FFFFFF;
-    --bg-card-contrast: #F8F4EB;
+    --bg-card-contrast: #F4EFE4;
     
-    --bg-header: #0A162B;
+    --bg-header: #052014; /* Deep Sovereign Pakistani Emerald */
     --text-header: #F8FAFC;
-    --bg-hero: linear-gradient(180deg, #F5EFE3 0%, #FAF7F0 60%, #FFFFFF 100%);
-    --bg-footer: #060E1C;
+    --bg-hero: linear-gradient(180deg, #F4EFE5 0%, #FAF8F2 60%, #FFFFFF 100%);
+    --bg-footer: #04170E; /* Deep Sovereign Pakistani Emerald Dark */
 
-    --text-primary: #0A1322;
-    --text-secondary: #2C3E55;
-    --text-muted: #566B84;
+    --text-primary: #0A1C12;
+    --text-secondary: #22382B;
+    --text-muted: #536B5C;
     --text-inverse: #F8FAFC;
 
     --gold-foil-light: #F7E096;
-    --gold-foil-mid: #D4AF37;
-    --gold-foil-base: #B08D57;
-    --gold-foil-dark: #826026;
-    --gold-foil-glow: rgba(212, 175, 55, 0.28);
+    --gold-foil-mid: #C5A059;
+    --gold-foil-base: #A6803C;
+    --gold-foil-dark: #745722;
+    --gold-foil-glow: rgba(197, 160, 89, 0.28);
 
-    --oxblood: #6A0D1D;
-    --oxblood-deep: #480611;
-    --oxblood-light: #8A162B;
-    --oxblood-bg: #FDF2F4;
-    --oxblood-border: #F2BAC3;
+    --forest: #0A3822;
+    --forest-deep: #052014;
+    --forest-light: #135A38;
+    --forest-bg: #EFF8F3;
+    --forest-border: #A2D9BC;
 
-    --forest: #0D402B;
-    --forest-deep: #072619;
-    --forest-light: #166444;
-    --forest-bg: #EFF9F4;
-    --forest-border: #AEE2C9;
+    --border-subtle: #E3D9C9;
+    --border-strong: #C5B69C;
+    --border-gold: rgba(197, 160, 89, 0.55);
 
-    --border-subtle: #E6DCce;
-    --border-strong: #CBBCA3;
-    --border-gold: rgba(197, 160, 89, 0.5);
-
-    --shadow-sm: 0 2px 6px rgba(10, 19, 34, 0.04);
-    --shadow-md: 0 8px 24px -4px rgba(10, 19, 34, 0.08), 0 2px 6px rgba(197, 160, 89, 0.12);
-    --shadow-xl: 0 20px 45px -8px rgba(10, 19, 34, 0.14), 0 0 1px rgba(197, 160, 89, 0.35);
+    --shadow-sm: 0 2px 6px rgba(5, 32, 20, 0.04);
+    --shadow-md: 0 8px 24px -4px rgba(5, 32, 20, 0.08), 0 2px 6px rgba(197, 160, 89, 0.12);
+    --shadow-xl: 0 20px 45px -8px rgba(5, 32, 20, 0.14), 0 0 1px rgba(197, 160, 89, 0.35);
 
     --font-serif: "Cormorant Garamond", Garamond, "Times New Roman", Georgia, serif;
     --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-    --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", "Nafees Web Naskh", "Tahoma", serif;
+    --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Alvi Nastaleeq", "Urdu Typesetting", serif;
 }
 
-/* 2. DARK MODE OVERRIDES (DEEP JUDICIAL MIDNIGHT OBSIDIAN & RADIANT GOLD FOIL) */
+/* 2. DARK MODE OVERRIDES (SOVEREIGN PAKISTANI EMERALD SLATE & ANTIQUE WARM GOLD) */
 [data-theme="dark"] {
-    --bg-page: #030712;
-    --bg-surface: #071021;
-    --bg-surface-elevated: #0B1930;
-    --bg-card: #091427;
-    --bg-card-contrast: #0F203D;
+    /* Sovereign Palette: Deep Pakistani Emerald Slate (Zero blue, strictly authentic) */
+    --bg-page: #06120B;
+    --bg-surface: #0A1E14;
+    --bg-surface-elevated: #0F2C1E;
+    --bg-card: #0D2419;
+    --bg-card-contrast: #123223;
 
-    --bg-header: #040914;
+    --bg-header: #04120A;
     --text-header: #F8FAFC;
-    --bg-hero: radial-gradient(circle at 50% 20%, #0B1B38 0%, #050E20 60%, #030712 100%);
-    --bg-footer: #02050C;
+    --bg-hero: radial-gradient(circle at 50% 20%, #0F2D1E 0%, #081B10 55%, #06120B 100%);
+    --bg-footer: #030D07;
 
-    --text-primary: #F8FAFC;
-    --text-secondary: #CBD5E1;
-    --text-muted: #94A3B8;
-    --text-inverse: #0A1322;
+    --text-primary: #F5F2EA;
+    --text-secondary: #C8DDD0;
+    --text-muted: #8AA495;
+    --text-inverse: #06120B;
 
-    --gold-foil-light: #FCE6A4;
-    --gold-foil-mid: #E5C158;
-    --gold-foil-base: #C5A059;
-    --gold-foil-dark: #96702A;
-    --gold-foil-glow: rgba(229, 193, 88, 0.35);
+    --gold-foil-light: #FBE69E;
+    --gold-foil-mid: #D4AF37;
+    --gold-foil-base: #BA944C;
+    --gold-foil-dark: #8C6A2B;
+    --gold-foil-glow: rgba(212, 175, 55, 0.22);
 
-    --oxblood: #8A162B;
-    --oxblood-deep: #520815;
-    --oxblood-light: #AC1F38;
-    --oxblood-bg: #22050A;
-    --oxblood-border: #7B1324;
+    --forest: #14593C;
+    --forest-deep: #0A2D1F;
+    --forest-light: #1B7A53;
+    --forest-bg: #071C12;
+    --forest-border: #1B6543;
 
-    --forest: #145E40;
-    --forest-deep: #0A3323;
-    --forest-light: #1D8359;
-    --forest-bg: #072217;
-    --forest-border: #1B704C;
+    --border-subtle: #163625;
+    --border-strong: #245239;
+    --border-gold: rgba(212, 175, 55, 0.38);
 
-    --border-subtle: #162640;
-    --border-strong: #273E62;
-    --border-gold: rgba(229, 193, 88, 0.4);
-
-    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 1px rgba(229, 193, 88, 0.25);
-    --shadow-xl: 0 20px 45px -8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 193, 88, 0.15);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.55);
+    --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.75), 0 0 1px rgba(212, 175, 55, 0.2);
+    --shadow-xl: 0 20px 45px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(212, 175, 55, 0.12);
 }
 
 /* 3. BASE ELEMENT BEHAVIOR */
@@ -219,14 +208,13 @@ body {
 }
 
 /* 6. ROYAL OXBLOOD STYLING (CRITICAL ADVISORY & SCAM WARNINGS) */
-.bg-oxblood-gradient {
-    background: linear-gradient(135deg, var(--oxblood-deep) 0%, var(--oxblood) 55%, #250409 100%);
+.bg-oxblood-gradient, .bg-sovereign-advisory {
+    background: linear-gradient(135deg, #04170E 0%, #072618 60%, #0A3822 100%);
 }
 
-.oxblood-badge {
-    background-color: var(--oxblood);
-    color: #FFF;
-    border: 1px solid rgba(247, 224, 150, 0.4);
+.oxblood-badge, .sovereign-badge {
+    background-color: var(--gold-dark);
+    color: #F8FAFC;
 }
 
 /* 7. BANKNOTE GUILLOCHÉ & SUBTLE WATERMARKS */
@@ -284,6 +272,183 @@ body {
     margin-left: 1.5rem;
 }
 
+/* ==========================================================================
+   9B. SOVEREIGN ARCHIVAL CHARTER & ROYAL LEGAL DOCUMENT SYSTEM
+   ========================================================================== */
+
+/* Oxford Double Rule Framing (British Gazette & Parliamentary Patent Standard) */
+.oxford-frame {
+    position: relative;
+    border: 1px solid var(--border-gold);
+    outline: 2px solid var(--border-gold);
+    outline-offset: 4px;
+}
+
+.oxford-double-border {
+    border: 3px double var(--gold-foil-mid);
+}
+
+.oxford-rule-top {
+    border-top: 3px double var(--border-gold);
+}
+
+.oxford-rule-bottom {
+    border-bottom: 3px double var(--border-gold);
+}
+
+.oxford-rule-y {
+    border-top: 3px double var(--border-gold);
+    border-bottom: 3px double var(--border-gold);
+}
+
+/* Classical Brass Corner Filigree / Rosettes */
+.corner-flourish {
+    position: relative;
+}
+
+.corner-flourish::before,
+.corner-flourish::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.corner-flourish::before {
+    top: 6px;
+    left: 6px;
+    border-top: 2px solid var(--gold-foil-mid);
+    border-left: 2px solid var(--gold-foil-mid);
+}
+
+.corner-flourish::after {
+    bottom: 6px;
+    right: 6px;
+    border-bottom: 2px solid var(--gold-foil-mid);
+    border-right: 2px solid var(--gold-foil-mid);
+}
+
+/* Official Sovereign Gazette Docket Header */
+.gazette-docket-bar {
+    background: linear-gradient(90deg, var(--bg-header) 0%, #0A3420 50%, var(--bg-header) 100%);
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.65rem;
+    color: var(--gold-foil-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 1rem;
+}
+
+/* Banknote Guilloché Security Wave Ribbon */
+.guilloche-security-strip {
+    height: 6px;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(212, 175, 55, 0.25),
+        rgba(212, 175, 55, 0.25) 2px,
+        transparent 2px,
+        transparent 6px
+    ), repeating-linear-gradient(
+        -45deg,
+        rgba(212, 175, 55, 0.25),
+        rgba(212, 175, 55, 0.25) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    width: 100%;
+}
+
+/* 3D Embossed Royal Wax Seal & Archival Stamp */
+.royal-wax-seal {
+    position: relative;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #9b1d30 0%, #6a0d1d 55%, #3d050e 100%);
+    box-shadow: 
+        inset 2px 2px 4px rgba(255, 255, 255, 0.35),
+        inset -2px -2px 6px rgba(0, 0, 0, 0.6),
+        0 6px 14px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(247, 224, 150, 0.5);
+    color: #f7e096;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.royal-wax-seal-sm {
+    width: 48px;
+    height: 48px;
+}
+
+/* Official Judicial Stamp / Verification Seal */
+.archival-judicial-stamp {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 2px solid var(--oxblood);
+    border-radius: 4px;
+    color: var(--oxblood);
+    font-family: var(--font-serif);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transform: rotate(-1.5deg);
+    background: rgba(106, 13, 29, 0.04);
+    box-shadow: 0 1px 3px rgba(106, 13, 29, 0.15);
+}
+
+[data-theme="dark"] .archival-judicial-stamp {
+    border-color: var(--gold-foil-mid);
+    color: var(--gold-foil-light);
+    background: rgba(212, 175, 55, 0.08);
+}
+
+/* Latin Maxim Ticker / Banner */
+.latin-maxim-strip {
+    background: #04140C;
+    color: var(--gold-foil-mid);
+    font-family: var(--font-serif);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.4);
+    padding: 0.4rem 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Illuminated Charter Drop-Cap */
+.charter-drop-cap::first-letter {
+    font-family: var(--font-serif);
+    font-size: 3.4rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    padding-top: 4px;
+    color: var(--gold-foil-mid);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+}
+
+[dir="rtl"] .charter-drop-cap::first-letter {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
 /* 10. MODAL & BACKDROP BLUR */
 .modal-overlay {
     backdrop-filter: blur(14px);
@@ -291,34 +456,72 @@ body {
     background-color: rgba(3, 7, 18, 0.88);
 }
 
-/* 11. RTL & HIGH COURT URDU SPECIFICS */
-[dir="rtl"] {
-    font-family: var(--font-urdu), var(--font-sans);
-    letter-spacing: 0;
+/* 11. RTL & HIGH COURT URDU SPECIFICS (MASTER CALLIGRAPHIC NASTALIQ ARCHITECTURE) */
+/* Cursive Ligature Integrity: Zero letter-spacing everywhere in RTL so Urdu characters never tear apart */
+[dir="rtl"],
+[dir="rtl"] *,
+[dir="rtl"] [class*="tracking-"] {
+    letter-spacing: 0 !important;
+    word-spacing: normal;
 }
 
-[dir="rtl"] .font-serif {
+[dir="rtl"] {
+    font-family: var(--font-urdu), serif;
+    line-height: 2.35 !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Headings with vertical breathing space so nuqtas (dots) never get clipped */
+[dir="rtl"] h1:not([dir="ltr"]),
+[dir="rtl"] h2:not([dir="ltr"]),
+[dir="rtl"] h3:not([dir="ltr"]),
+[dir="rtl"] h4:not([dir="ltr"]),
+[dir="rtl"] h5:not([dir="ltr"]),
+[dir="rtl"] h6:not([dir="ltr"]) {
     font-family: var(--font-urdu), serif !important;
+    line-height: 2.1 !important;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+[dir="rtl"] p:not([dir="ltr"]),
+[dir="rtl"] li:not([dir="ltr"]),
+[dir="rtl"] span:not([dir="ltr"]),
+[dir="rtl"] a:not([dir="ltr"]),
+[dir="rtl"] button:not([dir="ltr"]),
+[dir="rtl"] label:not([dir="ltr"]) {
     line-height: 2.2 !important;
 }
 
-[dir="rtl"] .font-urdu {
-    font-family: var(--font-urdu), serif !important;
-    line-height: 2.3 !important;
-}
+/* Proportional Nastaliq text scaling to match English visual weight */
+[dir="rtl"] .text-xs:not([dir="ltr"]) { font-size: 0.88rem !important; }
+[dir="rtl"] .text-\[10px\]:not([dir="ltr"]) { font-size: 0.78rem !important; }
+[dir="rtl"] .text-\[11px\]:not([dir="ltr"]) { font-size: 0.82rem !important; }
+[dir="rtl"] .text-sm:not([dir="ltr"]) { font-size: 0.98rem !important; }
+[dir="rtl"] .text-base:not([dir="ltr"]) { font-size: 1.1rem !important; }
 
-[dir="rtl"] p,
-[dir="rtl"] li,
-[dir="rtl"] span {
-    line-height: 2.1;
+/* Critical Isolation: English and Latin containers inside RTL must never flip or inherit Urdu fonts */
+[dir="ltr"],
+[dir="rtl"] [dir="ltr"],
+[dir="rtl"] .font-mono,
+[dir="rtl"] .latin-maxim-strip,
+.latin-text {
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: var(--font-sans) !important;
+    letter-spacing: normal;
 }
 
 [dir="rtl"] select,
-[dir="rtl"] input,
-[dir="rtl"] textarea {
+[dir="rtl"] input:not([dir="ltr"]),
+[dir="rtl"] textarea:not([dir="ltr"]) {
     text-align: right;
     direction: rtl;
-    font-family: var(--font-urdu), var(--font-sans);
+    font-family: var(--font-urdu), serif;
+    line-height: 2.1 !important;
+    font-size: 0.95rem;
 }
 
 /* 12. ACCESSIBILITY & TOUCH STANDARDS (REDMI 12C / MOBILE / DESKTOP) */
@@ -387,4 +590,251 @@ a, button {
     .no-print {
         display: none !important;
     }
+}
+
+
+/* ==========================================================================
+   SOVEREIGN HERO BACKGROUND (IMAGE BACKDROP: HIGH COURT COLUMNS & JUSTITIA)
+   ========================================================================== */
+.hero-law-bg {
+    background-color: #052014;
+    background-image: 
+        linear-gradient(90deg, rgba(5,32,20,0.98) 0%, rgba(5,32,20,0.94) 45%, rgba(5,32,20,0.68) 65%, rgba(5,32,20,0.18) 100%),
+        url('hero-law-backdrop.webp');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+}
+
+[data-theme="dark"] .hero-law-bg {
+    background-color: #04120A;
+    background-image: 
+        linear-gradient(90deg, rgba(4,18,10,0.98) 0%, rgba(4,18,10,0.95) 45%, rgba(4,18,10,0.65) 65%, rgba(4,18,10,0.2) 100%),
+        url('hero-law-backdrop.webp');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+}
+
+/* 24K Pure Sone Ki Tarah (Metallic Gold Bullion Effects) */
+.gold-bullion-text {
+    background: linear-gradient(135deg, #FFF6C8 0%, #D4AF37 30%, #F5D77F 60%, #AA8438 85%, #FFEAA0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
+}
+
+.gold-bullion-btn {
+    background: linear-gradient(135deg, #FBE69E 0%, #D4AF37 40%, #B8860B 80%, #8C6A2B 100%) !important;
+    color: #03120A !important;
+    font-weight: 800 !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid #FFE8A3 !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gold-bullion-btn:hover {
+    background: linear-gradient(135deg, #FFF0B3 0%, #E5C158 40%, #C6951A 80%, #9E7428 100%) !important;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+    transform: translateY(-1.5px) !important;
+}
+
+/* 13. CURRENCY SELECTOR BAR & BAR COUNCIL VERIFICATION BADGES */
+.currency-bar select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.6rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+    padding-right: 2.2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+[dir="rtl"] .currency-bar select {
+    background-position: left 0.6rem center;
+    padding-right: 0.75rem;
+    padding-left: 2.2rem;
+}
+
+.bar-council-badge {
+    background: linear-gradient(145deg, rgba(5, 32, 20, 0.95), rgba(4, 23, 14, 0.98));
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    transition: all 0.25s ease;
+}
+
+.bar-council-badge:hover {
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -2px rgba(212, 175, 55, 0.25);
+}
+
+.legal-triage-card {
+    background: linear-gradient(180deg, rgba(6, 26, 17, 0.97) 0%, rgba(3, 16, 10, 0.99) 100%);
+}
+
+/* 14. LEGENDARY ANIMATIONS, 24K SHIMMER, & GLOBAL MAP INTERACTIVITY */
+
+/* 24K Gold Metallic Shimmer Effect for High-Conversion Buttons */
+@keyframes goldShimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.gold-shimmer-btn {
+    position: relative;
+    background: linear-gradient(90deg, #D4AF37 0%, #F5E19A 25%, #D4AF37 50%, #B89230 75%, #D4AF37 100%);
+    background-size: 200% 100%;
+    animation: goldShimmer 6s infinite linear;
+    color: #04170E !important;
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    transition: all 0.25s ease;
+}
+
+.gold-shimmer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.55);
+}
+
+/* Subtle Glowing Pulse Pins for Global Map */
+@keyframes mapPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+.map-radar-ring {
+    transform-origin: center;
+    animation: mapPulse 2.5s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.map-pin {
+    cursor: pointer;
+    pointer-events: all;
+    transition: all 0.25s ease;
+}
+
+.map-pin circle, .map-pin text {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.map-pin:hover circle.pin-core {
+    fill: #FFFFFF !important;
+    r: 6 !important;
+}
+
+#map-tooltip {
+    display: none;
+}
+
+#map-tooltip.active {
+    display: block !important;
+}
+
+/* Header Live Intake Badge (Pure Sovereign CSS) */
+.chambers-intake-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(2, 44, 25, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #a7f3d0;
+    font-size: 11px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    margin-right: 0.5rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+    .chambers-intake-badge {
+        display: none !important;
+    }
+}
+
+.pulse-emerald-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: #34d399;
+    box-shadow: 0 0 8px #34d399;
+    animation: emeraldGlow 2s infinite ease-in-out;
+}
+
+@keyframes emeraldGlow {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+/* Global Map Flightline Flow */
+@keyframes dashFlow {
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+.flightline {
+    stroke-dasharray: 4, 6;
+    animation: dashFlow 2s linear infinite;
+}
+
+/* Impact Card Metric Hover Lift */
+.impact-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.impact-card:hover {
+    transform: translateY(-4px);
+    border-color: #D4AF37 !important;
+    box-shadow: 0 12px 30px -4px rgba(212, 175, 55, 0.2);
+}
+
+/* Gazette Editorial Cards */
+.gazette-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gazette-card:hover {
+    transform: translateY(-4px);
+    border-color: #D4AF37 !important;
+    box-shadow: 0 14px 35px -5px rgba(5, 32, 20, 0.3), 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+/* Google Authority Badge */
+.google-authority-badge {
+    background: rgba(5, 32, 20, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s ease;
+}
+
+.google-authority-badge:hover {
+    border-color: #D4AF37;
+    background: rgba(6, 40, 25, 0.95);
+    transform: translateY(-1px);
 }

@@ -10,14 +10,70 @@ let currentTheme = localStorage.getItem('lexscribe_theme') || 'dark'; // Authori
 let currentCurrency = localStorage.getItem('lexscribe_curr') || 'USD';
 
 // Standardized Chambers Registrar Contact Hotline (International Format)
-const CHAMBERS_REGISTRAR_WHATSAPP = '923000000000'; // Chambers Desk Routing
-const CHAMBERS_REGISTRAR_EMAIL = 'registrar@lexscribe.com';
+const CHAMBERS_REGISTRAR_WHATSAPP = '923037446225'; // Chambers Desk Routing
+// Public raw email is offline pending mobile 2FA verification. Inquiries route via WhatsApp hotline.
 
 const currencyData = {
-    USD: { symbol: '$', rate: 1 },
-    GBP: { symbol: '£', rate: 0.8 },
-    AED: { symbol: 'AED ', rate: 3.67 },
-    PKR: { symbol: 'Rs ', rate: 280 }
+    "USD": {
+        "symbol": "$",
+        "rate": 1,
+        "decimals": 0
+    },
+    "GBP": {
+        "symbol": "£",
+        "rate": 0.79,
+        "decimals": 0
+    },
+    "AED": {
+        "symbol": "AED ",
+        "rate": 3.67,
+        "decimals": 0
+    },
+    "SAR": {
+        "symbol": "SAR ",
+        "rate": 3.75,
+        "decimals": 0
+    },
+    "CAD": {
+        "symbol": "CA$ ",
+        "rate": 1.36,
+        "decimals": 0
+    },
+    "EUR": {
+        "symbol": "€",
+        "rate": 0.92,
+        "decimals": 0
+    },
+    "AUD": {
+        "symbol": "AU$ ",
+        "rate": 1.53,
+        "decimals": 0
+    },
+    "QAR": {
+        "symbol": "QAR ",
+        "rate": 3.64,
+        "decimals": 0
+    },
+    "OMR": {
+        "symbol": "OMR ",
+        "rate": 0.38,
+        "decimals": 1
+    },
+    "KWD": {
+        "symbol": "KWD ",
+        "rate": 0.31,
+        "decimals": 1
+    },
+    "BHD": {
+        "symbol": "BHD ",
+        "rate": 0.38,
+        "decimals": 1
+    },
+    "PKR": {
+        "symbol": "Rs ",
+        "rate": 278.5,
+        "decimals": 0
+    }
 };
 
 // Clause samples for the interactive Bilingual Drafting Showcase
@@ -303,25 +359,46 @@ function setLanguage(lang) {
 // 3. MULTI-CURRENCY CONVERTER ENGINE
 // ==========================================================================
 function setCurrency(curr) {
+    if (!currencyData[curr]) curr = 'USD';
     currentCurrency = curr;
     localStorage.setItem('lexscribe_curr', curr);
 
-    // Update Currency buttons
+    // Sync dropdown select if present
+    const selectEl = document.getElementById('currency-select');
+    if (selectEl && selectEl.value !== curr) {
+        selectEl.value = curr;
+    }
+
+    // Update Currency buttons if any exist
     document.querySelectorAll('.curr-btn').forEach(btn => {
         if (btn.getAttribute('data-curr') === curr) {
-            btn.classList.add('bg-gold', 'text-navy-dark', 'font-bold');
+            btn.classList.add('bg-gold', 'text-emerald-dark', 'font-bold');
             btn.classList.remove('text-gray-300', 'text-theme-muted');
         } else {
-            btn.classList.remove('bg-gold', 'text-navy-dark', 'font-bold');
+            btn.classList.remove('bg-gold', 'text-emerald-dark', 'font-bold');
             btn.classList.add('text-gray-300');
         }
     });
 
+    const rateInfo = currencyData[curr] || currencyData.USD;
+
     // Update all dynamic price-val elements
     document.querySelectorAll('.price-val').forEach(el => {
-        const val = el.getAttribute(`data-${curr.toLowerCase()}`);
-        if (val) {
-            el.textContent = `${currencyData[curr].symbol}${val}`;
+        const directAttr = el.getAttribute('data-' + curr.toLowerCase());
+        if (directAttr) {
+            el.textContent = rateInfo.symbol + directAttr;
+        } else {
+            const usdBase = parseFloat(el.getAttribute('data-usd')) || 0;
+            const convertedRaw = usdBase * rateInfo.rate;
+            let displayVal;
+            if (curr === 'PKR') {
+                displayVal = Math.round(convertedRaw / 100) * 100;
+            } else if (rateInfo.decimals > 0) {
+                displayVal = convertedRaw.toFixed(rateInfo.decimals);
+            } else {
+                displayVal = Math.round(convertedRaw);
+            }
+            el.textContent = rateInfo.symbol + Number(displayVal).toLocaleString();
         }
     });
 }
@@ -344,25 +421,20 @@ function updateTriageResult() {
     const selectedCityOption = cityEl ? cityEl.options[cityEl.selectedIndex] : null;
     const cityText = selectedCityOption ? selectedCityOption.text : "Pakistan";
     const t = translations[currentLang].triage;
-    let rec = "";
-
-    if (issue === 'poa') {
-        rec = t.res_poa;
-    } else if (issue === 'qabza') {
-        rec = t.res_qabza;
-    } else if (issue === 'inheritance') {
-        rec = t.res_inheritance;
-    } else if (issue === 'tenant') {
-        rec = t.res_tenant;
-    } else if (issue === 'fir') {
-        rec = t.res_fir;
-    } else {
-        rec = t.res_audit;
-    }
+    
+    // Look up exact statutory solution from translations
+    const resKey = 'res_' + issue;
+    const rec = t[resKey] || t.res_qabza;
 
     const cityNotice = currentLang === 'ur'
-        ? `<div class="mt-3 pt-2.5 border-t border-gold/30 text-[11px] text-gold font-urdu" dir="rtl"><strong>متعلقہ ضلع:</strong> ${cityText} میں ہمارے چیمبرز کی زیرِ نگرانی ہائی کورٹ اور متعلقہ ماتحت عدالت میں فوری قانونی کارروائی میسر ہے۔</div>`
-        : `<div class="mt-3 pt-2.5 border-t border-gold/30 text-[11px] text-gold font-sans"><strong>Jurisdiction Note:</strong> Chambers provides active statutory coverage, caveats, and precedent filing in ${cityText}.</div>`;
+        ? '<div class="mt-4 pt-3 border-t border-gold/30 flex items-center justify-between flex-wrap gap-2 text-xs text-gold font-urdu" dir="rtl">' +
+             '<div><strong>متعلقہ ضلع / ہائی کورٹ بینچ:</strong> ' + cityText + ' میں ہمارے چیمبرز کی زیرِ نگرانی فوری رٹ پٹیشن، اسٹے آرڈر اور قانونی کارروائی میسر ہے۔</div>' +
+             '<a href="https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent('السلام علیکم رجسٹرار، میں ' + cityText + ' میں اپنے جائیدادی تنازعہ (' + issue + ') کے سلسلے میں سینئر وکیل سے براہِ راست مشورہ کرنا چاہتا ہوں۔') + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-gold text-emerald-dark font-bold hover:bg-gold-light transition shadow text-xs">رجسٹرار سے فوری رابطہ کریں</a>' +
+           '</div>'
+        : '<div class="mt-4 pt-3 border-t border-gold/30 flex items-center justify-between flex-wrap gap-2 text-xs text-gold font-sans">' +
+             '<div><strong>Jurisdiction Standing:</strong> Active High Court & Sessions Bar filing coverage in ' + cityText + '.</div>' +
+             '<a href="https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent('Hello Registrar, I am seeking High Court legal representation in ' + cityText + ' regarding ' + issue + '.') + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-gold text-emerald-dark font-bold hover:bg-gold-light transition shadow text-xs">Consult Registrar on WhatsApp</a>' +
+           '</div>';
 
     resultBox.innerHTML = rec + cityNotice;
     resultBox.classList.remove('hidden');
@@ -541,6 +613,51 @@ function showToast() {
 }
 
 // ==========================================================================
+
+// ==========================================================================
+// 8B. $10 PRIORITY ADVISORY SLOT BOOKING CONTROLLER
+// ==========================================================================
+function openBookingModal() {
+    const modal = document.getElementById('booking-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    }
+}
+
+function closeBookingModal() {
+    const modal = document.getElementById('booking-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+}
+
+function handleBookingSubmit(e) {
+    if (e) e.preventDefault();
+
+    const name = (document.getElementById('booking-name') || {}).value || 'Overseas Client';
+    const country = (document.getElementById('booking-country') || {}).value || 'Overseas';
+    const slot = (document.getElementById('booking-slot') || {}).value || 'Next Available Slot';
+    const matter = (document.getElementById('booking-matter') || {}).value || 'Property & Legal Consultation';
+    const summary = (document.getElementById('booking-summary') || {}).value || 'Document Scrutiny and Advisory';
+
+    const rawMessage = '*PRIORITY ADVISORY SLOT BOOKING ($10 CONSULTATION)*\n' +
+        '• Instructing Client: ' + name + '\n' +
+        '• Resident Country: ' + country + '\n' +
+        '• Matter Classification: ' + matter + '\n' +
+        '• Preferred Time Window: ' + slot + '\n' +
+        '• Case Synopsis: ' + summary + '\n' +
+        '• Priority Advisory Fee: $10.00 USD / £8 GBP / 37 AED / Rs 2,800 (Authorized)\n\n' +
+        'Hello Registrar, I am submitting my $10 Priority Advisory Booking and request slot confirmation.';
+
+    const encoded = encodeURIComponent(rawMessage);
+    const waUrl = 'https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encoded;
+
+    closeBookingModal();
+    window.open(waUrl, '_blank');
+}
+
 // 9. MOBILE MENU TOGGLE
 // ==========================================================================
 function toggleMobileMenu() {
@@ -560,8 +677,102 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
+// ==========================================================================
+// 11. LEGENDARY COUNTER ANIMATION & GLOBAL MAP CONTROLLER
+// ==========================================================================
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+        counters.forEach(el => {
+            const target = el.getAttribute('data-target') || '0';
+            const suffix = el.getAttribute('data-suffix') || '';
+            el.textContent = target + suffix;
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+                const suffix = el.getAttribute('data-suffix') || '';
+                const duration = 1800;
+                const start = performance.now();
+
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const ease = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(ease * target);
+                    el.textContent = current.toLocaleString() + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target.toLocaleString() + suffix;
+                    }
+                }
+
+                requestAnimationFrame(update);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    counters.forEach(c => observer.observe(c));
+}
+
+function showMapTooltip(city, stats, waMsg) {
+    const tooltip = document.getElementById('map-tooltip');
+    if (!tooltip) return;
+    const titleEl = document.getElementById('map-tooltip-title');
+    const statsEl = document.getElementById('map-tooltip-stats');
+    const linkEl = document.getElementById('map-tooltip-link');
+
+    if (titleEl) titleEl.textContent = city;
+    if (statsEl) statsEl.textContent = stats;
+    if (linkEl) {
+        linkEl.href = 'https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent(waMsg);
+    }
+    tooltip.classList.remove('hidden');
+    tooltip.classList.add('active');
+    tooltip.style.display = 'block';
+}
+
+function hideMapTooltip() {
+    const tooltip = document.getElementById('map-tooltip');
+    if (tooltip) {
+        tooltip.classList.add('hidden');
+        tooltip.classList.remove('active');
+        tooltip.style.display = 'none';
+    }
+}
+
+function initMapPins() {
+    const pins = document.querySelectorAll('.map-pin');
+    pins.forEach(pin => {
+        pin.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const city = pin.getAttribute('data-city');
+            const stats = pin.getAttribute('data-stats');
+            const msg = pin.getAttribute('data-msg');
+            if (city) {
+                showMapTooltip(city, stats, msg);
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    initCounters();
+    initMapPins();
     initTheme();
     setLanguage(currentLang);
     setCurrency(currentCurrency);
+    const currSelect = document.getElementById("currency-select");
+    if (currSelect) currSelect.value = currentCurrency;
 });

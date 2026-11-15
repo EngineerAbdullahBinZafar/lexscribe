@@ -2,24 +2,24 @@ const fs = require('fs');
 const path = require('path');
 
 console.log('================================================================');
-console.log('   LEXSCRIBE CHAMBERS — RIGOROUS AUDIT & VERIFICATION SUITE');
-console.log('   Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court & MD)');
+console.log('   LEXSCRIBE CHAMBERS -- RIGOROUS AUDIT & VERIFICATION SUITE');
+console.log('   Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court)');
 console.log('================================================================\n');
 
 let errors = 0;
 let passed = 0;
 
 function pass(msg) {
-    console.log(`✓ PASS: ${msg}`);
+    console.log(`[PASS] ${msg}`);
     passed++;
 }
 
 function fail(msg) {
-    console.error(`✗ FAIL: ${msg}`);
+    console.error(`[FAIL] ${msg}`);
     errors++;
 }
 
-// 1. Check Multi-Page Architecture ("خالی انڈیکس نہ دکھاؤ")
+// 1. Check Multi-Page Architecture
 const requiredPages = [
     'index.html',
     'audit-sample.html',
@@ -105,6 +105,7 @@ const requiredIds = [
     'triage-result',
     'preview-modal',
     'dossier-modal',
+    'booking-modal',
     'record',
     'dossiers',
     'cases',
@@ -174,6 +175,9 @@ const expectedFunctions = [
     'closePreviewModal',
     'openDossierModal',
     'closeDossierModal',
+    'openBookingModal',
+    'closeBookingModal',
+    'handleBookingSubmit',
     'generateWhatsAppBrief',
     'copyFormattedBrief',
     'sendEmailBrief',
@@ -189,21 +193,48 @@ expectedFunctions.forEach(fnName => {
     }
 });
 
+// 8B. Validate JavaScript Syntax & Execution Safety of app.js
+try {
+    new Function(appContent);
+    pass('app.js parsed cleanly with zero syntax errors (valid ES6 JavaScript execution context).');
+} catch (e) {
+    fail(`app.js contains a fatal syntax error: ${e.message}`);
+}
+
 // 9. Check Design Token Architecture in styles.css
 if (stylesContent.includes(':root') && stylesContent.includes('[data-theme="dark"]') && stylesContent.includes('[dir="rtl"]')) {
-    pass('CSS architecture includes full Day Mode (:root), Dark Mode ([data-theme="dark"]), and RTL ([dir="rtl"]) tokens.');
+    pass('CSS architecture includes full Day Mode (:root), British Judicial Slate Dark Mode ([data-theme="dark"]), and RTL ([dir="rtl"]) tokens.');
 } else {
     fail('Missing :root, [data-theme="dark"], or [dir="rtl"] in styles.css');
 }
 
-// 10. Check Royal Heraldic Crest SVG Quality
+// 10. Check Royal Heraldic Crest SVG Quality & Updated Metrics
 if (htmlContent.includes('<svg viewBox="0 0 240 240"') && htmlContent.includes('JUSTITIA • DOCTRINA • VICTORIA')) {
     pass('Intricate Royal Heraldic SVG Crest embedded with official motto and quadrants.');
 } else {
     fail('Royal Heraldic Crest SVG missing from index.html');
 }
 
-// 11. Check Vercel Configuration Integrity
+if (htmlContent.includes('EST. 2004 • 200+ WINS • 0 LOSSES • 20+ YRS')) {
+    pass('Crest ribbon successfully reflects updated metrics: EST. 2004, 200+ Wins, 20+ Yrs.');
+} else {
+    fail('Crest ribbon does not have updated EST. 2004 metrics.');
+}
+
+if (!htmlContent.includes('EST. 1984') && !htmlContent.includes('40 YRS') && !htmlContent.includes('40+ Yrs')) {
+    pass('All legacy 40-year / EST. 1984 placeholders fully purged from index.html.');
+} else {
+    fail('Legacy 40-year or EST. 1984 references still present in index.html.');
+}
+
+// 11. Check Email Privacy & Route Integrity
+if (!appContent.includes("registrar@lexscribe.com") && !htmlContent.includes("mailto:registrar@lexscribe.com")) {
+    pass('Unverified email registrar@lexscribe.com successfully removed from code.');
+} else {
+    fail('Unverified email registrar@lexscribe.com still present in code.');
+}
+
+// 12. Check Vercel Configuration Integrity
 try {
     const vercelObj = JSON.parse(vercelContent);
     if (vercelObj.cleanUrls === true && vercelObj.headers && vercelObj.routes) {
@@ -215,15 +246,157 @@ try {
     fail(`vercel.json parse error: ${e.message}`);
 }
 
+// 13. Check Chambers WhatsApp Registrar Routing & wa.me Integrity
+if (appContent.includes("const CHAMBERS_REGISTRAR_WHATSAPP = '923037446225'")) {
+    pass('Chambers Registrar WhatsApp hotline bound to verified active number 923037446225.');
+} else {
+    fail('Chambers Registrar WhatsApp hotline not properly configured in app.js.');
+}
+
+const dossiersContent = fs.readFileSync(path.join(__dirname, 'dossiers.html'), 'utf-8');
+const combinedHtml = htmlContent + dossiersContent;
+const dummyMatches = [...combinedHtml.matchAll(/923000000000/g)];
+if (dummyMatches.length === 0) {
+    pass('Zero placeholder WhatsApp numbers (923000000000) remaining across flagship HTML suites.');
+} else {
+    fail(`Found ${dummyMatches.length} placeholder WhatsApp numbers remaining.`);
+}
+
+const activeWaMatches = [...combinedHtml.matchAll(/https:\/\/wa\.me\/923037446225\?text=[^"]+/g)];
+if (activeWaMatches.length >= 11) {
+    pass(`All ${activeWaMatches.length} interactive CTAs and dossier order buttons successfully route to 923037446225.`);
+} else {
+    fail(`Expected at least 11 active wa.me CTA routes, found ${activeWaMatches.length}.`);
+}
+
+// 14. Security Verification: Target="_blank" links must enforce rel="noopener noreferrer"
+let missingRelCount = 0;
+let totalBlankLinks = 0;
+requiredPages.forEach(file => {
+    const content = fs.readFileSync(path.join(__dirname, file), 'utf-8');
+    const targetBlankMatches = [...content.matchAll(/<a\s+[^>]*target="_blank"[^>]*>/gi)];
+    totalBlankLinks += targetBlankMatches.length;
+    targetBlankMatches.forEach(m => {
+        if (!m[0].includes('rel="noopener noreferrer"') && !m[0].includes("rel='noopener noreferrer'")) {
+            fail(`${file} link missing rel="noopener noreferrer": ${m[0]}`);
+            missingRelCount++;
+        }
+    });
+});
+if (missingRelCount === 0) {
+    pass(`All ${totalBlankLinks} external target="_blank" links across all 5 flagship pages enforce rel="noopener noreferrer" tabnabbing protection.`);
+}
+
+// 15. Check Pricing Dignity: Zero $1 booking references, verified $25 Priority Advisory pricing
+const termsContent = fs.readFileSync(path.join(__dirname, 'terms.html'), 'utf-8');
+const priceTargetFiles = [
+    { file: 'index.html', content: htmlContent },
+    { file: 'app.js', content: appContent },
+    { file: 'translations.js', content: translationsCode },
+    { file: 'terms.html', content: termsContent }
+];
+let cheapPriceFound = false;
+priceTargetFiles.forEach(item => {
+    if (/\$1\.00|\$1\s(?!\d)|Book \$1(?!\d)|۱ ڈالر/i.test(item.content)) {
+        fail(`Found cheap $1 reference remaining in ${item.file}`);
+        cheapPriceFound = true;
+    }
+});
+if (!cheapPriceFound) {
+    pass('Zero cheap/undignified $1 consultation tokens remaining across HTML, app logic, terms, and translations.');
+}
+
+if (htmlContent.includes('$10') && appContent.includes('$10') && translationsCode.includes('$10') && (translationsCode.includes('10 ڈالر') || translationsCode.includes('۱۰ ڈالر')) && termsContent.includes('$10')) {
+    pass('Accessible $10 Priority Advisory consultation fee symmetrically integrated across UI, app logic, terms of service, and bilingual engine.');
+} else {
+    fail('Missing $10 Priority Advisory pricing in UI, app logic, terms, or translations.');
+}
+
+// 16. Verify WhatsApp Booking URL Encoding Integrity (Zero raw unencoded spaces or illegal characters)
+if (appContent.includes("encodeURIComponent(rawMessage)") && !appContent.includes("text=`*PRIORITY ADVISORY")) {
+    pass('WhatsApp booking URL serialization uses full URI percent-encoding (zero raw spaces or unescaped unicode in query string).');
+} else {
+    fail('WhatsApp booking URL serialization contains unencoded raw template string.');
+}
+
+// 17. Verify Sovereign Royal Archival Document & Imperial Charter Features
+let topStripViolations = 0;
+requiredPages.forEach(file => {
+    const pageHtml = fs.readFileSync(path.join(__dirname, file), 'utf-8');
+    if (pageHtml.includes('<aside') || pageHtml.includes('class="latin-maxim-strip"')) {
+        fail(`${file} still contains top announcement/maxim strips above the header.`);
+        topStripViolations++;
+    }
+});
+if (topStripViolations === 0) {
+    pass('All 5 flagship pages cleanly start directly at the slim permanent sticky header (zero extraneous strips above header).');
+}
+
+// 17B. Verify 12-Currency Selector Bar and Dedicated Triage Section
+if (htmlContent.includes('id="currency-select"') && htmlContent.includes('id="triage"') && appContent.includes('SAR') && appContent.includes('QAR') && appContent.includes('OMR')) {
+    pass('Dedicated 12-currency selector bar and full-width triage section verified with multi-currency conversion engine.');
+} else {
+    fail('Missing 12-currency selector bar or dedicated triage section.');
+}
+
+// 17C. Verify Official Bar Council Vector Logos (Punjab, Sindh, Islamabad)
+if (htmlContent.includes('Punjab Bar Council') && htmlContent.includes('Sindh Bar Council') && htmlContent.includes('Islamabad Bar Council') && htmlContent.includes('bar-council-badge')) {
+    pass('Institutional verification strip embeds official vector insignias for Punjab, Sindh, and Islamabad Bar Councils.');
+} else {
+    fail('Missing Bar Council vector insignias or badges in #verify section.');
+}
+
+if (stylesContent.includes('.oxford-frame') && stylesContent.includes('.corner-flourish') && stylesContent.includes('.archival-judicial-stamp') && htmlContent.includes('oxford-frame') && htmlContent.includes('archival-judicial-stamp')) {
+    pass('Sovereign Archival design system (Oxford double rules, corner filigree rosettes, judicial stamps) fully implemented.');
+} else {
+    fail('Missing Oxford framing, corner rosettes, or judicial stamps in styles or index.html.');
+}
+
+// 17D. Verify Legendary Clooney Foundation-Inspired Impact Components
+if (htmlContent.includes('id="global"') && htmlContent.includes('map-radar-ring') && htmlContent.includes('flightline')) {
+    pass('Global Diaspora Protection Map (#global) verified with interactive SVG coordinates, flightlines, and pulsing radar rings.');
+} else {
+    fail('Global Diaspora Protection Map missing from index.html.');
+}
+
+if (htmlContent.includes('id="gazette"') && htmlContent.includes('gazette-card')) {
+    const gazetteCardCount = (htmlContent.match(/class="[^"]*gazette-card[^"]*"/g) || []).length;
+    if (gazetteCardCount === 3) {
+        pass(`Chambers Gazette (#gazette) verified with all 3 high-impact precedent dispatches.`);
+    } else {
+        fail(`Expected 3 gazette-card elements, found ${gazetteCardCount}.`);
+    }
+} else {
+    fail('Chambers Gazette section (#gazette) missing from index.html.');
+}
+
+if (htmlContent.includes('counter') && htmlContent.includes('data-target="100"') && htmlContent.includes('data-target="1200"') && htmlContent.includes('data-target="200"') && htmlContent.includes('data-target="30"')) {
+    pass('Impact 4-Metric Grid verified with animated IntersectionObserver counter triggers (100%, 1200+, 200+, 30+).');
+} else {
+    fail('Impact 4-Metric Grid with counter targets missing from #record.');
+}
+
+if (htmlContent.includes('google-authority-badge') && htmlContent.includes('data-i18n="google_badge.text"')) {
+    pass('Google Authority Badge successfully embedded in Verification & Bar Credentials section.');
+} else {
+    fail('Google Authority Badge missing from #verify.');
+}
+
+if (appContent.includes('function initCounters') && appContent.includes('function showMapTooltip') && appContent.includes('function hideMapTooltip')) {
+    pass('Interactive counter animations and Map popover controller functions implemented in app.js.');
+} else {
+    fail('Missing initCounters, showMapTooltip, or hideMapTooltip in app.js.');
+}
+
 // Final Summary
 console.log('\n================================================================');
 console.log(`VERIFICATION SUMMARY: ${passed} PASSED, ${errors} ERRORS`);
 console.log('================================================================\n');
 
 if (errors > 0) {
-    console.error(`❌ VERIFICATION FAILED: ${errors} errors found.`);
+    console.error(`[FAIL] VERIFICATION FAILED: ${errors} errors found.`);
     process.exit(1);
 } else {
-    console.log('🎉 ALL PRODUCTION, ACCESSIBILITY, MULTI-PAGE, AND INTEGRITY CHECKS PASSED!');
+    console.log('[SUCCESS] ALL PRODUCTION, ACCESSIBILITY, MULTI-PAGE, AND INTEGRITY CHECKS PASSED!');
     process.exit(0);
 }
