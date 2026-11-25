@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Forensic Document Scrutiny Report | LexScribe Chambers | Ch. Muhammad Zafar Iqbal</title>
     <meta name="description" content="Authentic stamped 48-Hour Forensic Legal Risk Assessment Report deliverable by Chambers of Ch. Muhammad Zafar Iqbal, Advocate High Court. Clause-by-clause scrutiny for overseas property deeds.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23052014' stroke='%23D4AF37' stroke-width='3'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='24' font-weight='bold' fill='%23D4AF37' text-anchor='middle'%3EMZ%3C/text%3E%3C/svg%3E">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,18 +79,17 @@
                 </div>
                 <div>
                     <span class="font-serif text-xl sm:text-2xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
-                    <span class="text-[9px] uppercase tracking-wider text-emerald-100/70 block mt-0.5 font-medium truncate max-w-[160px] xs:max-w-[220px] sm:max-w-none">Chambers of Ch. M. Zafar Iqbal • Advocate High Court (Est. 2004)</span>
+                    <span class="text-[9px] uppercase tracking-wider text-emerald-100/70 block mt-0.5 font-medium truncate max-w-[160px] min-[400px]:max-w-[220px] sm:max-w-none">Chambers of Ch. M. Zafar Iqbal • Advocate High Court (Est. 2004)</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
-            <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold tracking-wide uppercase">
-                <a href="index.html#audit" class="text-emerald-100/85 hover:text-gold transition">Document Audit</a>
-                <a href="index.html#record" class="text-gold hover:text-gold-light transition font-bold">Unbroken Record</a>
-                <a href="dossiers.html" class="text-emerald-100/85 hover:text-gold transition">Legal Playbooks</a>
-                <a href="index.html#cases" class="text-emerald-100/85 hover:text-gold transition">Case Chronicles</a>
-                <a href="jurisprudence.html" class="text-emerald-100/85 hover:text-gold transition">The Senior Jurist</a>
-                <a href="audit-sample.html" class="text-gold font-bold">Audit Sample</a>
+            <nav class="hidden xl:flex items-center gap-3 2xl:gap-5 text-[11px] 2xl:text-xs font-semibold tracking-wide uppercase">
+                <a href="index.html#audit" class="text-emerald-100/85 hover:text-gold transition whitespace-nowrap">Document Audit</a>
+                <a href="dossiers.html" class="text-emerald-100/85 hover:text-gold transition whitespace-nowrap">Legal Playbooks</a>
+                <a href="index.html#cases" class="text-emerald-100/85 hover:text-gold transition whitespace-nowrap">Case Chronicles</a>
+                <a href="jurisprudence.html" class="text-emerald-100/85 hover:text-gold transition whitespace-nowrap">The Senior Jurist</a>
+                <a href="audit-sample.html" class="text-gold font-bold whitespace-nowrap">Audit Sample</a>
             </nav>
 
             <!-- Right Controls -->
@@ -103,11 +103,29 @@
                     <button onclick="setLanguage('ur')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
                 </div>
 
-                <a href="index.html#brief_builder" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-bold gold-bullion-btn shadow-md">
+                <a href="index.html#brief_builder" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-bold gold-bullion-btn shadow-md whitespace-nowrap">
                     <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
                     <span>Registrar Desk</span>
                 </a>
+
+                <!-- Mobile Menu Button (Shows below xl) -->
+                <button onclick="toggleMobileMenu()" class="xl:hidden p-1.5 rounded text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle Mobile Menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-[#04170E] border-t border-gold/30 px-6 py-4 space-y-3 text-sm">
+            <a href="index.html#audit" onclick="toggleMobileMenu()" class="block text-emerald-100 hover:text-gold">Document Audit</a>
+            <a href="dossiers.html" class="block text-emerald-100 hover:text-gold">Legal Playbooks</a>
+            <a href="index.html#cases" onclick="toggleMobileMenu()" class="block text-emerald-100 hover:text-gold">Case Chronicles</a>
+            <a href="jurisprudence.html" class="block text-emerald-100 hover:text-gold">The Senior Jurist</a>
+            <a href="audit-sample.html" class="block text-gold font-bold">Audit Sample</a>
+            <a href="terms.html" class="block text-emerald-100 hover:text-gold">Chambers Terms</a>
+            <a href="index.html#brief_builder" onclick="toggleMobileMenu()" class="block py-2.5 text-center text-xs font-bold gold-bullion-btn rounded mt-2">
+                Registrar Desk
+            </a>
         </div>
     </header>
 

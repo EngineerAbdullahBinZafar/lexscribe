@@ -62,27 +62,5 @@
         }
       ]
     }
-  ],
-  "routes": [
-    {
-      "src": "^/(verify_site\\.js|.*\\.bat|.*\\.md|package(-lock)?\\.json)$",
-      "status": 404
-    },
-    {
-      "src": "/audit-sample",
-      "dest": "/audit-sample.html"
-    },
-    {
-      "src": "/dossiers",
-      "dest": "/dossiers.html"
-    },
-    {
-      "src": "/jurisprudence",
-      "dest": "/jurisprudence.html"
-    },
-    {
-      "src": "/terms",
-      "dest": "/terms.html"
-    }
   ]
 }

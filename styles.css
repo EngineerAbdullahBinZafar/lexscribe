@@ -35,6 +35,9 @@
     --forest-light: #135A38;
     --forest-bg: #EFF8F3;
     --forest-border: #A2D9BC;
+    --oxblood: #6A0D1D;
+    --oxblood-dark: #480611;
+    --oxblood-light: #8A162B;
 
     --border-subtle: #E3D9C9;
     --border-strong: #C5B69C;
@@ -80,6 +83,9 @@
     --forest-light: #1B7A53;
     --forest-bg: #071C12;
     --forest-border: #1B6543;
+    --oxblood: #8A162B;
+    --oxblood-dark: #6A0D1D;
+    --oxblood-light: #B0243D;
 
     --border-subtle: #163625;
     --border-strong: #245239;
@@ -243,7 +249,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 }
 
 .oxblood-badge, .sovereign-badge {
-    background-color: var(--gold-dark);
+    background-color: var(--gold-foil-dark);
     color: #F8FAFC;
 }
 
@@ -496,23 +502,30 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 }
 
 [dir="rtl"] {
-    font-family: var(--font-urdu), serif;
-    line-height: 2.35 !important;
+    font-family: var(--font-urdu), "Jameel Noori Nastaleeq", "Noto Sans Arabic", serif;
+    line-height: 1.8 !important;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Headings with vertical breathing space so nuqtas (dots) never get clipped */
-[dir="rtl"] h1:not([dir="ltr"]),
+/* Headings with elegant Nastaliq proportion without excessive vertical gaps */
+[dir="rtl"] h1:not([dir="ltr"]) {
+    font-family: var(--font-urdu), "Jameel Noori Nastaleeq", serif !important;
+    line-height: 1.38 !important;
+    padding-top: 0.25rem;
+    padding-bottom: 0.35rem;
+    font-weight: 700;
+}
+
 [dir="rtl"] h2:not([dir="ltr"]),
 [dir="rtl"] h3:not([dir="ltr"]),
 [dir="rtl"] h4:not([dir="ltr"]),
 [dir="rtl"] h5:not([dir="ltr"]),
 [dir="rtl"] h6:not([dir="ltr"]) {
-    font-family: var(--font-urdu), serif !important;
-    line-height: 2.1 !important;
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
+    font-family: var(--font-urdu), "Jameel Noori Nastaleeq", serif !important;
+    line-height: 1.5 !important;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-weight: 700;
 }
 
@@ -522,7 +535,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 [dir="rtl"] a:not([dir="ltr"]),
 [dir="rtl"] button:not([dir="ltr"]),
 [dir="rtl"] label:not([dir="ltr"]) {
-    line-height: 2.2 !important;
+    line-height: 1.85 !important;
 }
 
 /* Proportional Nastaliq text scaling to match English visual weight */
@@ -644,6 +657,103 @@ a, button {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
+}
+
+/* RTL Hero Backdrop Flip: Move Lady Justice to the LEFT, Dark Solid Backdrop to the RIGHT */
+[dir="rtl"] .hero-law-bg {
+    background-position: left center !important;
+    background-image: 
+        linear-gradient(270deg, rgba(5,32,20,0.98) 0%, rgba(5,32,20,0.94) 45%, rgba(5,32,20,0.68) 65%, rgba(5,32,20,0.18) 100%),
+        url('hero-law-backdrop.webp') !important;
+}
+
+[dir="rtl"] .hero-law-bg .max-w-2xl {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    text-align: right;
+}
+
+[dir="rtl"][data-theme="dark"] .hero-law-bg {
+    background-position: left center !important;
+    background-image: 
+        linear-gradient(270deg, rgba(4,18,10,0.98) 0%, rgba(4,18,10,0.95) 45%, rgba(4,18,10,0.65) 65%, rgba(4,18,10,0.2) 100%),
+        url('hero-law-backdrop.webp') !important;
+}
+
+/* ==========================================================================
+   THE OVERSEAS LEGAL TRIAGE: CONTRAST-SAFE ADAPTIVE DESIGN TOKENS
+   ========================================================================== */
+.triage-select {
+    background-color: #FFFFFF !important;
+    color: #062015 !important;
+    border: 1px solid rgba(197, 160, 89, 0.65) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.triage-select option {
+    background-color: #FFFFFF !important;
+    color: #062015 !important;
+}
+
+[data-theme="dark"] .triage-select {
+    background-color: #03120A !important;
+    color: #F5F2EA !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .triage-select option {
+    background-color: #04170E !important;
+    color: #F5F2EA !important;
+}
+
+/* Triage Dynamic Solution Result Box & High-Contrast Typography */
+.triage-result-card,
+#triage-result {
+    background-color: #F0F6F2 !important;
+    border: 1px solid rgba(197, 160, 89, 0.55) !important;
+    color: #072618 !important;
+}
+
+/* Light / Day Mode Solution Highlight Box inside Triage Result */
+.triage-result-card .bg-emerald-950\/60,
+#triage-result .bg-emerald-950\/60 {
+    background-color: #E2ECE5 !important;
+    border-color: #A6803C !important;
+    color: #052014 !important;
+}
+
+.triage-result-card .text-gold,
+#triage-result .text-gold {
+    color: #826026 !important;
+}
+
+.triage-result-card .text-theme-secondary,
+#triage-result .text-theme-secondary {
+    color: #173827 !important;
+}
+
+/* Dark Mode Overrides for Triage Result Card */
+[data-theme="dark"] .triage-result-card,
+[data-theme="dark"] #triage-result {
+    background-color: #04170E !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    color: #F5F2EA !important;
+}
+
+[data-theme="dark"] .triage-result-card .bg-emerald-950\/60,
+[data-theme="dark"] #triage-result .bg-emerald-950\/60 {
+    background-color: rgba(2, 44, 25, 0.75) !important;
+    border-color: #D4AF37 !important;
+    color: #ECFDF5 !important;
+}
+
+[data-theme="dark"] .triage-result-card .text-gold,
+[data-theme="dark"] #triage-result .text-gold {
+    color: #F5D77F !important;
+}
+
+[data-theme="dark"] .triage-result-card .text-theme-secondary,
+[data-theme="dark"] #triage-result .text-theme-secondary {
+    color: #C8DDD0 !important;
 }
 
 /* 24K Pure Sone Ki Tarah (Metallic Gold Bullion Effects) */

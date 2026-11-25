@@ -237,13 +237,35 @@ if (!appContent.includes("registrar@lexscribe.com") && !htmlContent.includes("ma
 // 12. Check Vercel Configuration Integrity
 try {
     const vercelObj = JSON.parse(vercelContent);
-    if (vercelObj.cleanUrls === true && vercelObj.headers && vercelObj.routes) {
-        pass('vercel.json is valid with cleanUrls, security headers, and multi-page routing.');
+    if (vercelObj.version === 2 && vercelObj.cleanUrls === true && vercelObj.trailingSlash === false && Array.isArray(vercelObj.headers) && vercelObj.headers.length > 0 && !vercelObj.routes) {
+        pass('vercel.json is valid (cleanUrls, trailingSlash: false, security headers, and no conflicting legacy routes).');
     } else {
-        fail('vercel.json is missing required cleanUrls, headers, or routes.');
+        fail('vercel.json is invalid or mixes legacy routes with cleanUrls/trailingSlash/headers.');
     }
 } catch (e) {
     fail(`vercel.json parse error: ${e.message}`);
+}
+
+// 12B. Check .gitignore & .vercelignore Security Hygiene
+const gitignoreContent = fs.existsSync(path.join(__dirname, '.gitignore')) ? fs.readFileSync(path.join(__dirname, '.gitignore'), 'utf-8') : '';
+if (gitignoreContent.includes('vercel api.txt') && gitignoreContent.includes('.vercel_token') && gitignoreContent.includes('*.token') && gitignoreContent.includes('.vercel/')) {
+    pass('.gitignore shields vercel api.txt, .vercel_token, *.token, and .vercel/ metadata.');
+} else {
+    fail('.gitignore is missing required secret/token exclusions.');
+}
+
+const vercelignorePath = path.join(__dirname, '.vercelignore');
+if (fs.existsSync(vercelignorePath)) {
+    const vercelignoreContent = fs.readFileSync(vercelignorePath, 'utf-8');
+    const requiredIgnores = ['.git/', '.agents/', '.gemini/', '*.token', '.vercel_token', '.env*', 'vercel api.txt', '*.bat', '*.md', 'verify_site.js', 'package.json', 'package-lock.json', 'node_modules/', '1600w-w73ZHf0omPk.webp'];
+    const missingIgnores = requiredIgnores.filter(entry => !vercelignoreContent.includes(entry));
+    if (missingIgnores.length === 0) {
+        pass('.vercelignore excludes all dev, secret, test, and unused media files from deployment.');
+    } else {
+        fail(`.vercelignore missing exclusions: ${missingIgnores.join(', ')}`);
+    }
+} else {
+    fail('Missing .vercelignore at repository root.');
 }
 
 // 13. Check Chambers WhatsApp Registrar Routing & wa.me Integrity
@@ -405,6 +427,74 @@ if (appContent.includes('booking-notes') && appContent.includes('closeBookingMod
     pass('Client intake bug fixes verified: #booking-notes DOM binding and Escape key booking modal dismissal implemented in app.js.');
 } else {
     fail('Missing booking-notes binding or closeBookingModal in app.js.');
+}
+
+// 19. Verify Balanced <div> Tags, Favicons, Mobile Menu & Valid Tailwind Classes Across All 5 HTML Pages
+requiredPages.forEach(file => {
+    const pageHtml = fs.readFileSync(path.join(__dirname, file), 'utf-8');
+    const openDivs = (pageHtml.match(/<div\b/gi) || []).length;
+    const closeDivs = (pageHtml.match(/<\/div>/gi) || []).length;
+    if (openDivs === closeDivs) {
+        pass(`${file}: balanced <div> structure (${openDivs} open / ${closeDivs} close).`);
+    } else {
+        fail(`${file}: unbalanced <div> tags (${openDivs} open vs ${closeDivs} close).`);
+    }
+
+    if (/<link[^>]+rel="icon"[^>]+image\/svg\+xml/i.test(pageHtml)) {
+        pass(`${file}: inline SVG favicon present.`);
+    } else {
+        fail(`${file}: missing inline SVG <link rel="icon">.`);
+    }
+
+    if (pageHtml.includes('id="mobile-menu"') && pageHtml.includes('toggleMobileMenu()')) {
+        pass(`${file}: responsive mobile hamburger button and #mobile-menu drawer present.`);
+    } else {
+        fail(`${file}: missing mobile hamburger button or #mobile-menu drawer.`);
+    }
+
+    const invalidXs = pageHtml.match(/\bxs:[^\s"'<>]+/g);
+    if (!invalidXs) {
+        pass(`${file}: zero invalid xs: Tailwind classes.`);
+    } else {
+        fail(`${file}: invalid xs: Tailwind classes found (${invalidXs.join(', ')}).`);
+    }
+});
+
+// 20. Verify CSS Custom Properties in styles.css (Zero Undefined var(--...))
+const cssVarRefs = [...new Set([...stylesContent.matchAll(/var\((--[a-zA-Z0-9_-]+)/g)].map(m => m[1]))];
+const cssVarDefs = new Set([...stylesContent.matchAll(/^\s*(--[a-zA-Z0-9_-]+)\s*:/gm)].map(m => m[1]));
+const undefinedCssVars = cssVarRefs.filter(v => !cssVarDefs.has(v));
+if (undefinedCssVars.length === 0) {
+    pass(`All ${cssVarRefs.length} CSS custom property references in styles.css resolve to defined tokens.`);
+} else {
+    fail(`Undefined CSS custom properties in styles.css: ${undefinedCssVars.join(', ')}`);
+}
+
+// 21. Verify Modal ARIA Dialog Attributes & Safe window.open Calls
+if (
+    /<div id="booking-modal"[^>]*role="dialog"[^>]*aria-modal="true"/.test(htmlContent) &&
+    /<div id="preview-modal"[^>]*role="dialog"[^>]*aria-modal="true"/.test(htmlContent) &&
+    /<div id="dossier-modal"[^>]*role="dialog"[^>]*aria-modal="true"/.test(htmlContent) &&
+    /<div id="dossier-modal"[^>]*role="dialog"[^>]*aria-modal="true"/.test(dossiersContent)
+) {
+    pass('All modals (#booking-modal, #preview-modal, #dossier-modal) enforce role="dialog" aria-modal="true".');
+} else {
+    fail('One or more modals are missing role="dialog" aria-modal="true".');
+}
+
+const bareWindowOpens = [...appContent.matchAll(/window\.open\([^)]+\)/g)].filter(m => !m[0].includes('noopener') || !m[0].includes('noreferrer'));
+if (bareWindowOpens.length === 0) {
+    pass('All window.open() calls in app.js enforce noopener,noreferrer.');
+} else {
+    fail(`Found window.open() call(s) missing noopener,noreferrer: ${bareWindowOpens.map(m => m[0]).join('; ')}`);
+}
+
+// 22. Verify Subpage Language Safety & Copy Consistency
+const jurisprudenceContent = fs.readFileSync(path.join(__dirname, 'jurisprudence.html'), 'utf-8');
+if (!jurisprudenceContent.includes('over 25 continuous') && !htmlContent.includes('25-Year')) {
+    pass('Year-standing copy aligned consistently with EST. 2004 (20+ years) across index.html and jurisprudence.html.');
+} else {
+    fail('Inconsistent 25-year standing copy still present in index.html or jurisprudence.html.');
 }
 
 // Final Summary

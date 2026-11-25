@@ -28,6 +28,8 @@ service-account*.json
 client_secret*.json
 *.secret
 *.token
+.vercel_token
+vercel api.txt
 
 # 3. Node Dependencies & Package Manager Artifacts
 node_modules/

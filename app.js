@@ -301,6 +301,28 @@ function updateThemeIcon(theme) {
 // 2. BILINGUAL TRANSLATION ENGINE (ENGLISH ⇄ HIGH COURT URDU)
 // ==========================================================================
 function setLanguage(lang) {
+    const i18nNodes = document.querySelectorAll('[data-i18n]');
+    if (i18nNodes.length === 0) {
+        currentLang = 'en';
+        document.documentElement.setAttribute('lang', 'en');
+        document.documentElement.setAttribute('dir', 'ltr');
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.getAttribute('data-lang') === 'en') {
+                btn.classList.add('bg-gold', 'text-navy-dark', 'font-bold');
+                btn.classList.remove('text-gray-300', 'text-theme-muted');
+            } else {
+                btn.classList.remove('bg-gold', 'text-navy-dark', 'font-bold');
+                btn.classList.add('text-gray-300');
+            }
+        });
+
+        if (lang === 'ur' && window.__lexscribeInitialized) {
+            showToast('This Chambers archive page is published in English. Full Urdu mode is available on the Home page.');
+        }
+        return;
+    }
+
     currentLang = lang;
     localStorage.setItem('lexscribe_lang', lang);
 
@@ -323,7 +345,7 @@ function setLanguage(lang) {
     });
 
     // Translate all elements with data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+    i18nNodes.forEach(el => {
         const key = el.getAttribute('data-i18n');
         const parts = key.split('.');
         let val = langData;
@@ -427,13 +449,13 @@ function updateTriageResult() {
     const rec = t[resKey] || t.res_qabza;
 
     const cityNotice = currentLang === 'ur'
-        ? '<div class="mt-4 pt-3 border-t border-gold/30 flex items-center justify-between flex-wrap gap-2 text-xs text-gold font-urdu" dir="rtl">' +
-             '<div><strong>متعلقہ ضلع / ہائی کورٹ بینچ:</strong> ' + cityText + ' میں ہمارے چیمبرز کی زیرِ نگرانی فوری رٹ پٹیشن، اسٹے آرڈر اور قانونی کارروائی میسر ہے۔</div>' +
-             '<a href="https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent('السلام علیکم رجسٹرار، میں ' + cityText + ' میں اپنے جائیدادی تنازعہ (' + issue + ') کے سلسلے میں سینئر وکیل سے براہِ راست مشورہ کرنا چاہتا ہوں۔') + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-gold text-emerald-dark font-bold hover:bg-gold-light transition shadow text-xs">رجسٹرار سے فوری رابطہ کریں</a>' +
+        ? '<div class="mt-4 pt-3 border-t border-gold/30 flex items-center justify-between flex-wrap gap-2 text-xs font-urdu" dir="rtl">' +
+             '<div class="leading-relaxed"><strong class="text-gold">متعلقہ ضلع / ہائی کورٹ بینچ:</strong> ' + cityText + ' میں ہمارے چیمبرز کی زیرِ نگرانی فوری رٹ پٹیشن، اسٹے آرڈر اور قانونی کارروائی میسر ہے۔</div>' +
+             '<a href="https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent('السلام علیکم رجسٹرار، میں ' + cityText + ' میں اپنے جائیدادی تنازعہ (' + issue + ') کے سلسلے میں سینئر وکیل سے براہِ راست مشورہ کرنا چاہتا ہوں۔') + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded bg-gold text-emerald-dark font-bold hover:bg-gold-light transition shadow text-xs whitespace-nowrap">رجسٹرار سے فوری رابطہ کریں</a>' +
            '</div>'
-        : '<div class="mt-4 pt-3 border-t border-gold/30 flex items-center justify-between flex-wrap gap-2 text-xs text-gold font-sans">' +
-             '<div><strong>Jurisdiction Standing:</strong> Active High Court & Sessions Bar filing coverage in ' + cityText + '.</div>' +
-             '<a href="https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent('Hello Registrar, I am seeking High Court legal representation in ' + cityText + ' regarding ' + issue + '.') + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-gold text-emerald-dark font-bold hover:bg-gold-light transition shadow text-xs">Consult Registrar on WhatsApp</a>' +
+        : '<div class="mt-4 pt-3 border-t border-gold/30 flex items-center justify-between flex-wrap gap-2 text-xs font-sans">' +
+             '<div class="leading-relaxed"><strong class="text-gold">Jurisdiction Standing:</strong> Active High Court & Sessions Bar filing coverage in ' + cityText + '.</div>' +
+             '<a href="https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encodeURIComponent('Hello Registrar, I am seeking High Court legal representation in ' + cityText + ' regarding ' + issue + '.') + '" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded bg-gold text-emerald-dark font-bold hover:bg-gold-light transition shadow text-xs whitespace-nowrap">Consult Registrar on WhatsApp</a>' +
            '</div>';
 
     resultBox.innerHTML = rec + cityNotice;
@@ -554,7 +576,7 @@ function generateWhatsAppBrief(e) {
     const message = buildStructuredBrief();
     const encoded = encodeURIComponent(message);
     const waUrl = `https://wa.me/${CHAMBERS_REGISTRAR_WHATSAPP}?text=${encoded}`;
-    window.open(waUrl, '_blank');
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
 }
 
 function copyFormattedBrief(e) {
@@ -602,14 +624,23 @@ function sendEmailBrief(e) {
     }
 }
 
-function showToast() {
+function showToast(customMessage) {
     let toast = document.getElementById('lexscribe-toast');
     if (!toast) {
         toast = document.createElement('div');
         toast.id = 'lexscribe-toast';
         toast.className = 'bg-emerald-700 text-white px-5 py-3 rounded-lg shadow-2xl text-xs font-bold border border-emerald-400 flex items-center gap-2';
-        toast.innerHTML = `<span class="text-base">✓</span> <span data-i18n="brief_builder.copied_toast">Legal Brief Copied to Clipboard!</span>`;
+        toast.innerHTML = `<span class="text-base">✓</span> <span id="lexscribe-toast-msg" data-i18n="brief_builder.copied_toast">Legal Brief Copied to Clipboard!</span>`;
         document.body.appendChild(toast);
+    }
+    const msgEl = document.getElementById('lexscribe-toast-msg');
+    if (msgEl) {
+        if (customMessage) {
+            msgEl.textContent = customMessage;
+        } else {
+            const copiedText = (typeof translations !== 'undefined' && translations[currentLang] && translations[currentLang].brief_builder && translations[currentLang].brief_builder.copied_toast) || 'Legal Brief Copied to Clipboard!';
+            msgEl.textContent = copiedText;
+        }
     }
     toast.classList.add('show');
     setTimeout(() => {
@@ -661,7 +692,7 @@ function handleBookingSubmit(e) {
     const waUrl = 'https://wa.me/' + CHAMBERS_REGISTRAR_WHATSAPP + '?text=' + encoded;
 
     closeBookingModal();
-    window.open(waUrl, '_blank');
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
 }
 
 // 9. MOBILE MENU TOGGLE
@@ -779,6 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMapPins();
     initTheme();
     setLanguage(currentLang);
+    window.__lexscribeInitialized = true;
     setCurrency(currentCurrency);
     const currSelect = document.getElementById("currency-select");
     if (currSelect) currSelect.value = currentCurrency;

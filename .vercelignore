@@ -1,0 +1,22 @@
+# Version control & agent workspace metadata
+.git/
+.vercel/
+.agents/
+.gemini/
+
+# Secrets, tokens & environment files
+*.token
+.vercel_token
+.env*
+vercel api.txt
+
+# Local scripts, docs & test/dev artifacts
+*.bat
+*.md
+verify_site.js
+package.json
+package-lock.json
+node_modules/
+
+# Unused local media asset
+1600w-w73ZHf0omPk.webp
