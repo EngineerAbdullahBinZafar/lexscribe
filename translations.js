@@ -10,7 +10,7 @@ const translations = {
         },
         "nav": {
             "home": "Home",
-            "subtitle": "Chambers of Advocate Muhammad Zafar Iqbal • High Court (Est. 2004)",
+            "subtitle": "Advocate Muhammad Zafar Iqbal • High Court",
             "audit": "Document Audit",
             "record": "Unbroken Record",
             "dossiers": "Chambers Archive",
