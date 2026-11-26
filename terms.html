@@ -66,10 +66,10 @@
 
     <!-- 2. SLIM & SLEEK PERMANENT STICKY HEADER (NEVER DISAPPEARS ON SCROLL) -->
     <header class="sticky top-0 z-50 bg-[#052014]/95 backdrop-blur-md text-white border-b border-gold/30 shadow-xl transition-all duration-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-2.5 flex justify-between items-center gap-3">
+        <div class="max-w-7xl mx-auto px-3 sm:px-8 py-2.5 flex justify-between items-center gap-1.5 sm:gap-3">
             
             <!-- Brand Logo -->
-            <a href="index.html" class="flex items-center gap-2.5 group min-w-0 flex-shrink">
+            <a href="index.html" class="flex items-center gap-2 sm:gap-2.5 group min-w-0 flex-shrink">
                 <div class="w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0 relative group-hover:scale-105 transition-transform">
                     <svg viewBox="0 0 240 240" fill="none" class="w-full h-full drop-shadow-[0_2px_6px_rgba(212,175,55,0.4)]">
                         <circle cx="120" cy="120" r="108" stroke="#D4AF37" stroke-width="2"/>
@@ -77,9 +77,9 @@
                         <text x="120" y="130" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="bold" fill="#D4AF37" text-anchor="middle">MZ</text>
                     </svg>
                 </div>
-                <div>
-                    <span class="font-serif text-xl sm:text-2xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
-                    <span class="text-[9px] uppercase tracking-wider text-emerald-100/70 block mt-0.5 font-medium truncate max-w-[160px] min-[400px]:max-w-[220px] sm:max-w-none">Chambers of Ch. M. Zafar Iqbal • Advocate High Court (Est. 2004)</span>
+                <div class="min-w-0">
+                    <span class="font-serif text-base sm:text-xl lg:text-2xl tracking-widest font-bold block leading-none text-white group-hover:text-gold transition">LEXSCRIBE</span>
+                    <span class="text-[8.5px] sm:text-[9px] uppercase tracking-wider text-emerald-100/70 block mt-0.5 font-medium truncate max-w-[124px] min-[375px]:max-w-[175px] sm:max-w-[220px] 2xl:max-w-none">Chambers of Ch. M. Zafar Iqbal • Advocate High Court (Est. 2004)</span>
                 </div>
             </a>
 
@@ -93,14 +93,14 @@
             </nav>
 
             <!-- Right Controls -->
-            <div class="flex items-center gap-2 sm:gap-2.5">
+            <div class="flex items-center gap-1 sm:gap-2.5 flex-shrink-0">
                 <button onclick="toggleTheme()" id="theme-btn" class="flex items-center p-1.5 rounded bg-emerald-950/60 text-xs border border-emerald-800/40 hover:border-gold transition text-gray-300 shadow-sm" title="Toggle Day/Dark Mode">
                     <span id="theme-icon"><svg class="w-3.5 h-3.5 text-gold inline-block" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
                 </button>
 
                 <div class="flex gap-0.5 bg-emerald-950/60 p-0.5 rounded border border-emerald-800/40">
-                    <button onclick="setLanguage('en')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-semibold" data-lang="en">EN</button>
-                    <button onclick="setLanguage('ur')" class="lang-btn px-2 py-0.5 rounded text-xs transition font-urdu" data-lang="ur">اردو</button>
+                    <button onclick="setLanguage('en')" class="lang-btn px-1.5 sm:px-2 py-0.5 rounded text-[11px] sm:text-xs transition font-semibold" data-lang="en">EN</button>
+                    <button onclick="setLanguage('ur')" class="lang-btn px-1.5 sm:px-2 py-0.5 rounded text-[11px] sm:text-xs transition font-urdu" data-lang="ur">اردو</button>
                 </div>
 
                 <a href="index.html#brief_builder" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-bold gold-bullion-btn shadow-md whitespace-nowrap">
@@ -109,7 +109,7 @@
                 </a>
 
                 <!-- Mobile Menu Button (Shows below xl) -->
-                <button onclick="toggleMobileMenu()" class="xl:hidden p-1.5 rounded text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle Mobile Menu">
+                <button onclick="toggleMobileMenu()" class="xl:hidden p-1.5 rounded text-gray-300 hover:text-white focus:outline-none flex-shrink-0" aria-label="Toggle Mobile Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>

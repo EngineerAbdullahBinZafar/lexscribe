@@ -498,21 +498,43 @@ if (!jurisprudenceContent.includes('over 25 continuous') && !htmlContent.include
 }
 
 // 23. Verify 320px Mobile Header Shrinkability Regression Guard on All 5 Pages
-let headerShrinkFailures = 0;
 requiredPages.forEach(file => {
     const pageHtml = fs.readFileSync(path.join(__dirname, file), 'utf-8');
-    const brandAnchorMatch = pageHtml.match(/<header[\s\S]*?<a\s+href="index\.html"\s+class="([^"]+)"/i);
-    if (!brandAnchorMatch) {
-        fail(`${file}: could not locate brand <a href="index.html"> inside <header>.`);
-        headerShrinkFailures++;
+    const headerMatch = pageHtml.match(/<header[^>]*sticky[^>]*>[\s\S]*?<\/header>/i);
+    if (!headerMatch) {
+        fail(`${file}: could not locate sticky <header> element.`);
         return;
     }
-    const brandClasses = brandAnchorMatch[1].split(/\s+/);
-    if (brandClasses.includes('min-w-0') && brandClasses.includes('flex-shrink') && !brandClasses.includes('flex-shrink-0')) {
-        pass(`${file}: header brand <a> enforces min-w-0 flex-shrink (no flex-shrink-0 overflow on 320px viewports).`);
+    const headerHtml = headerMatch[0];
+
+    const brandAnchorBlockMatch = headerHtml.match(/<a\s+href="index\.html"\s+class="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    if (!brandAnchorBlockMatch) {
+        fail(`${file}: could not locate brand <a href="index.html"> inside <header>.`);
     } else {
-        fail(`${file}: header brand <a> classes "${brandAnchorMatch[1]}" must include min-w-0 and flex-shrink without flex-shrink-0.`);
-        headerShrinkFailures++;
+        const brandClasses = brandAnchorBlockMatch[1].split(/\s+/);
+        if (brandClasses.includes('min-w-0') && brandClasses.includes('flex-shrink') && !brandClasses.includes('flex-shrink-0')) {
+            pass(`${file}: header brand <a> enforces min-w-0 flex-shrink (no flex-shrink-0 overflow on 320px viewports).`);
+        } else {
+            fail(`${file}: header brand <a> classes "${brandAnchorBlockMatch[1]}" must include min-w-0 and flex-shrink without flex-shrink-0.`);
+        }
+
+        const innerBrandDivMatch = brandAnchorBlockMatch[2].match(/<div(?:\s+class="([^"]*)")?\s*>\s*<span[^>]*>\s*LEXSCRIBE\s*<\/span>/i);
+        const innerDivClasses = innerBrandDivMatch && innerBrandDivMatch[1] ? innerBrandDivMatch[1].split(/\s+/) : [];
+        if (innerDivClasses.includes('min-w-0')) {
+            pass(`${file}: header inner brand text <div> enforces min-w-0 so brand subtitle truncates cleanly.`);
+        } else {
+            fail(`${file}: header inner brand text <div> must include min-w-0.`);
+        }
+    }
+
+    const themeBtnIdx = headerHtml.search(/<button[^>]*id="theme-btn"/i);
+    const rightCtrlMatches = themeBtnIdx !== -1 ? [...headerHtml.slice(0, themeBtnIdx).matchAll(/<div\s+class="([^"]+)"/gi)] : [];
+    const rightCtrlMatch = rightCtrlMatches.length > 0 ? rightCtrlMatches[rightCtrlMatches.length - 1] : null;
+    const rightCtrlClasses = rightCtrlMatch ? rightCtrlMatch[1].split(/\s+/) : [];
+    if (rightCtrlClasses.includes('flex-shrink-0')) {
+        pass(`${file}: header right-controls container enforces flex-shrink-0 so controls and hamburger icon never collapse.`);
+    } else {
+        fail(`${file}: header right-controls container must include flex-shrink-0.`);
     }
 });
 
