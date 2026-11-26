@@ -2,6 +2,12 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/googleb69b3650a1dc4d6b.html",
+      "destination": "/googleb69b3650a1dc4d6b.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -58,7 +64,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
     }
