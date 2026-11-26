@@ -300,7 +300,17 @@ function updateThemeIcon(theme) {
 // ==========================================================================
 // 2. BILINGUAL TRANSLATION ENGINE (ENGLISH ⇄ HIGH COURT URDU)
 // ==========================================================================
+function loadUrduFontIfNeeded() {
+    if (document.getElementById('noto-nastaliq-urdu-css')) return;
+    const link = document.createElement('link');
+    link.id = 'noto-nastaliq-urdu-css';
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap';
+    document.head.appendChild(link);
+}
+
 function setLanguage(lang) {
+    if (lang === 'ur') loadUrduFontIfNeeded();
     const i18nNodes = document.querySelectorAll('[data-i18n]');
     if (i18nNodes.length === 0) {
         currentLang = 'en';

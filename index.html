@@ -13,60 +13,12 @@
     <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Noto Nastaliq Urdu -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            DEFAULT: '#C5A059',
-                            light: '#F5D77F',
-                            dark: '#826026',
-                            foil: '#D4AF37'
-                        },
-                        navy: {
-                            DEFAULT: '#0A3822',
-                            dark: '#052014',
-                            light: '#135A38',
-                            elevated: '#082C1B'
-                        },
-                        chambers: {
-                            DEFAULT: '#0A3822',
-                            dark: '#052014',
-                            deep: '#04170E',
-                            light: '#135A38'
-                        },
-                        emerald: {
-                            DEFAULT: '#0A3822',
-                            dark: '#052014',
-                            deep: '#04170E',
-                            light: '#135A38'
-                        },
-                        oxblood: {
-                            DEFAULT: '#6A0D1D',
-                            dark: '#480611',
-                            light: '#8A162B'
-                        },
-                        forest: {
-                            DEFAULT: '#0A3822',
-                            dark: '#052014',
-                            light: '#135A38'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                        urdu: ['"Noto Nastaliq Urdu"', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Compiled & Purged Static Tailwind CSS -->
+    <link rel="stylesheet" href="tailwind.min.css">
+    <link rel="preload" as="image" href="/hero-law-backdrop.webp" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
     <!-- Open Graph & Social Graph Suite -->
     <meta property="og:type" content="website">
@@ -1191,7 +1143,7 @@
                 <!-- Dossier 2: PoA Vault -->
                 <div class="bg-theme-surface border border-theme-subtle hover:border-gold rounded-xl p-6 flex flex-col justify-between shadow-sm transition">
                     <div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-700 bg-emerald-100 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded" data-i18n="dossiers.d2_tag">CONSULAR DRAFTING</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-900 dark:text-emerald-200 bg-emerald-100 dark:bg-emerald-950/80 px-2.5 py-0.5 rounded" data-i18n="dossiers.d2_tag">CONSULAR DRAFTING</span>
                         <h3 class="font-serif text-xl font-bold text-theme-primary mt-2" data-i18n="dossiers.d2_title">The Power of Attorney Drafting Vault</h3>
                         <p class="text-xs text-theme-secondary mt-2 leading-relaxed" data-i18n="dossiers.d2_desc">Bilingual Special Power of Attorney templates compliant with Embassy, Consulate, NADRA, and Punjab Land Revenue Authority rules.</p>
                         
@@ -1391,7 +1343,7 @@
                         <span class="text-[11px] font-bold uppercase tracking-wider text-theme-primary bg-gold/15 px-2.5 py-1 rounded inline-block" data-i18n="bilingual.label_left">
                             English Plain-Text Interpretation
                         </span>
-                        <h4 id="clause-title-left" class="font-serif text-lg font-bold text-theme-primary" data-i18n="bilingual.clause_title_left">Clause 4: Explicit Restriction of Sale & Gift</h4>
+                        <h3 id="clause-title-left" class="font-serif text-lg font-bold text-theme-primary" data-i18n="bilingual.clause_title_left">Clause 4: Explicit Restriction of Sale & Gift</h3>
                         <p id="clause-desc-left" class="text-xs text-theme-secondary leading-relaxed" data-i18n="bilingual.clause_desc_left">
                             "The appointed attorney shall have authority ONLY to oversee renovation and pay utility bills. Under NO circumstances does this Power of Attorney grant the right to execute a sale agreement, accept earnest money (Bayana), gift (Hiba), mortgage, or surrender possession to third parties."
                         </p>
@@ -1402,10 +1354,10 @@
 
                     <!-- Right: Urdu Exact Court Drafting -->
                     <div class="p-6 sm:p-8 space-y-4 text-right bg-amber-50/20 dark:bg-black/20" dir="rtl">
-                        <span class="text-[11px] font-bold uppercase tracking-wider text-forest bg-forest/15 px-2.5 py-1 rounded font-sans inline-block" data-i18n="bilingual.label_right">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-900 dark:text-emerald-200 bg-emerald-100 dark:bg-emerald-950/80 px-2.5 py-1 rounded font-sans inline-block" data-i18n="bilingual.label_right">
                             Authentic Legal Urdu (Court & Revenue Format)
                         </span>
-                        <h4 id="clause-title-right" class="font-urdu text-xl font-bold text-theme-primary" data-i18n="bilingual.clause_title_right">دفعہ نمبر 4: ممانعت بیع و ہبہ</h4>
+                        <h3 id="clause-title-right" class="font-urdu text-xl font-bold text-theme-primary" data-i18n="bilingual.clause_title_right">دفعہ نمبر 4: ممانعت بیع و ہبہ</h3>
                         <p id="clause-desc-right" class="font-urdu text-sm text-theme-primary leading-loose" data-i18n="bilingual.clause_desc_right">
                             "مختارِ خاص ہذا کو محض جائیداد کی دیکھ بھال، مرمت اور بلات کی ادائیگی کا اختیار ہوگا۔ مختارِ موصوف کو جائیداد متذکرہ بالا کو کسی بھی شخص کے نام بیع کرنے، بیعانہ وصول کرنے، ہبہ، رہن یا کسی قسم کا بار ڈالنے یا قبضہ چھوڑنے کا ہرگز کوئی اختیار نہ ہوگا اور ایسا کوئی بھی اقدام باطل اور کالعدم تصور ہوگا۔"
                         </p>
@@ -1557,7 +1509,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                    <button type="submit" class="py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-md flex items-center justify-center gap-2">
+                    <button type="submit" class="py-3 px-4 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-800 hover:bg-emerald-700 text-white transition shadow-md flex items-center justify-center gap-2">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
                         <span data-i18n="brief_builder.btn_send">WhatsApp Registrar</span>
                     </button>
@@ -1649,13 +1601,13 @@
                 <div class="text-xs text-gray-400" data-i18n="footer.address">
                     Jurisdiction: High Court Benches Across Pakistan (100% Sovereign Remote Chambers)
                 </div>
-                <div class="text-[11px] text-gray-500 font-mono" data-i18n="footer.hours">
+                <div class="text-[11px] text-gray-300 font-mono" data-i18n="footer.hours">
                     Chambers Operating Hours: Mon–Sat, 09:00–18:00 PKT (Asynchronous Review 24/7 for Diaspora)
                 </div>
             </div>
 
             <div>
-                <h4 class="text-gold font-serif text-sm font-bold uppercase tracking-wider mb-3" data-i18n="footer.quick_nav">Quick Navigation</h4>
+                <h2 class="text-gold font-serif text-sm font-bold uppercase tracking-wider mb-3" data-i18n="footer.quick_nav">Quick Navigation</h2>
                 <ul class="space-y-2 text-xs text-gray-400">
                     <li><a href="#audit" class="hover:text-gold transition" data-i18n="nav.audit">48-Hr Document Audit</a></li>
                     <li><a href="#record" class="hover:text-gold transition" data-i18n="nav.record">The 20+ Year Unbroken Record</a></li>
@@ -1667,10 +1619,10 @@
             </div>
 
             <div>
-                <h4 class="text-gold font-serif text-sm font-bold uppercase tracking-wider mb-3" data-i18n="footer.instruct">Instruct the Registrar</h4>
+                <h2 class="text-gold font-serif text-sm font-bold uppercase tracking-wider mb-3" data-i18n="footer.instruct">Instruct the Registrar</h2>
                 <p class="text-xs text-gray-400 mb-3" data-i18n="footer.instruct_desc">Direct all case inquiries, brief uploads, and audit submissions to the Registrar Desk:</p>
                 <div class="space-y-3">
-                    <a href="#brief_builder" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow">
+                    <a href="#brief_builder" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-emerald-800 hover:bg-emerald-700 text-white transition shadow">
                         <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                         <span data-i18n="footer.wa_btn">WhatsApp Registrar Desk</span>
                     </a>
@@ -1687,7 +1639,7 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto border-t border-gray-800 pt-8 text-[11px] text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="max-w-7xl mx-auto border-t border-gray-800 pt-8 text-[11px] text-gray-300 flex flex-col md:flex-row justify-between items-center gap-4">
             <p data-i18n="footer.copy">© 2026 LexScribe | Chambers of Advocate Muhammad Zafar Iqbal. All Rights Reserved.</p>
             <p class="text-center md:text-right" data-i18n="footer.disclaimer">
                 Compliance Notice: Information provided is for legal education, forensic document scrutiny, and independent advisory. Retainer representation subject to formal Vakalatnama.
@@ -1803,7 +1755,7 @@
                 <div class="border-t border-theme-subtle pt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                     <span class="text-theme-muted text-[11px]" data-i18n="modals.sample_format">Format: Official Stamped Chambers PDF + Voice Note</span>
                     <div class="flex items-center gap-2">
-                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Single%20Document%20Risk%20Check%20(%2429)." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition shadow flex items-center gap-1.5">
+                        <a href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20would%20like%20to%20order%20the%20Single%20Document%20Risk%20Check%20(%2429)." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-800 hover:bg-emerald-700 text-white transition shadow flex items-center gap-1.5">
                             <span data-i18n="modals.cta_order_whatsapp">Order Audit via WhatsApp</span>
                         </a>
                         <button onclick="closePreviewModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-gold text-emerald-dark hover:bg-gold-light transition" data-i18n="modals.close">
@@ -1835,7 +1787,7 @@
             <div class="border-t border-theme-subtle pt-4 mt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
                 <span class="text-theme-muted text-[11px]" data-i18n="modals.dossier_format">Restricted Access via Chambers Consultation</span>
                 <div class="flex items-center gap-2">
-                    <a id="dossier-modal-cta" href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2001%20(Qabza%20Shield)." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition shadow flex items-center gap-1.5">
+                    <a id="dossier-modal-cta" href="https://wa.me/923037446225?text=Hello%20Registrar%2C%20I%20wish%20to%20acquire%20Dossier%2001%20(Qabza%20Shield)." target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-800 hover:bg-emerald-700 text-white transition shadow flex items-center gap-1.5">
                         <span data-i18n="modals.cta_acquire_whatsapp">Acquire via WhatsApp</span>
                     </a>
                     <button onclick="closeDossierModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-gold text-emerald-dark hover:bg-gold-light transition" data-i18n="modals.close">
@@ -1847,7 +1799,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="translations.js"></script>
-    <script src="app.js"></script>
+    <script defer src="translations.js"></script>
+    <script defer src="app.js"></script>
 </body>
 </html>

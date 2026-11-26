@@ -20,3 +20,6 @@ node_modules/
 
 # Unused local media asset
 1600w-w73ZHf0omPk.webp
+
+tailwind.config.js
+tailwind-input.css
