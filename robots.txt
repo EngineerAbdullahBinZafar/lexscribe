@@ -1,19 +1,50 @@
 # LexScribe Chambers - High Court Practice Web Infrastructure
+# Welcomes Search Engines & AI Answer / Generative Engines (SEO, AEO, GEO)
+
 User-agent: *
 Allow: /
 Allow: /index.html
-Allow: /audit-sample.html
-Allow: /dossiers.html
-Allow: /jurisprudence.html
-Allow: /terms.html
+Allow: /audit-sample
+Allow: /dossiers
+Allow: /jurisprudence
+Allow: /terms
+Allow: /llms.txt
+Allow: /llms-full.txt
 Allow: /styles.css
 Allow: /app.js
 Allow: /translations.js
-
-# Prevent indexing of internal scripts and deployment batches
 Disallow: /verify_site.js
 Disallow: /*.bat
 Disallow: /.*
 
+# Major Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI Answer & Generative Engines (AEO / GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 # Canonical XML Sitemap
-Sitemap: https://lexscribe.com/sitemap.xml
+Sitemap: https://lexscribepk.vercel.app/sitemap.xml

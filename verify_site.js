@@ -3,7 +3,7 @@ const path = require('path');
 
 console.log('================================================================');
 console.log('   LEXSCRIBE CHAMBERS -- RIGOROUS AUDIT & VERIFICATION SUITE');
-console.log('   Directed by Ch. Muhammad Zafar Iqbal (Advocate High Court)');
+console.log('   Directed by Advocate Muhammad Zafar Iqbal (High Court)');
 console.log('================================================================\n');
 
 let errors = 0;
