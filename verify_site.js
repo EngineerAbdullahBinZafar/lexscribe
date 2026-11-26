@@ -497,6 +497,25 @@ if (!jurisprudenceContent.includes('over 25 continuous') && !htmlContent.include
     fail('Inconsistent 25-year standing copy still present in index.html or jurisprudence.html.');
 }
 
+// 23. Verify 320px Mobile Header Shrinkability Regression Guard on All 5 Pages
+let headerShrinkFailures = 0;
+requiredPages.forEach(file => {
+    const pageHtml = fs.readFileSync(path.join(__dirname, file), 'utf-8');
+    const brandAnchorMatch = pageHtml.match(/<header[\s\S]*?<a\s+href="index\.html"\s+class="([^"]+)"/i);
+    if (!brandAnchorMatch) {
+        fail(`${file}: could not locate brand <a href="index.html"> inside <header>.`);
+        headerShrinkFailures++;
+        return;
+    }
+    const brandClasses = brandAnchorMatch[1].split(/\s+/);
+    if (brandClasses.includes('min-w-0') && brandClasses.includes('flex-shrink') && !brandClasses.includes('flex-shrink-0')) {
+        pass(`${file}: header brand <a> enforces min-w-0 flex-shrink (no flex-shrink-0 overflow on 320px viewports).`);
+    } else {
+        fail(`${file}: header brand <a> classes "${brandAnchorMatch[1]}" must include min-w-0 and flex-shrink without flex-shrink-0.`);
+        headerShrinkFailures++;
+    }
+});
+
 // Final Summary
 console.log('\n================================================================');
 console.log(`VERIFICATION SUMMARY: ${passed} PASSED, ${errors} ERRORS`);
