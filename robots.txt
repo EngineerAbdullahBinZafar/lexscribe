@@ -10,6 +10,8 @@ Allow: /jurisprudence
 Allow: /terms
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /.well-known/
+Allow: /favicon.svg
 Allow: /styles.css
 Allow: /app.js
 Allow: /translations.js

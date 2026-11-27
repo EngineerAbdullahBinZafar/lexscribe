@@ -1,0 +1,50 @@
+<svg viewBox="0 0 240 240" width="240" height="240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="crestGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE6A4"/>
+      <stop offset="35%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA8438"/>
+      <stop offset="100%" stop-color="#7B5B20"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E3D26"/>
+      <stop offset="60%" stop-color="#072618"/>
+      <stop offset="100%" stop-color="#03120A"/>
+    </linearGradient>
+    <radialGradient id="sunburst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCE6A4" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="110" fill="url(#sunburst)"/>
+  <circle cx="120" cy="120" r="114" stroke="url(#crestGoldGrad)" stroke-width="2" stroke-dasharray="3 3"/>
+  <circle cx="120" cy="120" r="108" stroke="url(#crestGoldGrad)" stroke-width="1.2"/>
+  <circle cx="120" cy="120" r="99" stroke="url(#crestGoldGrad)" stroke-width="1.5"/>
+  <path d="M 68 170 C 45 140 45 95 72 65 C 75 75 70 90 62 105 C 55 120 58 145 68 170 Z" fill="url(#crestGoldGrad)" opacity="0.9"/>
+  <path d="M 172 170 C 195 140 195 95 168 65 C 165 75 170 90 178 105 C 185 120 182 145 172 170 Z" fill="url(#crestGoldGrad)" opacity="0.9"/>
+  <path d="M 80 62 L 160 62 C 160 62 165 110 160 135 C 152 165 120 188 120 188 C 120 188 88 165 80 135 C 75 110 80 62 80 62 Z" fill="url(#shieldGrad)" stroke="url(#crestGoldGrad)" stroke-width="2.5"/>
+  <line x1="85" y1="114" x2="155" y2="114" stroke="url(#crestGoldGrad)" stroke-width="1.2"/>
+  <line x1="120" y1="68" x2="120" y2="178" stroke="url(#crestGoldGrad)" stroke-width="1.2"/>
+  <g transform="translate(93, 76) scale(0.55)">
+    <path d="M 25 5 L 25 45 M 10 14 L 40 14 M 10 14 L 3 30 M 10 14 L 17 30 M 3 30 Q 10 35 17 30 Z M 40 14 L 33 30 M 40 14 L 47 30 M 33 30 Q 40 35 47 30 Z M 18 45 L 32 45" stroke="url(#crestGoldGrad)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <circle cx="25" cy="5" r="2.5" fill="url(#crestGoldGrad)"/>
+  </g>
+  <g transform="translate(126, 76) scale(0.52)">
+    <path d="M 5 10 C 15 5 25 15 35 10 L 35 38 C 25 42 15 32 5 38 Z" fill="none" stroke="url(#crestGoldGrad)" stroke-width="2"/>
+    <path d="M 38 4 L 20 34" stroke="url(#crestGoldGrad)" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(92, 122) scale(0.55)">
+    <path d="M 12 8 L 36 8 M 14 12 L 34 12 M 16 12 L 16 38 M 24 12 L 24 38 M 32 12 L 32 38 M 12 38 L 36 38 M 10 42 L 38 42" stroke="url(#crestGoldGrad)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(128, 120) scale(0.55)">
+    <line x1="22" y1="5" x2="22" y2="42" stroke="url(#crestGoldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="22" cy="4" r="2.5" fill="url(#crestGoldGrad)"/>
+  </g>
+  <polygon points="120,103 131,114 120,125 109,114" fill="#052014" stroke="url(#crestGoldGrad)" stroke-width="1.8"/>
+  <text x="120" y="118" font-family="'Cormorant Garamond', Georgia, serif" font-size="10" font-weight="bold" fill="url(#crestGoldGrad)" text-anchor="middle">LS</text>
+  <path d="M 100 58 L 105 45 L 113 52 L 120 40 L 127 52 L 135 45 L 140 58 Z" fill="url(#crestGoldGrad)" stroke="#03120A" stroke-width="0.8"/>
+  <circle cx="120" cy="38" r="2" fill="url(#crestGoldGrad)"/>
+  <path d="M 45 200 L 75 190 L 165 190 L 195 200 L 185 212 L 165 204 L 75 204 L 55 212 Z" fill="#03120A" stroke="url(#crestGoldGrad)" stroke-width="1.5"/>
+  <text x="120" y="200" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" font-weight="700" letter-spacing="1.5" fill="url(#crestGoldGrad)" text-anchor="middle">JUSTITIA • DOCTRINA • VICTORIA</text>
+  <text x="120" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" font-weight="600" letter-spacing="1" fill="#D4AF37" text-anchor="middle">EST. 2004 • 200+ WINS • 0 LOSSES • 20+ YRS</text>
+</svg>

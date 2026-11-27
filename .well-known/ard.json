@@ -1,0 +1,47 @@
+{
+  "ard_version": "1.0",
+  "name": "LexScribe Chambers",
+  "description": "High Court legal advisory and overseas Pakistani property defense chambers directed by Advocate Muhammad Zafar Iqbal (Est. 2004, 200+ High Court cases won, 0 cases lost, 30+ published legal treatises).",
+  "url": "https://lexscribepk.vercel.app",
+  "provider": {
+    "name": "LexScribe Chambers — Advocate Muhammad Zafar Iqbal",
+    "url": "https://lexscribepk.vercel.app",
+    "contact": "https://wa.me/923037446225"
+  },
+  "resources": [
+    {
+      "name": "Home & Overseas Legal Triage",
+      "url": "https://lexscribepk.vercel.app/",
+      "type": "text/html",
+      "description": "Interactive jurisdictional triage, 12-currency fee estimator, forensic land title audit tiers, and Priority Advisory booking."
+    },
+    {
+      "name": "Executive Legal Playbooks & Dossiers",
+      "url": "https://lexscribepk.vercel.app/dossiers",
+      "type": "text/html",
+      "description": "Statutory playbooks for Illegal Dispossession Act 2005, Consular Power of Attorney revocation (Sec. 85 Qanun-e-Shahadat), and Succession Certificates."
+    },
+    {
+      "name": "Jurisprudence & 30+ Published Treatises",
+      "url": "https://lexscribepk.vercel.app/jurisprudence",
+      "type": "text/html",
+      "description": "20+ year High Court record since 2004 and published legal treatises authored by Advocate Muhammad Zafar Iqbal."
+    },
+    {
+      "name": "Official Forensic Audit Sample",
+      "url": "https://lexscribepk.vercel.app/audit-sample",
+      "type": "text/html",
+      "description": "48-hour Forensic Legal Risk Assessment Report deliverable sample."
+    },
+    {
+      "name": "LLM Context Summary",
+      "url": "https://lexscribepk.vercel.app/llms.txt",
+      "type": "text/plain"
+    },
+    {
+      "name": "Full Legal Knowledge Base for AI Engines",
+      "url": "https://lexscribepk.vercel.app/llms-full.txt",
+      "type": "text/plain"
+    }
+  ]
+}
