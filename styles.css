@@ -632,7 +632,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, li {
 }
 
 /* Proportional Nastaliq text scaling to match English visual weight */
-[dir="rtl"] .text-xs:not([dir="ltr"]) { font-size: 0.88rem !important; }
+[dir="rtl"] :not([dir="ltr"]).text-xs { font-size: 0.88rem !important; }
 [dir="rtl"] .text-\[10px\]:not([dir="ltr"]) { font-size: 0.78rem !important; }
 [dir="rtl"] .text-\[11px\]:not([dir="ltr"]) { font-size: 0.82rem !important; }
 [dir="rtl"] .text-sm:not([dir="ltr"]) { font-size: 0.98rem !important; }
